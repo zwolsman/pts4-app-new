@@ -1,0 +1,31 @@
+syntax = 'proto3';
+package edu.fontys.cims.proto;
+
+option java_package = "edu.fontys.cims";
+
+message InitResponse {
+    repeated Alert alertResults = 1;
+    repeated Crisis crisisResults = 2;
+}
+
+message Alert {
+    int32 id = 1;
+    Location location = 2;
+    string date = 3;
+    string userDescription = 4;
+}
+
+message Location {
+    double lat = 1;
+    double long = 2;
+}
+message Crisis {
+    int32 id = 1;
+    Location location = 2;
+    string date = 3;
+    string userDescription = 4;
+    string title = 5;
+    string description = 6;
+    int32 priority = 7;
+    int32 reach = 8;
+}
