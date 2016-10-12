@@ -60,8 +60,13 @@ public class FXMLController implements Initializable, MapComponentInitializedLis
     public void initialize(URL url, ResourceBundle rb) {
         mapView.addMapInializedListener(this);
 
-        InitRequest.InitResponse resp = Api.init();
+        InitRequest.InitResponse resp = null;
+        
+        resp = Api.init();
+        
+        if(resp != null){
         alerts.addAll(resp.getAlertResultsList());
+        }
         initializeListView();
 
         /*try {
