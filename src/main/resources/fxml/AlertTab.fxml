@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?scenebuilder-classpath-element / ?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import com.lynden.gmapsfx.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="719.0" prefWidth="532.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fontys.cims.AlertTab_Controller">
+    <children>
+        <ListView fx:id="lvAlerts" layoutX="14.0" layoutY="26.0" prefHeight="315.0" prefWidth="200.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="26.0" />
+        <Label layoutX="14.0" layoutY="6.0" text="Realtime meldingen" />
+        <Label layoutX="226.0" layoutY="68.0" text="Toelichting" AnchorPane.leftAnchor="226.0" />
+        <DatePicker fx:id="dtAlertDate" layoutX="226.0" layoutY="44.0" prefHeight="25.0" prefWidth="270.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
+        <TextArea fx:id="txtAlertUserDescription" editable="false" layoutX="226.0" layoutY="86.0" prefHeight="113.0" prefWidth="280.0" wrapText="true" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
+        <Label layoutX="226.0" layoutY="26.0" text="Datum" AnchorPane.leftAnchor="226.0" />
+        <Separator layoutX="226.0" layoutY="366.0" prefHeight="0.0" prefWidth="280.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
+
+        <Button layoutX="459.0" layoutY="333.0" mnemonicParsing="false" onAction="#handleProcessClick" text="Verwerk" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+        <Button layoutX="394.0" layoutY="333.0" mnemonicParsing="false" onAction="#handleDenyClick" text="Negeer" AnchorPane.bottomAnchor="14.0" />
+        <AnchorPane layoutX="226.0" layoutY="213.0" prefHeight="113.0" prefWidth="280.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0">
+            <children>
+                <GoogleMapView fx:id="mapView" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            </children>
+        </AnchorPane>
+        <Label layoutX="225.0" layoutY="198.0" text="Locatie" AnchorPane.leftAnchor="226.0" />
+        <TextField fx:id="txtAlertLocation" editable="false" layoutX="226.0" layoutY="331.0" prefHeight="25.0" prefWidth="280.0" promptText="Formatted address" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
+        <Label layoutX="225.0" layoutY="369.0" text="Titel" AnchorPane.leftAnchor="226.0" />
+        <TextField fx:id="txtAlertTitle" layoutX="226.0" layoutY="385.0" prefHeight="25.0" prefWidth="280.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
+        <TextArea fx:id="txtAlertDescription" layoutX="226.0" layoutY="428.0" prefHeight="113.0" prefWidth="292.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
+        <Label layoutX="226.0" layoutY="410.0" text="Omschrijving" AnchorPane.leftAnchor="226.0" />
+        <Label layoutX="224.0" layoutY="541.0" text="Prioriteit" AnchorPane.leftAnchor="226.0" />
+        <Slider blockIncrement="1.0" layoutX="229.0" layoutY="568.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="1" prefHeight="14.0" prefWidth="287.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />
+        <Label layoutX="224.0" layoutY="597.0" text="Bereik in meters" AnchorPane.leftAnchor="226.0" />
+        <TextField fx:id="txtAlertReach" layoutX="226.0" layoutY="615.0" prefHeight="25.0" prefWidth="281.0" promptText="50" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
+    </children>
+</AnchorPane>
