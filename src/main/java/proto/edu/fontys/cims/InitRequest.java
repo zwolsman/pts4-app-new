@@ -3643,9 +3643,9 @@ public final class InitRequest {
         getStatusBytes();
 
     /**
-     * <code>optional bool priority = 5;</code>
+     * <code>optional int32 priority = 5;</code>
      */
-    boolean getPriority();
+    int getPriority();
 
     /**
      * <code>optional string title = 6;</code>
@@ -3706,7 +3706,7 @@ public final class InitRequest {
     private Crisis() {
       id_ = 0;
       status_ = "";
-      priority_ = false;
+      priority_ = 0;
       title_ = "";
       description_ = "";
       thumbnail_ = "";
@@ -3778,7 +3778,7 @@ public final class InitRequest {
             }
             case 40: {
 
-              priority_ = input.readBool();
+              priority_ = input.readInt32();
               break;
             }
             case 50: {
@@ -3919,11 +3919,11 @@ public final class InitRequest {
     }
 
     public static final int PRIORITY_FIELD_NUMBER = 5;
-    private boolean priority_;
+    private int priority_;
     /**
-     * <code>optional bool priority = 5;</code>
+     * <code>optional int32 priority = 5;</code>
      */
-    public boolean getPriority() {
+    public int getPriority() {
       return priority_;
     }
 
@@ -4096,8 +4096,8 @@ public final class InitRequest {
       if (!getStatusBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, status_);
       }
-      if (priority_ != false) {
-        output.writeBool(5, priority_);
+      if (priority_ != 0) {
+        output.writeInt32(5, priority_);
       }
       if (!getTitleBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, title_);
@@ -4136,9 +4136,9 @@ public final class InitRequest {
       if (!getStatusBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, status_);
       }
-      if (priority_ != false) {
+      if (priority_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(5, priority_);
+          .computeInt32Size(5, priority_);
       }
       if (!getTitleBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, title_);
@@ -4221,8 +4221,7 @@ public final class InitRequest {
       hash = (37 * hash) + STATUS_FIELD_NUMBER;
       hash = (53 * hash) + getStatus().hashCode();
       hash = (37 * hash) + PRIORITY_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getPriority());
+      hash = (53 * hash) + getPriority();
       hash = (37 * hash) + TITLE_FIELD_NUMBER;
       hash = (53 * hash) + getTitle().hashCode();
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
@@ -4367,7 +4366,7 @@ public final class InitRequest {
         }
         status_ = "";
 
-        priority_ = false;
+        priority_ = 0;
 
         title_ = "";
 
@@ -4473,7 +4472,7 @@ public final class InitRequest {
           status_ = other.status_;
           onChanged();
         }
-        if (other.getPriority() != false) {
+        if (other.getPriority() != 0) {
           setPriority(other.getPriority());
         }
         if (!other.getTitle().isEmpty()) {
@@ -4850,28 +4849,28 @@ public final class InitRequest {
         return this;
       }
 
-      private boolean priority_ ;
+      private int priority_ ;
       /**
-       * <code>optional bool priority = 5;</code>
+       * <code>optional int32 priority = 5;</code>
        */
-      public boolean getPriority() {
+      public int getPriority() {
         return priority_;
       }
       /**
-       * <code>optional bool priority = 5;</code>
+       * <code>optional int32 priority = 5;</code>
        */
-      public Builder setPriority(boolean value) {
+      public Builder setPriority(int value) {
         
         priority_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bool priority = 5;</code>
+       * <code>optional int32 priority = 5;</code>
        */
       public Builder clearPriority() {
         
-        priority_ = false;
+        priority_ = 0;
         onChanged();
         return this;
       }
@@ -5271,7 +5270,7 @@ public final class InitRequest {
       "\030\002 \001(\0132\034.edu.fontys.cims.proto.Alert\0221\n\010" +
       "location\030\003 \001(\0132\037.edu.fontys.cims.proto.L" +
       "ocation\022\016\n\006status\030\004 \001(\t\022\020\n\010priority\030\005 \001(" +
-      "\010\022\r\n\005title\030\006 \001(\t\022\023\n\013description\030\007 \001(\t\022\021\n" +
+      "\005\022\r\n\005title\030\006 \001(\t\022\023\n\013description\030\007 \001(\t\022\021\n" +
       "\tthumbnail\030\010 \001(\t\022\r\n\005reach\030\t \001(\005\022\021\n\ttimes" +
       "tamp\030\n \001(\tB\021\n\017edu.fontys.cimsb\006proto3"
     };

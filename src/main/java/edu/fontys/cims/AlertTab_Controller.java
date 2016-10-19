@@ -70,7 +70,9 @@ public class AlertTab_Controller implements Initializable {
     
     @FXML
     private TextField txtCrisisReach;
+    
 
+    private InitRequest.Alert selectedAlert;
     private final ObservableList<InitRequest.Alert> alerts = FXCollections.observableArrayList();
 
 
@@ -97,6 +99,10 @@ public class AlertTab_Controller implements Initializable {
         lvAlerts.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<InitRequest.Alert>() {
             @Override
             public void changed(ObservableValue<? extends InitRequest.Alert> observable, InitRequest.Alert oldValue, InitRequest.Alert newValue) {
+                if(newValue != oldValue){
+                    selectedAlert = newValue;
+                }
+                
                 try {
                     dtAlertDate.setValue(new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(newValue.getTimestamp()).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
                 } catch (ParseException ex) {
@@ -167,8 +173,13 @@ public class AlertTab_Controller implements Initializable {
         }
 
         InitRequest.Crisis crisis = InitRequest.Crisis.newBuilder()
+                .setAlert(selectedAlert)
+                .setLocation(selectedAlert.getLocation())
+                .setStatus("henk")
+                .setPriority((int) Math.round(sliderCrisisPriority.getValue()))
                 .setTitle(txtCrisisTitle.getText())
                 .setDescription(txtCrisisDescription.getText())
+                .setThumbnail("henkiest thumbnail")
                 .setReach(Integer.parseInt(txtCrisisReach.getText()))
                 .setTimestamp(dtAlertDate.getValue().format(DateTimeFormatter.ISO_DATE))
                 .build();
