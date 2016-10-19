@@ -125,7 +125,6 @@ public class FXMLController implements Initializable, MapComponentInitializedLis
                 map.addMarker(marker);
                 map.panTo(pos);
                 txtAlertUserDescription.setText(newValue.getUserDescription());
-
             }
         });
 
