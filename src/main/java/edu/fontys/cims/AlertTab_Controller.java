@@ -37,6 +37,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -46,7 +47,6 @@ import javafx.scene.control.TextField;
  * @author Jip
  */
 public class AlertTab_Controller implements Initializable {
-    
     @FXML
     private ListView lvAlerts;
 
@@ -60,14 +60,16 @@ public class AlertTab_Controller implements Initializable {
     private TextField txtAlertLocation;
 
     @FXML
-    private TextField txtAlertTitle;
+    private TextField txtCrisisTitle;
 
     @FXML
-    private TextArea txtAlertDescription;
+    private TextArea txtCrisisDescription;
 
     @FXML
-    private TextField txtAlertReach;
-
+    private Slider sliderCrisisPriority;
+    
+    @FXML
+    private TextField txtCrisisReach;
 
     private final ObservableList<InitRequest.Alert> alerts = FXCollections.observableArrayList();
 
@@ -140,20 +142,20 @@ public class AlertTab_Controller implements Initializable {
             return;
         }
 
-        if (txtAlertTitle.getText().equalsIgnoreCase("")) {
+        if (txtCrisisTitle.getText().equalsIgnoreCase("")) {
             prompt("Please fill in the title.");
             return;
         }
-        if (txtAlertDescription.getText().equalsIgnoreCase("")) {
+        if (txtCrisisDescription.getText().equalsIgnoreCase("")) {
             prompt("Please fill in the description.");
             return;
         }
-        if (txtAlertReach.getText().equalsIgnoreCase("")) {
+        if (txtCrisisReach.getText().equalsIgnoreCase("")) {
             prompt("Please fill in the reach.");
             return;
         }
         boolean isNumeric = true;
-        for (char c : txtAlertReach.getText().toCharArray()) {
+        for (char c : txtCrisisReach.getText().toCharArray()) {
             if (!Character.isDigit(c)) {
                 prompt("Please fill in a valid reach.");
                 isNumeric = false;
@@ -165,9 +167,9 @@ public class AlertTab_Controller implements Initializable {
         }
 
         InitRequest.Crisis crisis = InitRequest.Crisis.newBuilder()
-                .setTitle(txtAlertTitle.getText())
-                .setDescription(txtAlertDescription.getText())
-                .setReach(Integer.parseInt(txtAlertReach.getText()))
+                .setTitle(txtCrisisTitle.getText())
+                .setDescription(txtCrisisDescription.getText())
+                .setReach(Integer.parseInt(txtCrisisReach.getText()))
                 .setDate(dtAlertDate.getValue().format(DateTimeFormatter.ISO_DATE))
                 .build();
         sendProto(crisis);
@@ -183,7 +185,6 @@ public class AlertTab_Controller implements Initializable {
     }
 
     private void sendProto(GeneratedMessageV3 proto) {
-
         try {
             URL url = new URL("http://localhost:3001/" + "crisis");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
