@@ -73,11 +73,15 @@ public class AlertTab_Controller implements Initializable {
 
     private final ObservableList<InitRequest.Alert> alerts = FXCollections.observableArrayList();
 
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+        //mapView.addMapInializedListener(this);
+
         InitRequest.InitResponse resp = null;
         resp = Api.init();
         
@@ -114,6 +118,7 @@ public class AlertTab_Controller implements Initializable {
                 SceneFXMLController.map.addMarker(SceneFXMLController.marker);
                 SceneFXMLController.map.panTo(pos);
                 txtAlertUserDescription.setText(newValue.getUserDescription());
+
             }
         });
 
@@ -128,6 +133,7 @@ public class AlertTab_Controller implements Initializable {
 
             }
         });
+
     }
 
     @FXML
