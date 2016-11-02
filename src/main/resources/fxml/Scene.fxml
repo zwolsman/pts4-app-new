@@ -12,24 +12,29 @@
 
 <AnchorPane id="AnchorPane" prefHeight="719.0" prefWidth="532.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fontys.cims.SceneFXMLController">
     <children>
-        <TabPane prefHeight="650.0" prefWidth="532.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <TabPane fx:id="TabView" prefHeight="650.0" prefWidth="532.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <tabs>
-                <Tab text="Melding">
+                <Tab id="MeldingTab" text="Melding">
                     <content>
-                        <fx:include fx:id="alertTab" source="AlertTab.fxml"/>
+                        <fx:include fx:id="alertTab" source="AlertTab.fxml" />
                     </content>
                 </Tab>
-                <Tab text="Crisis">
+                <Tab id="CrisisTab" text="Crisis">
                     <content>
-                        <fx:include fx:id="crisisTab" source="CrisisTab.fxml"/>
+                        <fx:include fx:id="crisisTab" source="CrisisTab.fxml" />
+                    </content>
+                </Tab>
+                <Tab id="ChatTab" text="Chat">
+                    <content>
+                        <fx:include fx:id="chatTab" source="ChatTab.fxml" />
                     </content>
                 </Tab>
             </tabs>
         </TabPane>
         <AnchorPane layoutX="228.0" layoutY="223.0" prefHeight="113.0" prefWidth="280.0" AnchorPane.leftAnchor="228.0" AnchorPane.rightAnchor="12.0">
-                           <children>
-                              <GoogleMapView fx:id="mapView" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                           </children>
-                        </AnchorPane>
+            <children>
+               <GoogleMapView fx:id="mapView" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            </children>
+         </AnchorPane>
     </children>
 </AnchorPane>

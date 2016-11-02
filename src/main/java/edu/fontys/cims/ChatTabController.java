@@ -7,7 +7,10 @@ package edu.fontys.cims;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextArea;
+import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
@@ -16,6 +19,9 @@ import javafx.fxml.Initializable;
  */
 public class ChatTabController implements Initializable {
 
+    @FXML
+    public TextArea ChatBox_TextArea;
+    
     /**
      * Initializes the controller class.
      */

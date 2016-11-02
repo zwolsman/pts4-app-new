@@ -9,8 +9,12 @@ import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
 import com.lynden.gmapsfx.javascript.object.Marker;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 
 public class SceneFXMLController implements Initializable, MapComponentInitializedListener {
 
@@ -19,6 +23,7 @@ public class SceneFXMLController implements Initializable, MapComponentInitializ
     public  GoogleMapView mapView;
     public static GoogleMap map;
     public static Marker marker;
+    public TabPane TabView;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -70,5 +75,22 @@ public class SceneFXMLController implements Initializable, MapComponentInitializ
 
         map = mapView.createMap(mapOptions);
         System.out.println("Woah, initialized map!");
+        
+        TabView.getSelectionModel().selectedItemProperty().addListener(
+            new ChangeListener<Tab>() {
+                @Override
+                public void changed(ObservableValue<? extends Tab> ov, Tab t, Tab t1) {
+                    String id = t1.idProperty().getValue();
+                    if( id.equals("MeldingTab") || id.equals("CrisisTab") ){
+                       mapView.visibleProperty().set(true);
+                    }
+                    else{
+                       mapView.visibleProperty().set(false);
+                    }
+                }
+            }
+        );
     }
+    
+    
 }
