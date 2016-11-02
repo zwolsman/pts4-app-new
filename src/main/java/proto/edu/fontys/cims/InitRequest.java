@@ -1139,24 +1139,39 @@ public final class InitRequest {
     edu.fontys.cims.InitRequest.LocationOrBuilder getLocationOrBuilder();
 
     /**
-     * <code>optional string date = 3;</code>
+     * <code>optional string ipaddr = 3;</code>
      */
-    java.lang.String getDate();
+    java.lang.String getIpaddr();
     /**
-     * <code>optional string date = 3;</code>
+     * <code>optional string ipaddr = 3;</code>
      */
     com.google.protobuf.ByteString
-        getDateBytes();
+        getIpaddrBytes();
 
     /**
-     * <code>optional string userDescription = 4;</code>
+     * <code>optional bool processed = 4;</code>
      */
-    java.lang.String getUserDescription();
+    boolean getProcessed();
+
     /**
-     * <code>optional string userDescription = 4;</code>
+     * <code>optional string description = 5;</code>
+     */
+    java.lang.String getDescription();
+    /**
+     * <code>optional string description = 5;</code>
      */
     com.google.protobuf.ByteString
-        getUserDescriptionBytes();
+        getDescriptionBytes();
+
+    /**
+     * <code>optional string timestamp = 6;</code>
+     */
+    java.lang.String getTimestamp();
+    /**
+     * <code>optional string timestamp = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getTimestampBytes();
   }
   /**
    * Protobuf type {@code edu.fontys.cims.proto.Alert}
@@ -1171,8 +1186,10 @@ public final class InitRequest {
     }
     private Alert() {
       id_ = 0;
-      date_ = "";
-      userDescription_ = "";
+      ipaddr_ = "";
+      processed_ = false;
+      description_ = "";
+      timestamp_ = "";
     }
 
     @java.lang.Override
@@ -1221,13 +1238,24 @@ public final class InitRequest {
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              date_ = s;
+              ipaddr_ = s;
               break;
             }
-            case 34: {
+            case 32: {
+
+              processed_ = input.readBool();
+              break;
+            }
+            case 42: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              userDescription_ = s;
+              description_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              timestamp_ = s;
               break;
             }
           }
@@ -1283,68 +1311,111 @@ public final class InitRequest {
       return getLocation();
     }
 
-    public static final int DATE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object date_;
+    public static final int IPADDR_FIELD_NUMBER = 3;
+    private volatile java.lang.Object ipaddr_;
     /**
-     * <code>optional string date = 3;</code>
+     * <code>optional string ipaddr = 3;</code>
      */
-    public java.lang.String getDate() {
-      java.lang.Object ref = date_;
+    public java.lang.String getIpaddr() {
+      java.lang.Object ref = ipaddr_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        date_ = s;
+        ipaddr_ = s;
         return s;
       }
     }
     /**
-     * <code>optional string date = 3;</code>
+     * <code>optional string ipaddr = 3;</code>
      */
     public com.google.protobuf.ByteString
-        getDateBytes() {
-      java.lang.Object ref = date_;
+        getIpaddrBytes() {
+      java.lang.Object ref = ipaddr_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        date_ = b;
+        ipaddr_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int USERDESCRIPTION_FIELD_NUMBER = 4;
-    private volatile java.lang.Object userDescription_;
+    public static final int PROCESSED_FIELD_NUMBER = 4;
+    private boolean processed_;
     /**
-     * <code>optional string userDescription = 4;</code>
+     * <code>optional bool processed = 4;</code>
      */
-    public java.lang.String getUserDescription() {
-      java.lang.Object ref = userDescription_;
+    public boolean getProcessed() {
+      return processed_;
+    }
+
+    public static final int DESCRIPTION_FIELD_NUMBER = 5;
+    private volatile java.lang.Object description_;
+    /**
+     * <code>optional string description = 5;</code>
+     */
+    public java.lang.String getDescription() {
+      java.lang.Object ref = description_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        userDescription_ = s;
+        description_ = s;
         return s;
       }
     }
     /**
-     * <code>optional string userDescription = 4;</code>
+     * <code>optional string description = 5;</code>
      */
     public com.google.protobuf.ByteString
-        getUserDescriptionBytes() {
-      java.lang.Object ref = userDescription_;
+        getDescriptionBytes() {
+      java.lang.Object ref = description_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        userDescription_ = b;
+        description_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 6;
+    private volatile java.lang.Object timestamp_;
+    /**
+     * <code>optional string timestamp = 6;</code>
+     */
+    public java.lang.String getTimestamp() {
+      java.lang.Object ref = timestamp_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        timestamp_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string timestamp = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTimestampBytes() {
+      java.lang.Object ref = timestamp_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        timestamp_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1369,11 +1440,17 @@ public final class InitRequest {
       if (location_ != null) {
         output.writeMessage(2, getLocation());
       }
-      if (!getDateBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, date_);
+      if (!getIpaddrBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, ipaddr_);
       }
-      if (!getUserDescriptionBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, userDescription_);
+      if (processed_ != false) {
+        output.writeBool(4, processed_);
+      }
+      if (!getDescriptionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, description_);
+      }
+      if (!getTimestampBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, timestamp_);
       }
     }
 
@@ -1390,11 +1467,18 @@ public final class InitRequest {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getLocation());
       }
-      if (!getDateBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, date_);
+      if (!getIpaddrBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, ipaddr_);
       }
-      if (!getUserDescriptionBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, userDescription_);
+      if (processed_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, processed_);
+      }
+      if (!getDescriptionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, description_);
+      }
+      if (!getTimestampBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, timestamp_);
       }
       memoizedSize = size;
       return size;
@@ -1419,10 +1503,14 @@ public final class InitRequest {
         result = result && getLocation()
             .equals(other.getLocation());
       }
-      result = result && getDate()
-          .equals(other.getDate());
-      result = result && getUserDescription()
-          .equals(other.getUserDescription());
+      result = result && getIpaddr()
+          .equals(other.getIpaddr());
+      result = result && (getProcessed()
+          == other.getProcessed());
+      result = result && getDescription()
+          .equals(other.getDescription());
+      result = result && getTimestamp()
+          .equals(other.getTimestamp());
       return result;
     }
 
@@ -1439,10 +1527,15 @@ public final class InitRequest {
         hash = (37 * hash) + LOCATION_FIELD_NUMBER;
         hash = (53 * hash) + getLocation().hashCode();
       }
-      hash = (37 * hash) + DATE_FIELD_NUMBER;
-      hash = (53 * hash) + getDate().hashCode();
-      hash = (37 * hash) + USERDESCRIPTION_FIELD_NUMBER;
-      hash = (53 * hash) + getUserDescription().hashCode();
+      hash = (37 * hash) + IPADDR_FIELD_NUMBER;
+      hash = (53 * hash) + getIpaddr().hashCode();
+      hash = (37 * hash) + PROCESSED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getProcessed());
+      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getDescription().hashCode();
+      hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+      hash = (53 * hash) + getTimestamp().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1569,9 +1662,13 @@ public final class InitRequest {
           location_ = null;
           locationBuilder_ = null;
         }
-        date_ = "";
+        ipaddr_ = "";
 
-        userDescription_ = "";
+        processed_ = false;
+
+        description_ = "";
+
+        timestamp_ = "";
 
         return this;
       }
@@ -1601,8 +1698,10 @@ public final class InitRequest {
         } else {
           result.location_ = locationBuilder_.build();
         }
-        result.date_ = date_;
-        result.userDescription_ = userDescription_;
+        result.ipaddr_ = ipaddr_;
+        result.processed_ = processed_;
+        result.description_ = description_;
+        result.timestamp_ = timestamp_;
         onBuilt();
         return result;
       }
@@ -1650,12 +1749,19 @@ public final class InitRequest {
         if (other.hasLocation()) {
           mergeLocation(other.getLocation());
         }
-        if (!other.getDate().isEmpty()) {
-          date_ = other.date_;
+        if (!other.getIpaddr().isEmpty()) {
+          ipaddr_ = other.ipaddr_;
           onChanged();
         }
-        if (!other.getUserDescription().isEmpty()) {
-          userDescription_ = other.userDescription_;
+        if (other.getProcessed() != false) {
+          setProcessed(other.getProcessed());
+        }
+        if (!other.getDescription().isEmpty()) {
+          description_ = other.description_;
+          onChanged();
+        }
+        if (!other.getTimestamp().isEmpty()) {
+          timestamp_ = other.timestamp_;
           onChanged();
         }
         onChanged();
@@ -1827,140 +1933,235 @@ public final class InitRequest {
         return locationBuilder_;
       }
 
-      private java.lang.Object date_ = "";
+      private java.lang.Object ipaddr_ = "";
       /**
-       * <code>optional string date = 3;</code>
+       * <code>optional string ipaddr = 3;</code>
        */
-      public java.lang.String getDate() {
-        java.lang.Object ref = date_;
+      public java.lang.String getIpaddr() {
+        java.lang.Object ref = ipaddr_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          date_ = s;
+          ipaddr_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>optional string date = 3;</code>
+       * <code>optional string ipaddr = 3;</code>
        */
       public com.google.protobuf.ByteString
-          getDateBytes() {
-        java.lang.Object ref = date_;
+          getIpaddrBytes() {
+        java.lang.Object ref = ipaddr_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          date_ = b;
+          ipaddr_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>optional string date = 3;</code>
+       * <code>optional string ipaddr = 3;</code>
        */
-      public Builder setDate(
+      public Builder setIpaddr(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        date_ = value;
+        ipaddr_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string date = 3;</code>
+       * <code>optional string ipaddr = 3;</code>
        */
-      public Builder clearDate() {
+      public Builder clearIpaddr() {
         
-        date_ = getDefaultInstance().getDate();
+        ipaddr_ = getDefaultInstance().getIpaddr();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string date = 3;</code>
+       * <code>optional string ipaddr = 3;</code>
        */
-      public Builder setDateBytes(
+      public Builder setIpaddrBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        date_ = value;
+        ipaddr_ = value;
         onChanged();
         return this;
       }
 
-      private java.lang.Object userDescription_ = "";
+      private boolean processed_ ;
       /**
-       * <code>optional string userDescription = 4;</code>
+       * <code>optional bool processed = 4;</code>
        */
-      public java.lang.String getUserDescription() {
-        java.lang.Object ref = userDescription_;
+      public boolean getProcessed() {
+        return processed_;
+      }
+      /**
+       * <code>optional bool processed = 4;</code>
+       */
+      public Builder setProcessed(boolean value) {
+        
+        processed_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool processed = 4;</code>
+       */
+      public Builder clearProcessed() {
+        
+        processed_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object description_ = "";
+      /**
+       * <code>optional string description = 5;</code>
+       */
+      public java.lang.String getDescription() {
+        java.lang.Object ref = description_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          userDescription_ = s;
+          description_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>optional string userDescription = 4;</code>
+       * <code>optional string description = 5;</code>
        */
       public com.google.protobuf.ByteString
-          getUserDescriptionBytes() {
-        java.lang.Object ref = userDescription_;
+          getDescriptionBytes() {
+        java.lang.Object ref = description_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          userDescription_ = b;
+          description_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>optional string userDescription = 4;</code>
+       * <code>optional string description = 5;</code>
        */
-      public Builder setUserDescription(
+      public Builder setDescription(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        userDescription_ = value;
+        description_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string userDescription = 4;</code>
+       * <code>optional string description = 5;</code>
        */
-      public Builder clearUserDescription() {
+      public Builder clearDescription() {
         
-        userDescription_ = getDefaultInstance().getUserDescription();
+        description_ = getDefaultInstance().getDescription();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string userDescription = 4;</code>
+       * <code>optional string description = 5;</code>
        */
-      public Builder setUserDescriptionBytes(
+      public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        userDescription_ = value;
+        description_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object timestamp_ = "";
+      /**
+       * <code>optional string timestamp = 6;</code>
+       */
+      public java.lang.String getTimestamp() {
+        java.lang.Object ref = timestamp_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          timestamp_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string timestamp = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTimestampBytes() {
+        java.lang.Object ref = timestamp_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          timestamp_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string timestamp = 6;</code>
+       */
+      public Builder setTimestamp(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string timestamp = 6;</code>
+       */
+      public Builder clearTimestamp() {
+        
+        timestamp_ = getDefaultInstance().getTimestamp();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string timestamp = 6;</code>
+       */
+      public Builder setTimestampBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        timestamp_ = value;
         onChanged();
         return this;
       }
@@ -2018,14 +2219,79 @@ public final class InitRequest {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional double lat = 1;</code>
+     * <code>optional int32 id = 1;</code>
      */
-    double getLat();
+    int getId();
 
     /**
-     * <code>optional double long = 2;</code>
+     * <code>optional double latitude = 2;</code>
      */
-    double getLong();
+    double getLatitude();
+
+    /**
+     * <code>optional double longitude = 3;</code>
+     */
+    double getLongitude();
+
+    /**
+     * <code>optional string country = 4;</code>
+     */
+    java.lang.String getCountry();
+    /**
+     * <code>optional string country = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getCountryBytes();
+
+    /**
+     * <code>optional string country_code = 5;</code>
+     */
+    java.lang.String getCountryCode();
+    /**
+     * <code>optional string country_code = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getCountryCodeBytes();
+
+    /**
+     * <code>optional string city = 6;</code>
+     */
+    java.lang.String getCity();
+    /**
+     * <code>optional string city = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getCityBytes();
+
+    /**
+     * <code>optional string zipcode = 7;</code>
+     */
+    java.lang.String getZipcode();
+    /**
+     * <code>optional string zipcode = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getZipcodeBytes();
+
+    /**
+     * <code>optional string street_name = 8;</code>
+     */
+    java.lang.String getStreetName();
+    /**
+     * <code>optional string street_name = 8;</code>
+     */
+    com.google.protobuf.ByteString
+        getStreetNameBytes();
+
+    /**
+     * <code>optional string street_number = 9;</code>
+     */
+    java.lang.String getStreetNumber();
+    /**
+     * <code>optional string street_number = 9;</code>
+     */
+    com.google.protobuf.ByteString
+        getStreetNumberBytes();
   }
   /**
    * Protobuf type {@code edu.fontys.cims.proto.Location}
@@ -2039,8 +2305,15 @@ public final class InitRequest {
       super(builder);
     }
     private Location() {
-      lat_ = 0D;
-      long_ = 0D;
+      id_ = 0;
+      latitude_ = 0D;
+      longitude_ = 0D;
+      country_ = "";
+      countryCode_ = "";
+      city_ = "";
+      zipcode_ = "";
+      streetName_ = "";
+      streetNumber_ = "";
     }
 
     @java.lang.Override
@@ -2068,14 +2341,55 @@ public final class InitRequest {
               }
               break;
             }
-            case 9: {
+            case 8: {
 
-              lat_ = input.readDouble();
+              id_ = input.readInt32();
               break;
             }
             case 17: {
 
-              long_ = input.readDouble();
+              latitude_ = input.readDouble();
+              break;
+            }
+            case 25: {
+
+              longitude_ = input.readDouble();
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              country_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              countryCode_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              city_ = s;
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              zipcode_ = s;
+              break;
+            }
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              streetName_ = s;
+              break;
+            }
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              streetNumber_ = s;
               break;
             }
           }
@@ -2101,22 +2415,235 @@ public final class InitRequest {
               edu.fontys.cims.InitRequest.Location.class, edu.fontys.cims.InitRequest.Location.Builder.class);
     }
 
-    public static final int LAT_FIELD_NUMBER = 1;
-    private double lat_;
+    public static final int ID_FIELD_NUMBER = 1;
+    private int id_;
     /**
-     * <code>optional double lat = 1;</code>
+     * <code>optional int32 id = 1;</code>
      */
-    public double getLat() {
-      return lat_;
+    public int getId() {
+      return id_;
     }
 
-    public static final int LONG_FIELD_NUMBER = 2;
-    private double long_;
+    public static final int LATITUDE_FIELD_NUMBER = 2;
+    private double latitude_;
     /**
-     * <code>optional double long = 2;</code>
+     * <code>optional double latitude = 2;</code>
      */
-    public double getLong() {
-      return long_;
+    public double getLatitude() {
+      return latitude_;
+    }
+
+    public static final int LONGITUDE_FIELD_NUMBER = 3;
+    private double longitude_;
+    /**
+     * <code>optional double longitude = 3;</code>
+     */
+    public double getLongitude() {
+      return longitude_;
+    }
+
+    public static final int COUNTRY_FIELD_NUMBER = 4;
+    private volatile java.lang.Object country_;
+    /**
+     * <code>optional string country = 4;</code>
+     */
+    public java.lang.String getCountry() {
+      java.lang.Object ref = country_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        country_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string country = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCountryBytes() {
+      java.lang.Object ref = country_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        country_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int COUNTRY_CODE_FIELD_NUMBER = 5;
+    private volatile java.lang.Object countryCode_;
+    /**
+     * <code>optional string country_code = 5;</code>
+     */
+    public java.lang.String getCountryCode() {
+      java.lang.Object ref = countryCode_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        countryCode_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string country_code = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCountryCodeBytes() {
+      java.lang.Object ref = countryCode_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        countryCode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CITY_FIELD_NUMBER = 6;
+    private volatile java.lang.Object city_;
+    /**
+     * <code>optional string city = 6;</code>
+     */
+    public java.lang.String getCity() {
+      java.lang.Object ref = city_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        city_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string city = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCityBytes() {
+      java.lang.Object ref = city_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        city_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ZIPCODE_FIELD_NUMBER = 7;
+    private volatile java.lang.Object zipcode_;
+    /**
+     * <code>optional string zipcode = 7;</code>
+     */
+    public java.lang.String getZipcode() {
+      java.lang.Object ref = zipcode_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        zipcode_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string zipcode = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getZipcodeBytes() {
+      java.lang.Object ref = zipcode_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        zipcode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int STREET_NAME_FIELD_NUMBER = 8;
+    private volatile java.lang.Object streetName_;
+    /**
+     * <code>optional string street_name = 8;</code>
+     */
+    public java.lang.String getStreetName() {
+      java.lang.Object ref = streetName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        streetName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string street_name = 8;</code>
+     */
+    public com.google.protobuf.ByteString
+        getStreetNameBytes() {
+      java.lang.Object ref = streetName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        streetName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int STREET_NUMBER_FIELD_NUMBER = 9;
+    private volatile java.lang.Object streetNumber_;
+    /**
+     * <code>optional string street_number = 9;</code>
+     */
+    public java.lang.String getStreetNumber() {
+      java.lang.Object ref = streetNumber_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        streetNumber_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string street_number = 9;</code>
+     */
+    public com.google.protobuf.ByteString
+        getStreetNumberBytes() {
+      java.lang.Object ref = streetNumber_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        streetNumber_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2131,11 +2658,32 @@ public final class InitRequest {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (lat_ != 0D) {
-        output.writeDouble(1, lat_);
+      if (id_ != 0) {
+        output.writeInt32(1, id_);
       }
-      if (long_ != 0D) {
-        output.writeDouble(2, long_);
+      if (latitude_ != 0D) {
+        output.writeDouble(2, latitude_);
+      }
+      if (longitude_ != 0D) {
+        output.writeDouble(3, longitude_);
+      }
+      if (!getCountryBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, country_);
+      }
+      if (!getCountryCodeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, countryCode_);
+      }
+      if (!getCityBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, city_);
+      }
+      if (!getZipcodeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, zipcode_);
+      }
+      if (!getStreetNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, streetName_);
+      }
+      if (!getStreetNumberBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, streetNumber_);
       }
     }
 
@@ -2144,13 +2692,35 @@ public final class InitRequest {
       if (size != -1) return size;
 
       size = 0;
-      if (lat_ != 0D) {
+      if (id_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(1, lat_);
+          .computeInt32Size(1, id_);
       }
-      if (long_ != 0D) {
+      if (latitude_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(2, long_);
+          .computeDoubleSize(2, latitude_);
+      }
+      if (longitude_ != 0D) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(3, longitude_);
+      }
+      if (!getCountryBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, country_);
+      }
+      if (!getCountryCodeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, countryCode_);
+      }
+      if (!getCityBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, city_);
+      }
+      if (!getZipcodeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, zipcode_);
+      }
+      if (!getStreetNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, streetName_);
+      }
+      if (!getStreetNumberBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, streetNumber_);
       }
       memoizedSize = size;
       return size;
@@ -2168,14 +2738,28 @@ public final class InitRequest {
       edu.fontys.cims.InitRequest.Location other = (edu.fontys.cims.InitRequest.Location) obj;
 
       boolean result = true;
+      result = result && (getId()
+          == other.getId());
       result = result && (
-          java.lang.Double.doubleToLongBits(getLat())
+          java.lang.Double.doubleToLongBits(getLatitude())
           == java.lang.Double.doubleToLongBits(
-              other.getLat()));
+              other.getLatitude()));
       result = result && (
-          java.lang.Double.doubleToLongBits(getLong())
+          java.lang.Double.doubleToLongBits(getLongitude())
           == java.lang.Double.doubleToLongBits(
-              other.getLong()));
+              other.getLongitude()));
+      result = result && getCountry()
+          .equals(other.getCountry());
+      result = result && getCountryCode()
+          .equals(other.getCountryCode());
+      result = result && getCity()
+          .equals(other.getCity());
+      result = result && getZipcode()
+          .equals(other.getZipcode());
+      result = result && getStreetName()
+          .equals(other.getStreetName());
+      result = result && getStreetNumber()
+          .equals(other.getStreetNumber());
       return result;
     }
 
@@ -2186,12 +2770,26 @@ public final class InitRequest {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptorForType().hashCode();
-      hash = (37 * hash) + LAT_FIELD_NUMBER;
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId();
+      hash = (37 * hash) + LATITUDE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          java.lang.Double.doubleToLongBits(getLat()));
-      hash = (37 * hash) + LONG_FIELD_NUMBER;
+          java.lang.Double.doubleToLongBits(getLatitude()));
+      hash = (37 * hash) + LONGITUDE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          java.lang.Double.doubleToLongBits(getLong()));
+          java.lang.Double.doubleToLongBits(getLongitude()));
+      hash = (37 * hash) + COUNTRY_FIELD_NUMBER;
+      hash = (53 * hash) + getCountry().hashCode();
+      hash = (37 * hash) + COUNTRY_CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCountryCode().hashCode();
+      hash = (37 * hash) + CITY_FIELD_NUMBER;
+      hash = (53 * hash) + getCity().hashCode();
+      hash = (37 * hash) + ZIPCODE_FIELD_NUMBER;
+      hash = (53 * hash) + getZipcode().hashCode();
+      hash = (37 * hash) + STREET_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getStreetName().hashCode();
+      hash = (37 * hash) + STREET_NUMBER_FIELD_NUMBER;
+      hash = (53 * hash) + getStreetNumber().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2310,9 +2908,23 @@ public final class InitRequest {
       }
       public Builder clear() {
         super.clear();
-        lat_ = 0D;
+        id_ = 0;
 
-        long_ = 0D;
+        latitude_ = 0D;
+
+        longitude_ = 0D;
+
+        country_ = "";
+
+        countryCode_ = "";
+
+        city_ = "";
+
+        zipcode_ = "";
+
+        streetName_ = "";
+
+        streetNumber_ = "";
 
         return this;
       }
@@ -2336,8 +2948,15 @@ public final class InitRequest {
 
       public edu.fontys.cims.InitRequest.Location buildPartial() {
         edu.fontys.cims.InitRequest.Location result = new edu.fontys.cims.InitRequest.Location(this);
-        result.lat_ = lat_;
-        result.long_ = long_;
+        result.id_ = id_;
+        result.latitude_ = latitude_;
+        result.longitude_ = longitude_;
+        result.country_ = country_;
+        result.countryCode_ = countryCode_;
+        result.city_ = city_;
+        result.zipcode_ = zipcode_;
+        result.streetName_ = streetName_;
+        result.streetNumber_ = streetNumber_;
         onBuilt();
         return result;
       }
@@ -2379,11 +2998,38 @@ public final class InitRequest {
 
       public Builder mergeFrom(edu.fontys.cims.InitRequest.Location other) {
         if (other == edu.fontys.cims.InitRequest.Location.getDefaultInstance()) return this;
-        if (other.getLat() != 0D) {
-          setLat(other.getLat());
+        if (other.getId() != 0) {
+          setId(other.getId());
         }
-        if (other.getLong() != 0D) {
-          setLong(other.getLong());
+        if (other.getLatitude() != 0D) {
+          setLatitude(other.getLatitude());
+        }
+        if (other.getLongitude() != 0D) {
+          setLongitude(other.getLongitude());
+        }
+        if (!other.getCountry().isEmpty()) {
+          country_ = other.country_;
+          onChanged();
+        }
+        if (!other.getCountryCode().isEmpty()) {
+          countryCode_ = other.countryCode_;
+          onChanged();
+        }
+        if (!other.getCity().isEmpty()) {
+          city_ = other.city_;
+          onChanged();
+        }
+        if (!other.getZipcode().isEmpty()) {
+          zipcode_ = other.zipcode_;
+          onChanged();
+        }
+        if (!other.getStreetName().isEmpty()) {
+          streetName_ = other.streetName_;
+          onChanged();
+        }
+        if (!other.getStreetNumber().isEmpty()) {
+          streetNumber_ = other.streetNumber_;
+          onChanged();
         }
         onChanged();
         return this;
@@ -2411,54 +3057,494 @@ public final class InitRequest {
         return this;
       }
 
-      private double lat_ ;
+      private int id_ ;
       /**
-       * <code>optional double lat = 1;</code>
+       * <code>optional int32 id = 1;</code>
        */
-      public double getLat() {
-        return lat_;
+      public int getId() {
+        return id_;
       }
       /**
-       * <code>optional double lat = 1;</code>
+       * <code>optional int32 id = 1;</code>
        */
-      public Builder setLat(double value) {
+      public Builder setId(int value) {
         
-        lat_ = value;
+        id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional double lat = 1;</code>
+       * <code>optional int32 id = 1;</code>
        */
-      public Builder clearLat() {
+      public Builder clearId() {
         
-        lat_ = 0D;
+        id_ = 0;
         onChanged();
         return this;
       }
 
-      private double long_ ;
+      private double latitude_ ;
       /**
-       * <code>optional double long = 2;</code>
+       * <code>optional double latitude = 2;</code>
        */
-      public double getLong() {
-        return long_;
+      public double getLatitude() {
+        return latitude_;
       }
       /**
-       * <code>optional double long = 2;</code>
+       * <code>optional double latitude = 2;</code>
        */
-      public Builder setLong(double value) {
+      public Builder setLatitude(double value) {
         
-        long_ = value;
+        latitude_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional double long = 2;</code>
+       * <code>optional double latitude = 2;</code>
        */
-      public Builder clearLong() {
+      public Builder clearLatitude() {
         
-        long_ = 0D;
+        latitude_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double longitude_ ;
+      /**
+       * <code>optional double longitude = 3;</code>
+       */
+      public double getLongitude() {
+        return longitude_;
+      }
+      /**
+       * <code>optional double longitude = 3;</code>
+       */
+      public Builder setLongitude(double value) {
+        
+        longitude_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double longitude = 3;</code>
+       */
+      public Builder clearLongitude() {
+        
+        longitude_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object country_ = "";
+      /**
+       * <code>optional string country = 4;</code>
+       */
+      public java.lang.String getCountry() {
+        java.lang.Object ref = country_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          country_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string country = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCountryBytes() {
+        java.lang.Object ref = country_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          country_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string country = 4;</code>
+       */
+      public Builder setCountry(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        country_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string country = 4;</code>
+       */
+      public Builder clearCountry() {
+        
+        country_ = getDefaultInstance().getCountry();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string country = 4;</code>
+       */
+      public Builder setCountryBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        country_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object countryCode_ = "";
+      /**
+       * <code>optional string country_code = 5;</code>
+       */
+      public java.lang.String getCountryCode() {
+        java.lang.Object ref = countryCode_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          countryCode_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string country_code = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCountryCodeBytes() {
+        java.lang.Object ref = countryCode_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          countryCode_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string country_code = 5;</code>
+       */
+      public Builder setCountryCode(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        countryCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string country_code = 5;</code>
+       */
+      public Builder clearCountryCode() {
+        
+        countryCode_ = getDefaultInstance().getCountryCode();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string country_code = 5;</code>
+       */
+      public Builder setCountryCodeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        countryCode_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object city_ = "";
+      /**
+       * <code>optional string city = 6;</code>
+       */
+      public java.lang.String getCity() {
+        java.lang.Object ref = city_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          city_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string city = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCityBytes() {
+        java.lang.Object ref = city_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          city_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string city = 6;</code>
+       */
+      public Builder setCity(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        city_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string city = 6;</code>
+       */
+      public Builder clearCity() {
+        
+        city_ = getDefaultInstance().getCity();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string city = 6;</code>
+       */
+      public Builder setCityBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        city_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object zipcode_ = "";
+      /**
+       * <code>optional string zipcode = 7;</code>
+       */
+      public java.lang.String getZipcode() {
+        java.lang.Object ref = zipcode_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          zipcode_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string zipcode = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getZipcodeBytes() {
+        java.lang.Object ref = zipcode_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          zipcode_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string zipcode = 7;</code>
+       */
+      public Builder setZipcode(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        zipcode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string zipcode = 7;</code>
+       */
+      public Builder clearZipcode() {
+        
+        zipcode_ = getDefaultInstance().getZipcode();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string zipcode = 7;</code>
+       */
+      public Builder setZipcodeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        zipcode_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object streetName_ = "";
+      /**
+       * <code>optional string street_name = 8;</code>
+       */
+      public java.lang.String getStreetName() {
+        java.lang.Object ref = streetName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          streetName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string street_name = 8;</code>
+       */
+      public com.google.protobuf.ByteString
+          getStreetNameBytes() {
+        java.lang.Object ref = streetName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          streetName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string street_name = 8;</code>
+       */
+      public Builder setStreetName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        streetName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string street_name = 8;</code>
+       */
+      public Builder clearStreetName() {
+        
+        streetName_ = getDefaultInstance().getStreetName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string street_name = 8;</code>
+       */
+      public Builder setStreetNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        streetName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object streetNumber_ = "";
+      /**
+       * <code>optional string street_number = 9;</code>
+       */
+      public java.lang.String getStreetNumber() {
+        java.lang.Object ref = streetNumber_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          streetNumber_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string street_number = 9;</code>
+       */
+      public com.google.protobuf.ByteString
+          getStreetNumberBytes() {
+        java.lang.Object ref = streetNumber_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          streetNumber_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string street_number = 9;</code>
+       */
+      public Builder setStreetNumber(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        streetNumber_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string street_number = 9;</code>
+       */
+      public Builder clearStreetNumber() {
+        
+        streetNumber_ = getDefaultInstance().getStreetNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string street_number = 9;</code>
+       */
+      public Builder setStreetNumberBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        streetNumber_ = value;
         onChanged();
         return this;
       }
@@ -2521,67 +3607,90 @@ public final class InitRequest {
     int getId();
 
     /**
-     * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+     * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+     */
+    boolean hasAlert();
+    /**
+     * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+     */
+    edu.fontys.cims.InitRequest.Alert getAlert();
+    /**
+     * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+     */
+    edu.fontys.cims.InitRequest.AlertOrBuilder getAlertOrBuilder();
+
+    /**
+     * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
      */
     boolean hasLocation();
     /**
-     * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+     * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
      */
     edu.fontys.cims.InitRequest.Location getLocation();
     /**
-     * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+     * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
      */
     edu.fontys.cims.InitRequest.LocationOrBuilder getLocationOrBuilder();
 
     /**
-     * <code>optional string date = 3;</code>
+     * <code>optional string status = 4;</code>
      */
-    java.lang.String getDate();
+    java.lang.String getStatus();
     /**
-     * <code>optional string date = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getDateBytes();
-
-    /**
-     * <code>optional string userDescription = 4;</code>
-     */
-    java.lang.String getUserDescription();
-    /**
-     * <code>optional string userDescription = 4;</code>
+     * <code>optional string status = 4;</code>
      */
     com.google.protobuf.ByteString
-        getUserDescriptionBytes();
+        getStatusBytes();
 
     /**
-     * <code>optional string title = 5;</code>
+     * <code>optional int32 priority = 5;</code>
+     */
+    int getPriority();
+
+    /**
+     * <code>optional string title = 6;</code>
      */
     java.lang.String getTitle();
     /**
-     * <code>optional string title = 5;</code>
+     * <code>optional string title = 6;</code>
      */
     com.google.protobuf.ByteString
         getTitleBytes();
 
     /**
-     * <code>optional string description = 6;</code>
+     * <code>optional string description = 7;</code>
      */
     java.lang.String getDescription();
     /**
-     * <code>optional string description = 6;</code>
+     * <code>optional string description = 7;</code>
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
 
     /**
-     * <code>optional int32 priority = 7;</code>
+     * <code>optional string thumbnail = 8;</code>
      */
-    int getPriority();
+    java.lang.String getThumbnail();
+    /**
+     * <code>optional string thumbnail = 8;</code>
+     */
+    com.google.protobuf.ByteString
+        getThumbnailBytes();
 
     /**
-     * <code>optional int32 reach = 8;</code>
+     * <code>optional int32 reach = 9;</code>
      */
     int getReach();
+
+    /**
+     * <code>optional string timestamp = 10;</code>
+     */
+    java.lang.String getTimestamp();
+    /**
+     * <code>optional string timestamp = 10;</code>
+     */
+    com.google.protobuf.ByteString
+        getTimestampBytes();
   }
   /**
    * Protobuf type {@code edu.fontys.cims.proto.Crisis}
@@ -2596,12 +3705,13 @@ public final class InitRequest {
     }
     private Crisis() {
       id_ = 0;
-      date_ = "";
-      userDescription_ = "";
+      status_ = "";
+      priority_ = 0;
       title_ = "";
       description_ = "";
-      priority_ = 0;
+      thumbnail_ = "";
       reach_ = 0;
+      timestamp_ = "";
     }
 
     @java.lang.Override
@@ -2635,6 +3745,19 @@ public final class InitRequest {
               break;
             }
             case 18: {
+              edu.fontys.cims.InitRequest.Alert.Builder subBuilder = null;
+              if (alert_ != null) {
+                subBuilder = alert_.toBuilder();
+              }
+              alert_ = input.readMessage(edu.fontys.cims.InitRequest.Alert.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(alert_);
+                alert_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
               edu.fontys.cims.InitRequest.Location.Builder subBuilder = null;
               if (location_ != null) {
                 subBuilder = location_.toBuilder();
@@ -2647,38 +3770,44 @@ public final class InitRequest {
 
               break;
             }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              date_ = s;
-              break;
-            }
             case 34: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              userDescription_ = s;
+              status_ = s;
               break;
             }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 40: {
 
-              title_ = s;
+              priority_ = input.readInt32();
               break;
             }
             case 50: {
               java.lang.String s = input.readStringRequireUtf8();
 
+              title_ = s;
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
               description_ = s;
               break;
             }
-            case 56: {
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              priority_ = input.readInt32();
+              thumbnail_ = s;
               break;
             }
-            case 64: {
+            case 72: {
 
               reach_ = input.readInt32();
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              timestamp_ = s;
               break;
             }
           }
@@ -2713,99 +3842,95 @@ public final class InitRequest {
       return id_;
     }
 
-    public static final int LOCATION_FIELD_NUMBER = 2;
+    public static final int ALERT_FIELD_NUMBER = 2;
+    private edu.fontys.cims.InitRequest.Alert alert_;
+    /**
+     * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+     */
+    public boolean hasAlert() {
+      return alert_ != null;
+    }
+    /**
+     * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+     */
+    public edu.fontys.cims.InitRequest.Alert getAlert() {
+      return alert_ == null ? edu.fontys.cims.InitRequest.Alert.getDefaultInstance() : alert_;
+    }
+    /**
+     * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+     */
+    public edu.fontys.cims.InitRequest.AlertOrBuilder getAlertOrBuilder() {
+      return getAlert();
+    }
+
+    public static final int LOCATION_FIELD_NUMBER = 3;
     private edu.fontys.cims.InitRequest.Location location_;
     /**
-     * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+     * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
      */
     public boolean hasLocation() {
       return location_ != null;
     }
     /**
-     * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+     * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
      */
     public edu.fontys.cims.InitRequest.Location getLocation() {
       return location_ == null ? edu.fontys.cims.InitRequest.Location.getDefaultInstance() : location_;
     }
     /**
-     * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+     * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
      */
     public edu.fontys.cims.InitRequest.LocationOrBuilder getLocationOrBuilder() {
       return getLocation();
     }
 
-    public static final int DATE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object date_;
+    public static final int STATUS_FIELD_NUMBER = 4;
+    private volatile java.lang.Object status_;
     /**
-     * <code>optional string date = 3;</code>
+     * <code>optional string status = 4;</code>
      */
-    public java.lang.String getDate() {
-      java.lang.Object ref = date_;
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        date_ = s;
+        status_ = s;
         return s;
       }
     }
     /**
-     * <code>optional string date = 3;</code>
+     * <code>optional string status = 4;</code>
      */
     public com.google.protobuf.ByteString
-        getDateBytes() {
-      java.lang.Object ref = date_;
+        getStatusBytes() {
+      java.lang.Object ref = status_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        date_ = b;
+        status_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int USERDESCRIPTION_FIELD_NUMBER = 4;
-    private volatile java.lang.Object userDescription_;
+    public static final int PRIORITY_FIELD_NUMBER = 5;
+    private int priority_;
     /**
-     * <code>optional string userDescription = 4;</code>
+     * <code>optional int32 priority = 5;</code>
      */
-    public java.lang.String getUserDescription() {
-      java.lang.Object ref = userDescription_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        userDescription_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>optional string userDescription = 4;</code>
-     */
-    public com.google.protobuf.ByteString
-        getUserDescriptionBytes() {
-      java.lang.Object ref = userDescription_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        userDescription_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getPriority() {
+      return priority_;
     }
 
-    public static final int TITLE_FIELD_NUMBER = 5;
+    public static final int TITLE_FIELD_NUMBER = 6;
     private volatile java.lang.Object title_;
     /**
-     * <code>optional string title = 5;</code>
+     * <code>optional string title = 6;</code>
      */
     public java.lang.String getTitle() {
       java.lang.Object ref = title_;
@@ -2820,7 +3945,7 @@ public final class InitRequest {
       }
     }
     /**
-     * <code>optional string title = 5;</code>
+     * <code>optional string title = 6;</code>
      */
     public com.google.protobuf.ByteString
         getTitleBytes() {
@@ -2836,10 +3961,10 @@ public final class InitRequest {
       }
     }
 
-    public static final int DESCRIPTION_FIELD_NUMBER = 6;
+    public static final int DESCRIPTION_FIELD_NUMBER = 7;
     private volatile java.lang.Object description_;
     /**
-     * <code>optional string description = 6;</code>
+     * <code>optional string description = 7;</code>
      */
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
@@ -2854,7 +3979,7 @@ public final class InitRequest {
       }
     }
     /**
-     * <code>optional string description = 6;</code>
+     * <code>optional string description = 7;</code>
      */
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
@@ -2870,22 +3995,81 @@ public final class InitRequest {
       }
     }
 
-    public static final int PRIORITY_FIELD_NUMBER = 7;
-    private int priority_;
+    public static final int THUMBNAIL_FIELD_NUMBER = 8;
+    private volatile java.lang.Object thumbnail_;
     /**
-     * <code>optional int32 priority = 7;</code>
+     * <code>optional string thumbnail = 8;</code>
      */
-    public int getPriority() {
-      return priority_;
+    public java.lang.String getThumbnail() {
+      java.lang.Object ref = thumbnail_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        thumbnail_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string thumbnail = 8;</code>
+     */
+    public com.google.protobuf.ByteString
+        getThumbnailBytes() {
+      java.lang.Object ref = thumbnail_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        thumbnail_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
-    public static final int REACH_FIELD_NUMBER = 8;
+    public static final int REACH_FIELD_NUMBER = 9;
     private int reach_;
     /**
-     * <code>optional int32 reach = 8;</code>
+     * <code>optional int32 reach = 9;</code>
      */
     public int getReach() {
       return reach_;
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 10;
+    private volatile java.lang.Object timestamp_;
+    /**
+     * <code>optional string timestamp = 10;</code>
+     */
+    public java.lang.String getTimestamp() {
+      java.lang.Object ref = timestamp_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        timestamp_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string timestamp = 10;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTimestampBytes() {
+      java.lang.Object ref = timestamp_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        timestamp_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2903,26 +4087,32 @@ public final class InitRequest {
       if (id_ != 0) {
         output.writeInt32(1, id_);
       }
+      if (alert_ != null) {
+        output.writeMessage(2, getAlert());
+      }
       if (location_ != null) {
-        output.writeMessage(2, getLocation());
+        output.writeMessage(3, getLocation());
       }
-      if (!getDateBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, date_);
-      }
-      if (!getUserDescriptionBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, userDescription_);
-      }
-      if (!getTitleBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, title_);
-      }
-      if (!getDescriptionBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, description_);
+      if (!getStatusBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, status_);
       }
       if (priority_ != 0) {
-        output.writeInt32(7, priority_);
+        output.writeInt32(5, priority_);
+      }
+      if (!getTitleBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, title_);
+      }
+      if (!getDescriptionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, description_);
+      }
+      if (!getThumbnailBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, thumbnail_);
       }
       if (reach_ != 0) {
-        output.writeInt32(8, reach_);
+        output.writeInt32(9, reach_);
+      }
+      if (!getTimestampBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, timestamp_);
       }
     }
 
@@ -2935,29 +4125,36 @@ public final class InitRequest {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, id_);
       }
+      if (alert_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getAlert());
+      }
       if (location_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getLocation());
+          .computeMessageSize(3, getLocation());
       }
-      if (!getDateBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, date_);
-      }
-      if (!getUserDescriptionBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, userDescription_);
-      }
-      if (!getTitleBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, title_);
-      }
-      if (!getDescriptionBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, description_);
+      if (!getStatusBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, status_);
       }
       if (priority_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(7, priority_);
+          .computeInt32Size(5, priority_);
+      }
+      if (!getTitleBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, title_);
+      }
+      if (!getDescriptionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, description_);
+      }
+      if (!getThumbnailBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, thumbnail_);
       }
       if (reach_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(8, reach_);
+          .computeInt32Size(9, reach_);
+      }
+      if (!getTimestampBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, timestamp_);
       }
       memoizedSize = size;
       return size;
@@ -2977,23 +4174,30 @@ public final class InitRequest {
       boolean result = true;
       result = result && (getId()
           == other.getId());
+      result = result && (hasAlert() == other.hasAlert());
+      if (hasAlert()) {
+        result = result && getAlert()
+            .equals(other.getAlert());
+      }
       result = result && (hasLocation() == other.hasLocation());
       if (hasLocation()) {
         result = result && getLocation()
             .equals(other.getLocation());
       }
-      result = result && getDate()
-          .equals(other.getDate());
-      result = result && getUserDescription()
-          .equals(other.getUserDescription());
+      result = result && getStatus()
+          .equals(other.getStatus());
+      result = result && (getPriority()
+          == other.getPriority());
       result = result && getTitle()
           .equals(other.getTitle());
       result = result && getDescription()
           .equals(other.getDescription());
-      result = result && (getPriority()
-          == other.getPriority());
+      result = result && getThumbnail()
+          .equals(other.getThumbnail());
       result = result && (getReach()
           == other.getReach());
+      result = result && getTimestamp()
+          .equals(other.getTimestamp());
       return result;
     }
 
@@ -3006,22 +4210,28 @@ public final class InitRequest {
       hash = (19 * hash) + getDescriptorForType().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId();
+      if (hasAlert()) {
+        hash = (37 * hash) + ALERT_FIELD_NUMBER;
+        hash = (53 * hash) + getAlert().hashCode();
+      }
       if (hasLocation()) {
         hash = (37 * hash) + LOCATION_FIELD_NUMBER;
         hash = (53 * hash) + getLocation().hashCode();
       }
-      hash = (37 * hash) + DATE_FIELD_NUMBER;
-      hash = (53 * hash) + getDate().hashCode();
-      hash = (37 * hash) + USERDESCRIPTION_FIELD_NUMBER;
-      hash = (53 * hash) + getUserDescription().hashCode();
+      hash = (37 * hash) + STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + getStatus().hashCode();
+      hash = (37 * hash) + PRIORITY_FIELD_NUMBER;
+      hash = (53 * hash) + getPriority();
       hash = (37 * hash) + TITLE_FIELD_NUMBER;
       hash = (53 * hash) + getTitle().hashCode();
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getDescription().hashCode();
-      hash = (37 * hash) + PRIORITY_FIELD_NUMBER;
-      hash = (53 * hash) + getPriority();
+      hash = (37 * hash) + THUMBNAIL_FIELD_NUMBER;
+      hash = (53 * hash) + getThumbnail().hashCode();
       hash = (37 * hash) + REACH_FIELD_NUMBER;
       hash = (53 * hash) + getReach();
+      hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+      hash = (53 * hash) + getTimestamp().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3142,23 +4352,31 @@ public final class InitRequest {
         super.clear();
         id_ = 0;
 
+        if (alertBuilder_ == null) {
+          alert_ = null;
+        } else {
+          alert_ = null;
+          alertBuilder_ = null;
+        }
         if (locationBuilder_ == null) {
           location_ = null;
         } else {
           location_ = null;
           locationBuilder_ = null;
         }
-        date_ = "";
+        status_ = "";
 
-        userDescription_ = "";
+        priority_ = 0;
 
         title_ = "";
 
         description_ = "";
 
-        priority_ = 0;
+        thumbnail_ = "";
 
         reach_ = 0;
+
+        timestamp_ = "";
 
         return this;
       }
@@ -3183,17 +4401,23 @@ public final class InitRequest {
       public edu.fontys.cims.InitRequest.Crisis buildPartial() {
         edu.fontys.cims.InitRequest.Crisis result = new edu.fontys.cims.InitRequest.Crisis(this);
         result.id_ = id_;
+        if (alertBuilder_ == null) {
+          result.alert_ = alert_;
+        } else {
+          result.alert_ = alertBuilder_.build();
+        }
         if (locationBuilder_ == null) {
           result.location_ = location_;
         } else {
           result.location_ = locationBuilder_.build();
         }
-        result.date_ = date_;
-        result.userDescription_ = userDescription_;
+        result.status_ = status_;
+        result.priority_ = priority_;
         result.title_ = title_;
         result.description_ = description_;
-        result.priority_ = priority_;
+        result.thumbnail_ = thumbnail_;
         result.reach_ = reach_;
+        result.timestamp_ = timestamp_;
         onBuilt();
         return result;
       }
@@ -3238,16 +4462,18 @@ public final class InitRequest {
         if (other.getId() != 0) {
           setId(other.getId());
         }
+        if (other.hasAlert()) {
+          mergeAlert(other.getAlert());
+        }
         if (other.hasLocation()) {
           mergeLocation(other.getLocation());
         }
-        if (!other.getDate().isEmpty()) {
-          date_ = other.date_;
+        if (!other.getStatus().isEmpty()) {
+          status_ = other.status_;
           onChanged();
         }
-        if (!other.getUserDescription().isEmpty()) {
-          userDescription_ = other.userDescription_;
-          onChanged();
+        if (other.getPriority() != 0) {
+          setPriority(other.getPriority());
         }
         if (!other.getTitle().isEmpty()) {
           title_ = other.title_;
@@ -3257,11 +4483,16 @@ public final class InitRequest {
           description_ = other.description_;
           onChanged();
         }
-        if (other.getPriority() != 0) {
-          setPriority(other.getPriority());
+        if (!other.getThumbnail().isEmpty()) {
+          thumbnail_ = other.thumbnail_;
+          onChanged();
         }
         if (other.getReach() != 0) {
           setReach(other.getReach());
+        }
+        if (!other.getTimestamp().isEmpty()) {
+          timestamp_ = other.timestamp_;
+          onChanged();
         }
         onChanged();
         return this;
@@ -3315,17 +4546,134 @@ public final class InitRequest {
         return this;
       }
 
+      private edu.fontys.cims.InitRequest.Alert alert_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          edu.fontys.cims.InitRequest.Alert, edu.fontys.cims.InitRequest.Alert.Builder, edu.fontys.cims.InitRequest.AlertOrBuilder> alertBuilder_;
+      /**
+       * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+       */
+      public boolean hasAlert() {
+        return alertBuilder_ != null || alert_ != null;
+      }
+      /**
+       * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+       */
+      public edu.fontys.cims.InitRequest.Alert getAlert() {
+        if (alertBuilder_ == null) {
+          return alert_ == null ? edu.fontys.cims.InitRequest.Alert.getDefaultInstance() : alert_;
+        } else {
+          return alertBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+       */
+      public Builder setAlert(edu.fontys.cims.InitRequest.Alert value) {
+        if (alertBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          alert_ = value;
+          onChanged();
+        } else {
+          alertBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+       */
+      public Builder setAlert(
+          edu.fontys.cims.InitRequest.Alert.Builder builderForValue) {
+        if (alertBuilder_ == null) {
+          alert_ = builderForValue.build();
+          onChanged();
+        } else {
+          alertBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+       */
+      public Builder mergeAlert(edu.fontys.cims.InitRequest.Alert value) {
+        if (alertBuilder_ == null) {
+          if (alert_ != null) {
+            alert_ =
+              edu.fontys.cims.InitRequest.Alert.newBuilder(alert_).mergeFrom(value).buildPartial();
+          } else {
+            alert_ = value;
+          }
+          onChanged();
+        } else {
+          alertBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+       */
+      public Builder clearAlert() {
+        if (alertBuilder_ == null) {
+          alert_ = null;
+          onChanged();
+        } else {
+          alert_ = null;
+          alertBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+       */
+      public edu.fontys.cims.InitRequest.Alert.Builder getAlertBuilder() {
+        
+        onChanged();
+        return getAlertFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+       */
+      public edu.fontys.cims.InitRequest.AlertOrBuilder getAlertOrBuilder() {
+        if (alertBuilder_ != null) {
+          return alertBuilder_.getMessageOrBuilder();
+        } else {
+          return alert_ == null ?
+              edu.fontys.cims.InitRequest.Alert.getDefaultInstance() : alert_;
+        }
+      }
+      /**
+       * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          edu.fontys.cims.InitRequest.Alert, edu.fontys.cims.InitRequest.Alert.Builder, edu.fontys.cims.InitRequest.AlertOrBuilder> 
+          getAlertFieldBuilder() {
+        if (alertBuilder_ == null) {
+          alertBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              edu.fontys.cims.InitRequest.Alert, edu.fontys.cims.InitRequest.Alert.Builder, edu.fontys.cims.InitRequest.AlertOrBuilder>(
+                  getAlert(),
+                  getParentForChildren(),
+                  isClean());
+          alert_ = null;
+        }
+        return alertBuilder_;
+      }
+
       private edu.fontys.cims.InitRequest.Location location_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           edu.fontys.cims.InitRequest.Location, edu.fontys.cims.InitRequest.Location.Builder, edu.fontys.cims.InitRequest.LocationOrBuilder> locationBuilder_;
       /**
-       * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+       * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
        */
       public boolean hasLocation() {
         return locationBuilder_ != null || location_ != null;
       }
       /**
-       * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+       * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
        */
       public edu.fontys.cims.InitRequest.Location getLocation() {
         if (locationBuilder_ == null) {
@@ -3335,7 +4683,7 @@ public final class InitRequest {
         }
       }
       /**
-       * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+       * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
        */
       public Builder setLocation(edu.fontys.cims.InitRequest.Location value) {
         if (locationBuilder_ == null) {
@@ -3351,7 +4699,7 @@ public final class InitRequest {
         return this;
       }
       /**
-       * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+       * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
        */
       public Builder setLocation(
           edu.fontys.cims.InitRequest.Location.Builder builderForValue) {
@@ -3365,7 +4713,7 @@ public final class InitRequest {
         return this;
       }
       /**
-       * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+       * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
        */
       public Builder mergeLocation(edu.fontys.cims.InitRequest.Location value) {
         if (locationBuilder_ == null) {
@@ -3383,7 +4731,7 @@ public final class InitRequest {
         return this;
       }
       /**
-       * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+       * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
        */
       public Builder clearLocation() {
         if (locationBuilder_ == null) {
@@ -3397,7 +4745,7 @@ public final class InitRequest {
         return this;
       }
       /**
-       * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+       * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
        */
       public edu.fontys.cims.InitRequest.Location.Builder getLocationBuilder() {
         
@@ -3405,7 +4753,7 @@ public final class InitRequest {
         return getLocationFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+       * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
        */
       public edu.fontys.cims.InitRequest.LocationOrBuilder getLocationOrBuilder() {
         if (locationBuilder_ != null) {
@@ -3416,7 +4764,7 @@ public final class InitRequest {
         }
       }
       /**
-       * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+       * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           edu.fontys.cims.InitRequest.Location, edu.fontys.cims.InitRequest.Location.Builder, edu.fontys.cims.InitRequest.LocationOrBuilder> 
@@ -3432,147 +4780,104 @@ public final class InitRequest {
         return locationBuilder_;
       }
 
-      private java.lang.Object date_ = "";
+      private java.lang.Object status_ = "";
       /**
-       * <code>optional string date = 3;</code>
+       * <code>optional string status = 4;</code>
        */
-      public java.lang.String getDate() {
-        java.lang.Object ref = date_;
+      public java.lang.String getStatus() {
+        java.lang.Object ref = status_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          date_ = s;
+          status_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>optional string date = 3;</code>
+       * <code>optional string status = 4;</code>
        */
       public com.google.protobuf.ByteString
-          getDateBytes() {
-        java.lang.Object ref = date_;
+          getStatusBytes() {
+        java.lang.Object ref = status_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          date_ = b;
+          status_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>optional string date = 3;</code>
+       * <code>optional string status = 4;</code>
        */
-      public Builder setDate(
+      public Builder setStatus(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        date_ = value;
+        status_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string date = 3;</code>
+       * <code>optional string status = 4;</code>
        */
-      public Builder clearDate() {
+      public Builder clearStatus() {
         
-        date_ = getDefaultInstance().getDate();
+        status_ = getDefaultInstance().getStatus();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string date = 3;</code>
+       * <code>optional string status = 4;</code>
        */
-      public Builder setDateBytes(
+      public Builder setStatusBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        date_ = value;
+        status_ = value;
         onChanged();
         return this;
       }
 
-      private java.lang.Object userDescription_ = "";
+      private int priority_ ;
       /**
-       * <code>optional string userDescription = 4;</code>
+       * <code>optional int32 priority = 5;</code>
        */
-      public java.lang.String getUserDescription() {
-        java.lang.Object ref = userDescription_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          userDescription_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public int getPriority() {
+        return priority_;
       }
       /**
-       * <code>optional string userDescription = 4;</code>
+       * <code>optional int32 priority = 5;</code>
        */
-      public com.google.protobuf.ByteString
-          getUserDescriptionBytes() {
-        java.lang.Object ref = userDescription_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          userDescription_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string userDescription = 4;</code>
-       */
-      public Builder setUserDescription(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        userDescription_ = value;
+      public Builder setPriority(int value) {
+        
+        priority_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string userDescription = 4;</code>
+       * <code>optional int32 priority = 5;</code>
        */
-      public Builder clearUserDescription() {
+      public Builder clearPriority() {
         
-        userDescription_ = getDefaultInstance().getUserDescription();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string userDescription = 4;</code>
-       */
-      public Builder setUserDescriptionBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        userDescription_ = value;
+        priority_ = 0;
         onChanged();
         return this;
       }
 
       private java.lang.Object title_ = "";
       /**
-       * <code>optional string title = 5;</code>
+       * <code>optional string title = 6;</code>
        */
       public java.lang.String getTitle() {
         java.lang.Object ref = title_;
@@ -3587,7 +4892,7 @@ public final class InitRequest {
         }
       }
       /**
-       * <code>optional string title = 5;</code>
+       * <code>optional string title = 6;</code>
        */
       public com.google.protobuf.ByteString
           getTitleBytes() {
@@ -3603,7 +4908,7 @@ public final class InitRequest {
         }
       }
       /**
-       * <code>optional string title = 5;</code>
+       * <code>optional string title = 6;</code>
        */
       public Builder setTitle(
           java.lang.String value) {
@@ -3616,7 +4921,7 @@ public final class InitRequest {
         return this;
       }
       /**
-       * <code>optional string title = 5;</code>
+       * <code>optional string title = 6;</code>
        */
       public Builder clearTitle() {
         
@@ -3625,7 +4930,7 @@ public final class InitRequest {
         return this;
       }
       /**
-       * <code>optional string title = 5;</code>
+       * <code>optional string title = 6;</code>
        */
       public Builder setTitleBytes(
           com.google.protobuf.ByteString value) {
@@ -3641,7 +4946,7 @@ public final class InitRequest {
 
       private java.lang.Object description_ = "";
       /**
-       * <code>optional string description = 6;</code>
+       * <code>optional string description = 7;</code>
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -3656,7 +4961,7 @@ public final class InitRequest {
         }
       }
       /**
-       * <code>optional string description = 6;</code>
+       * <code>optional string description = 7;</code>
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -3672,7 +4977,7 @@ public final class InitRequest {
         }
       }
       /**
-       * <code>optional string description = 6;</code>
+       * <code>optional string description = 7;</code>
        */
       public Builder setDescription(
           java.lang.String value) {
@@ -3685,7 +4990,7 @@ public final class InitRequest {
         return this;
       }
       /**
-       * <code>optional string description = 6;</code>
+       * <code>optional string description = 7;</code>
        */
       public Builder clearDescription() {
         
@@ -3694,7 +4999,7 @@ public final class InitRequest {
         return this;
       }
       /**
-       * <code>optional string description = 6;</code>
+       * <code>optional string description = 7;</code>
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -3708,41 +5013,84 @@ public final class InitRequest {
         return this;
       }
 
-      private int priority_ ;
+      private java.lang.Object thumbnail_ = "";
       /**
-       * <code>optional int32 priority = 7;</code>
+       * <code>optional string thumbnail = 8;</code>
        */
-      public int getPriority() {
-        return priority_;
+      public java.lang.String getThumbnail() {
+        java.lang.Object ref = thumbnail_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          thumbnail_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>optional int32 priority = 7;</code>
+       * <code>optional string thumbnail = 8;</code>
        */
-      public Builder setPriority(int value) {
-        
-        priority_ = value;
+      public com.google.protobuf.ByteString
+          getThumbnailBytes() {
+        java.lang.Object ref = thumbnail_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          thumbnail_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string thumbnail = 8;</code>
+       */
+      public Builder setThumbnail(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        thumbnail_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 priority = 7;</code>
+       * <code>optional string thumbnail = 8;</code>
        */
-      public Builder clearPriority() {
+      public Builder clearThumbnail() {
         
-        priority_ = 0;
+        thumbnail_ = getDefaultInstance().getThumbnail();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string thumbnail = 8;</code>
+       */
+      public Builder setThumbnailBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        thumbnail_ = value;
         onChanged();
         return this;
       }
 
       private int reach_ ;
       /**
-       * <code>optional int32 reach = 8;</code>
+       * <code>optional int32 reach = 9;</code>
        */
       public int getReach() {
         return reach_;
       }
       /**
-       * <code>optional int32 reach = 8;</code>
+       * <code>optional int32 reach = 9;</code>
        */
       public Builder setReach(int value) {
         
@@ -3751,11 +5099,80 @@ public final class InitRequest {
         return this;
       }
       /**
-       * <code>optional int32 reach = 8;</code>
+       * <code>optional int32 reach = 9;</code>
        */
       public Builder clearReach() {
         
         reach_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object timestamp_ = "";
+      /**
+       * <code>optional string timestamp = 10;</code>
+       */
+      public java.lang.String getTimestamp() {
+        java.lang.Object ref = timestamp_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          timestamp_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string timestamp = 10;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTimestampBytes() {
+        java.lang.Object ref = timestamp_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          timestamp_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string timestamp = 10;</code>
+       */
+      public Builder setTimestamp(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string timestamp = 10;</code>
+       */
+      public Builder clearTimestamp() {
+        
+        timestamp_ = getDefaultInstance().getTimestamp();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string timestamp = 10;</code>
+       */
+      public Builder setTimestampBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        timestamp_ = value;
         onChanged();
         return this;
       }
@@ -3841,16 +5258,21 @@ public final class InitRequest {
       "to\"x\n\014InitResponse\0222\n\014alertResults\030\001 \003(\013" +
       "2\034.edu.fontys.cims.proto.Alert\0224\n\rcrisis" +
       "Results\030\002 \003(\0132\035.edu.fontys.cims.proto.Cr" +
-      "isis\"m\n\005Alert\022\n\n\002id\030\001 \001(\005\0221\n\010location\030\002 " +
-      "\001(\0132\037.edu.fontys.cims.proto.Location\022\014\n\004" +
-      "date\030\003 \001(\t\022\027\n\017userDescription\030\004 \001(\t\"%\n\010L" +
-      "ocation\022\013\n\003lat\030\001 \001(\001\022\014\n\004long\030\002 \001(\001\"\263\001\n\006C" +
-      "risis\022\n\n\002id\030\001 \001(\005\0221\n\010location\030\002 \001(\0132\037.ed" +
-      "u.fontys.cims.proto.Location\022\014\n\004date\030\003 \001",
-      "(\t\022\027\n\017userDescription\030\004 \001(\t\022\r\n\005title\030\005 \001" +
-      "(\t\022\023\n\013description\030\006 \001(\t\022\020\n\010priority\030\007 \001(" +
-      "\005\022\r\n\005reach\030\010 \001(\005B\021\n\017edu.fontys.cimsb\006pro" +
-      "to3"
+      "isis\"\221\001\n\005Alert\022\n\n\002id\030\001 \001(\005\0221\n\010location\030\002" +
+      " \001(\0132\037.edu.fontys.cims.proto.Location\022\016\n" +
+      "\006ipaddr\030\003 \001(\t\022\021\n\tprocessed\030\004 \001(\010\022\023\n\013desc" +
+      "ription\030\005 \001(\t\022\021\n\ttimestamp\030\006 \001(\t\"\255\001\n\010Loc" +
+      "ation\022\n\n\002id\030\001 \001(\005\022\020\n\010latitude\030\002 \001(\001\022\021\n\tl" +
+      "ongitude\030\003 \001(\001\022\017\n\007country\030\004 \001(\t\022\024\n\014count",
+      "ry_code\030\005 \001(\t\022\014\n\004city\030\006 \001(\t\022\017\n\007zipcode\030\007" +
+      " \001(\t\022\023\n\013street_name\030\010 \001(\t\022\025\n\rstreet_numb" +
+      "er\030\t \001(\t\"\357\001\n\006Crisis\022\n\n\002id\030\001 \001(\005\022+\n\005alert" +
+      "\030\002 \001(\0132\034.edu.fontys.cims.proto.Alert\0221\n\010" +
+      "location\030\003 \001(\0132\037.edu.fontys.cims.proto.L" +
+      "ocation\022\016\n\006status\030\004 \001(\t\022\020\n\010priority\030\005 \001(" +
+      "\005\022\r\n\005title\030\006 \001(\t\022\023\n\013description\030\007 \001(\t\022\021\n" +
+      "\tthumbnail\030\010 \001(\t\022\r\n\005reach\030\t \001(\005\022\021\n\ttimes" +
+      "tamp\030\n \001(\tB\021\n\017edu.fontys.cimsb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -3875,19 +5297,19 @@ public final class InitRequest {
     internal_static_edu_fontys_cims_proto_Alert_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_edu_fontys_cims_proto_Alert_descriptor,
-        new java.lang.String[] { "Id", "Location", "Date", "UserDescription", });
+        new java.lang.String[] { "Id", "Location", "Ipaddr", "Processed", "Description", "Timestamp", });
     internal_static_edu_fontys_cims_proto_Location_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_edu_fontys_cims_proto_Location_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_edu_fontys_cims_proto_Location_descriptor,
-        new java.lang.String[] { "Lat", "Long", });
+        new java.lang.String[] { "Id", "Latitude", "Longitude", "Country", "CountryCode", "City", "Zipcode", "StreetName", "StreetNumber", });
     internal_static_edu_fontys_cims_proto_Crisis_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_edu_fontys_cims_proto_Crisis_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_edu_fontys_cims_proto_Crisis_descriptor,
-        new java.lang.String[] { "Id", "Location", "Date", "UserDescription", "Title", "Description", "Priority", "Reach", });
+        new java.lang.String[] { "Id", "Alert", "Location", "Status", "Priority", "Title", "Description", "Thumbnail", "Reach", "Timestamp", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

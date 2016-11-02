@@ -70,7 +70,9 @@ public class AlertTab_Controller implements Initializable {
     
     @FXML
     private TextField txtCrisisReach;
+    
 
+    private InitRequest.Alert selectedAlert;
     private final ObservableList<InitRequest.Alert> alerts = FXCollections.observableArrayList();
 
 
@@ -97,17 +99,21 @@ public class AlertTab_Controller implements Initializable {
         lvAlerts.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<InitRequest.Alert>() {
             @Override
             public void changed(ObservableValue<? extends InitRequest.Alert> observable, InitRequest.Alert oldValue, InitRequest.Alert newValue) {
+                if(newValue != oldValue){
+                    selectedAlert = newValue;
+                }
+                
                 try {
-                    dtAlertDate.setValue(new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(newValue.getDate()).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+                    dtAlertDate.setValue(new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(newValue.getTimestamp()).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
                 } catch (ParseException ex) {
                     Logger.getLogger(SceneFXMLController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
                 MarkerOptions markerOptions = new MarkerOptions();
-                System.out.println(newValue.getLocation().getLat());
-                System.out.println(newValue.getLocation().getLong());
+                System.out.println(newValue.getLocation().getLatitude());
+                System.out.println(newValue.getLocation().getLongitude());
 
-                LatLong pos = new LatLong(newValue.getLocation().getLat(), newValue.getLocation().getLong());
+                LatLong pos = new LatLong(newValue.getLocation().getLatitude(), newValue.getLocation().getLongitude());
                 markerOptions.position(pos);
 
                 if (SceneFXMLController.marker != null) {
@@ -117,7 +123,7 @@ public class AlertTab_Controller implements Initializable {
                 SceneFXMLController.marker = new Marker(markerOptions);
                 SceneFXMLController.map.addMarker(SceneFXMLController.marker);
                 SceneFXMLController.map.panTo(pos);
-                txtAlertUserDescription.setText(newValue.getUserDescription());
+                txtAlertUserDescription.setText(newValue.getDescription());
 
             }
         });
@@ -128,7 +134,7 @@ public class AlertTab_Controller implements Initializable {
                 if (empty) {
                     return;
                 }
-                setText(item.getDate());
+                setText(item.getTimestamp());
                 super.updateItem(item, empty);
 
             }
@@ -167,10 +173,15 @@ public class AlertTab_Controller implements Initializable {
         }
 
         InitRequest.Crisis crisis = InitRequest.Crisis.newBuilder()
+                .setAlert(selectedAlert)
+                .setLocation(selectedAlert.getLocation())
+                .setStatus("henk")
+                .setPriority((int) Math.round(sliderCrisisPriority.getValue()))
                 .setTitle(txtCrisisTitle.getText())
                 .setDescription(txtCrisisDescription.getText())
+                .setThumbnail("henkiest thumbnail")
                 .setReach(Integer.parseInt(txtCrisisReach.getText()))
-                .setDate(dtAlertDate.getValue().format(DateTimeFormatter.ISO_DATE))
+                .setTimestamp(dtAlertDate.getValue().format(DateTimeFormatter.ISO_DATE))
                 .build();
         sendProto(crisis);
         System.out.println("Handle process");
