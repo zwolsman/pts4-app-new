@@ -1,9 +1,13 @@
 package edu.fontys.cims;
 
 import edu.fontys.cims.InitRequest.InitResponse;
+import io.socket.client.Manager;
+import io.socket.client.Socket;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,7 +18,21 @@ import java.util.logging.Logger;
  */
 public class Api {
 
-    private static final String API_ENDPOINT = "http://localhost:3001";
+    private static final String HOST = "localhost";
+    private static final int PORT = 3000;
+    private static final String API_ENDPOINT = "http://" + HOST + ":" + PORT + "/api";
+    private static final String SOCKET_ENDPOINT = "http://" + HOST + ":" + PORT;
+
+    public static Socket createSocket(String roomId) {
+        try {
+            Manager manager = new Manager(new URI(SOCKET_ENDPOINT));
+            Socket socket = manager.socket("/" + roomId);
+            return socket;
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(Api.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 
     public static InitResponse init() {
         try {
@@ -27,12 +45,12 @@ public class Api {
 
             return InitResponse.parseFrom(url.openStream());
         } catch (MalformedURLException ex) {
-            //Logger.getLogger(Api.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("niet geconnect");
+            Logger.getLogger(Api.class.getName()).log(Level.SEVERE, null, ex);
+            //System.out.println("niet geconnect");
         } catch (IOException ex) {
-            //Logger.getLogger(Api.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("niet geconnect");
-        } 
+            Logger.getLogger(Api.class.getName()).log(Level.SEVERE, null, ex);
+            //System.out.println("niet geconnect");
+        }
         return null;
     }
 

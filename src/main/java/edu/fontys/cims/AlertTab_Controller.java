@@ -5,16 +5,12 @@ package edu.fontys.cims;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import com.google.protobuf.GeneratedMessageV3;
-import com.lynden.gmapsfx.GoogleMapView;
-import com.lynden.gmapsfx.MapComponentInitializedListener;
-import com.lynden.gmapsfx.javascript.object.GoogleMap;
+import com.google.protobuf.InvalidProtocolBufferException;
 import com.lynden.gmapsfx.javascript.object.LatLong;
-import com.lynden.gmapsfx.javascript.object.MapOptions;
-import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
 import com.lynden.gmapsfx.javascript.object.Marker;
 import com.lynden.gmapsfx.javascript.object.MarkerOptions;
+import io.socket.client.Socket;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -26,6 +22,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -47,6 +44,8 @@ import javafx.scene.control.TextField;
  * @author Jip
  */
 public class AlertTab_Controller implements Initializable {
+
+    //<editor-fold defaultstate="collapsed" desc="Form controls">
     @FXML
     private ListView lvAlerts;
 
@@ -67,14 +66,13 @@ public class AlertTab_Controller implements Initializable {
 
     @FXML
     private Slider sliderCrisisPriority;
-    
+
     @FXML
     private TextField txtCrisisReach;
-    
+//</editor-fold>
 
     private InitRequest.Alert selectedAlert;
     private final ObservableList<InitRequest.Alert> alerts = FXCollections.observableArrayList();
-
 
     /**
      * Initializes the controller class.
@@ -84,34 +82,50 @@ public class AlertTab_Controller implements Initializable {
         // TODO
         //mapView.addMapInializedListener(this);
 
-        InitRequest.InitResponse resp = null;
+        InitRequest.InitResponse resp;
         resp = Api.init();
-        
-        if(resp != null){
+
+        if (resp != null) {
             alerts.addAll(resp.getAlertResultsList());
         }
+        Socket test = Api.createSocket("alerts");
+
+        test.on("alert", (Object... os) -> {
+            try {
+                final InitRequest.Alert alert = InitRequest.Alert.parseFrom((byte[]) os[0]);
+                Platform.runLater(() -> {
+                    alerts.add(alert);
+                });
+            } catch (InvalidProtocolBufferException ex) {
+                Logger.getLogger(AlertTab_Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        });
+        test.on(Socket.EVENT_CONNECT, (Object... os) -> {
+            System.out.println("I connected!");
+        });
+        test.connect();
         initializeListView();
-    } 
-    
+    }
+
     private void initializeListView() {
         lvAlerts.setItems(alerts);
 
         lvAlerts.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<InitRequest.Alert>() {
             @Override
             public void changed(ObservableValue<? extends InitRequest.Alert> observable, InitRequest.Alert oldValue, InitRequest.Alert newValue) {
-                if(newValue != oldValue){
+                if (newValue != oldValue) {
                     selectedAlert = newValue;
                 }
-                
+
                 try {
-                    dtAlertDate.setValue(new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(newValue.getTimestamp()).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+                    dtAlertDate.setValue(new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(newValue.getTimestamp()).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
                 } catch (ParseException ex) {
                     Logger.getLogger(SceneFXMLController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
                 MarkerOptions markerOptions = new MarkerOptions();
-                System.out.println(newValue.getLocation().getLatitude());
-                System.out.println(newValue.getLocation().getLongitude());
+                System.out.println("Lat, long: " + newValue.getLocation().getLatitude() + "," + newValue.getLocation().getLongitude());
 
                 LatLong pos = new LatLong(newValue.getLocation().getLatitude(), newValue.getLocation().getLongitude());
                 markerOptions.position(pos);
@@ -231,5 +245,4 @@ public class AlertTab_Controller implements Initializable {
         }
     }
 
-    
 }
