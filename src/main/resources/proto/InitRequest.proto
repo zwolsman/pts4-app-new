@@ -4,28 +4,46 @@ package edu.fontys.cims.proto;
 option java_package = "edu.fontys.cims";
 
 message InitResponse {
-    repeated Alert alertResults = 1;
+    repeated Alert alertResults =   1;
     repeated Crisis crisisResults = 2;
 }
 
 message Alert {
-    int32 id = 1;
-    Location location = 2;
-    string date = 3;
-    string userDescription = 4;
+    int32 id =              1;
+    Location location =     2;
+    string ipaddr =         3;
+    bool processed =        4;
+    string description =    5; 
+    string timestamp =      6; 
 }
 
 message Location {
-    double lat = 1;
-    double long = 2;
+    int32 id =              1;
+    double latitude =       2;
+    double longitude =      3;
+    string country =        4;
+    string country_code =   5;
+    string city =           6;
+    string zipcode =        7;
+    string street_name =    8;
+    string street_number =  9;
 }
+
 message Crisis {
-    int32 id = 1;
-    Location location = 2;
-    string date = 3;
-    string userDescription = 4;
-    string title = 5;
-    string description = 6;
-    int32 priority = 7;
-    int32 reach = 8;
+    int32 id =              1;
+    Alert alert =           2;
+    Location location =     3;
+    string status =         4;
+    int32 priority =        5;
+    string title =          6;
+    string description =    7;
+    string thumbnail =      8;   
+    int32 reach =           9;
+    string timestamp =      10;
+}
+
+message Message {
+    int32 id =              1;
+    int32 crisisid =        2;
+    string text =           3;
 }
