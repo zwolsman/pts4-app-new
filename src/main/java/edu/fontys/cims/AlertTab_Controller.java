@@ -124,6 +124,7 @@ public class AlertTab_Controller implements Initializable {
                 SceneFXMLController.map.addMarker(SceneFXMLController.marker);
                 SceneFXMLController.map.panTo(pos);
                 txtAlertUserDescription.setText(newValue.getDescription());
+                txtAlertLocation.setText(selectedAlert.getLocation().getZipcode() + " " + selectedAlert.getLocation().getCity());
 
             }
         });
@@ -175,7 +176,7 @@ public class AlertTab_Controller implements Initializable {
         InitRequest.Crisis crisis = InitRequest.Crisis.newBuilder()
                 .setAlert(selectedAlert)
                 .setLocation(selectedAlert.getLocation())
-                .setStatus("henk")
+                .setStatus("In gang")
                 .setPriority((int) Math.round(sliderCrisisPriority.getValue()))
                 .setTitle(txtCrisisTitle.getText())
                 .setDescription(txtCrisisDescription.getText())
