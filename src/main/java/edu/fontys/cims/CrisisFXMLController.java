@@ -14,8 +14,16 @@ import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
 import com.lynden.gmapsfx.javascript.object.Marker;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.ListView;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 /**
  *
@@ -24,13 +32,40 @@ import javafx.fxml.Initializable;
 public final class CrisisFXMLController implements Initializable {
 
     
+    @FXML
+    private ListView lvCrisisen;
     
+    @FXML
+    private TextArea txtAlertUserDescription;
+    @FXML
+    private DatePicker dtAlertDate;
+    @FXML
+    private TextField txtAlertLocation;
+    @FXML
+    private TextField txtAlertReach;
+    @FXML
+    private Slider sliderCrisisPriority;
+    @FXML
+    private TextField txtTitle;
+    @FXML
+    private TextArea txtAlertDescription;
+    @FXML
+    private ComboBox cbStatus;
     
+    private final ObservableList<InitRequest.Crisis> crisisen = FXCollections.observableArrayList();
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        InitRequest.InitResponse resp = null;
+        resp = Api.init();
         
+        if(resp != null){
+            crisisen.addAll(resp.getCrisisResultsList());
+        }
     }
 
-    
+    @FXML
+    private void changeCrisisClick(){
+        
+    }
 }
