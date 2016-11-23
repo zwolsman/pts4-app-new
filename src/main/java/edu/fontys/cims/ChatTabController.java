@@ -5,6 +5,8 @@
  */
 package edu.fontys.cims;
 
+import com.google.protobuf.InvalidProtocolBufferException;
+import io.socket.client.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -13,6 +15,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import io.socket.global.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
 
 /**
  * FXML Controller class
@@ -32,7 +37,7 @@ public class ChatTabController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
     }
 
     @FXML

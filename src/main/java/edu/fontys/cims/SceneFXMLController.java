@@ -1,5 +1,6 @@
 package edu.fontys.cims;
 
+import com.google.protobuf.InvalidProtocolBufferException;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
 import com.lynden.gmapsfx.javascript.object.GoogleMap;
@@ -7,8 +8,12 @@ import com.lynden.gmapsfx.javascript.object.LatLong;
 import com.lynden.gmapsfx.javascript.object.MapOptions;
 import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
 import com.lynden.gmapsfx.javascript.object.Marker;
+import io.socket.client.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -22,7 +27,9 @@ public class SceneFXMLController implements Initializable, MapComponentInitializ
     public GoogleMapView mapView;
     public static GoogleMap map;
     public static Marker marker;
-    public static TabPane TabView;
+
+    @FXML
+    public TabPane TabView;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -84,7 +91,21 @@ public class SceneFXMLController implements Initializable, MapComponentInitializ
                     mapView.visibleProperty().set(true);
                 } else if (id.equals("ChatTab")) {
                     mapView.visibleProperty().set(false);
-                    Globals.chat = Api.createSocket(String.valueOf(Globals.selectedCrisis.getId()));
+                    Globals.chat.on("a message", (Object... os) -> {
+                        try {
+                            final InitRequest.Message message = InitRequest.Message.parseFrom((byte[]) os[0]);
+                            Platform.runLater(() -> {
+                                System.out.println(message.getId() + ": " + message.getText());
+                            });
+                        } catch (InvalidProtocolBufferException ex) {
+                            Logger.getLogger(AlertTab_Controller.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+
+                    });
+                    Globals.chat.on(Globals.chat.EVENT_CONNECT, (Object... os) -> {
+                        System.out.println("I connected!");
+                    });
+                    Globals.chat.connect();
                 }
             }
         }

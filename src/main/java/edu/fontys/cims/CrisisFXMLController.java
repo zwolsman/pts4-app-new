@@ -22,6 +22,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
@@ -64,12 +65,30 @@ public final class CrisisFXMLController implements Initializable {
             crisisen.addAll(resp.getCrisisResultsList());
         }
 
+        lvCrisisen.setItems(crisisen);
+
+        lvCrisisen.setCellFactory((Object x) -> new ListCell<InitRequest.Crisis>() {
+            @Override
+            public void updateItem(InitRequest.Crisis item, boolean empty) {
+                if (empty) {
+                    return;
+                }
+                setText(item.getId() + ": " + item.getTitle());
+                super.updateItem(item, empty);
+            }
+        });
+
         lvCrisisen.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<InitRequest.Crisis>() {
             @Override
             public void changed(ObservableValue<? extends InitRequest.Crisis> observable, InitRequest.Crisis oldValue, InitRequest.Crisis newValue) {
                 if (newValue != null && oldValue != newValue) {
                     Globals.selectedCrisis = newValue;
-                    SceneFXMLController.TabView.getSelectionModel().select(2);
+                    if (Globals.selectedCrisis != null) {
+                        if (Globals.chat != null) {
+                            Globals.chat.disconnect();
+                        }
+                        Globals.chat = Api.createSocket(String.valueOf(Globals.selectedCrisis.getId()));
+                    }
                 }
             }
         });
