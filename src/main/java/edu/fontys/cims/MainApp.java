@@ -15,7 +15,7 @@ public class MainApp extends Application {
 
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
-
+        
         stage.setTitle("CIMS");
         stage.setScene(scene);
         stage.show();
