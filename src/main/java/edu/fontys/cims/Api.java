@@ -21,12 +21,13 @@ public class Api {
     private static final String HOST = "localhost";
     private static final int PORT = 3000;
     private static final String API_ENDPOINT = "http://" + HOST + ":" + PORT + "/api";
-    private static final String SOCKET_ENDPOINT = "http://" + HOST + ":" + PORT;
+    public static final String SOCKET_ENDPOINT = "http://" + HOST + ":" + PORT;
 
     public static Socket createSocket(String roomId) {
         try {
             Manager manager = new Manager(new URI(SOCKET_ENDPOINT));
             Socket socket = manager.socket("/" + roomId);
+            System.out.println("Room: " + roomId + "created");
             return socket;
         } catch (URISyntaxException ex) {
             Logger.getLogger(Api.class.getName()).log(Level.SEVERE, null, ex);

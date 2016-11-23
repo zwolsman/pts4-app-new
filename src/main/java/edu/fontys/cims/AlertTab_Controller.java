@@ -212,7 +212,7 @@ public class AlertTab_Controller implements Initializable {
 
     private void sendProto(GeneratedMessageV3 proto) {
         try {
-            URL url = new URL("http://localhost:3001/" + "crisis");
+            URL url = new URL(Api.SOCKET_ENDPOINT + "/api/crisis");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");

@@ -18,13 +18,12 @@ import javafx.scene.control.TabPane;
 
 public class SceneFXMLController implements Initializable, MapComponentInitializedListener {
 
-    
     @FXML
-    public  GoogleMapView mapView;
+    public GoogleMapView mapView;
     public static GoogleMap map;
     public static Marker marker;
-    public TabPane TabView;
-    
+    public static TabPane TabView;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         /*try {
@@ -59,7 +58,7 @@ public class SceneFXMLController implements Initializable, MapComponentInitializ
 
     @Override
     public void mapInitialized() {
-         //Set the initial properties of the map.
+        //Set the initial properties of the map.
         MapOptions mapOptions = new MapOptions();
 
         mapOptions.center(new LatLong(51.436596, 5.478001))
@@ -75,22 +74,21 @@ public class SceneFXMLController implements Initializable, MapComponentInitializ
 
         map = mapView.createMap(mapOptions);
         System.out.println("Woah, initialized map!");
-        
+
         TabView.getSelectionModel().selectedItemProperty().addListener(
-            new ChangeListener<Tab>() {
-                @Override
-                public void changed(ObservableValue<? extends Tab> ov, Tab t, Tab t1) {
-                    String id = t1.idProperty().getValue();
-                    if( id.equals("MeldingTab") || id.equals("CrisisTab") ){
-                       mapView.visibleProperty().set(true);
-                    }
-                    else{
-                       mapView.visibleProperty().set(false);
-                    }
+                new ChangeListener<Tab>() {
+            @Override
+            public void changed(ObservableValue<? extends Tab> ov, Tab t, Tab t1) {
+                String id = t1.idProperty().getValue();
+                if (id.equals("MeldingTab") || id.equals("CrisisTab")) {
+                    mapView.visibleProperty().set(true);
+                } else if (id.equals("ChatTab")) {
+                    mapView.visibleProperty().set(false);
+                    Globals.chat = Api.createSocket(String.valueOf(Globals.selectedCrisis.getId()));
                 }
             }
+        }
         );
     }
-    
-    
+
 }

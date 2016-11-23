@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import io.socket.global.*;
 
 /**
  * FXML Controller class
@@ -22,22 +23,22 @@ public class ChatTabController implements Initializable {
 
     @FXML
     public TextArea ChatBox_TextArea;
-    
+
     @FXML
     public TextField Message_TextField;
-    
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
     @FXML
-    public void handleSendClick(){
+    public void handleSendClick() {
         ChatBox_TextArea.setText(ChatBox_TextArea.getText() + Message_TextField.getText() + "\n");
         InitRequest.Message message = InitRequest.Message.newBuilder().setId(0).setCrisisid(0).setText(ChatBox_TextArea.getText()).build();
-        
+
     }
 }

@@ -14,6 +14,8 @@ import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
 import com.lynden.gmapsfx.javascript.object.Marker;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -31,10 +33,9 @@ import javafx.scene.control.TextField;
  */
 public final class CrisisFXMLController implements Initializable {
 
-    
     @FXML
     private ListView lvCrisisen;
-    
+
     @FXML
     private TextArea txtAlertUserDescription;
     @FXML
@@ -51,21 +52,31 @@ public final class CrisisFXMLController implements Initializable {
     private TextArea txtAlertDescription;
     @FXML
     private ComboBox cbStatus;
-    
+
     private final ObservableList<InitRequest.Crisis> crisisen = FXCollections.observableArrayList();
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         InitRequest.InitResponse resp = null;
         resp = Api.init();
-        
-        if(resp != null){
+
+        if (resp != null) {
             crisisen.addAll(resp.getCrisisResultsList());
         }
+
+        lvCrisisen.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<InitRequest.Crisis>() {
+            @Override
+            public void changed(ObservableValue<? extends InitRequest.Crisis> observable, InitRequest.Crisis oldValue, InitRequest.Crisis newValue) {
+                if (newValue != null && oldValue != newValue) {
+                    Globals.selectedCrisis = newValue;
+                    SceneFXMLController.TabView.getSelectionModel().select(2);
+                }
+            }
+        });
     }
 
     @FXML
-    private void changeCrisisClick(){
-        
+    private void changeCrisisClick() {
+
     }
 }
