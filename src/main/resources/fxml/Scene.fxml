@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import com.lynden.gmapsfx.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="719.0" prefWidth="532.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fontys.cims.SceneFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="719.0" prefWidth="885.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fontys.cims.SceneFXMLController">
     <children>
         <TabPane fx:id="TabView" prefHeight="650.0" prefWidth="532.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <tabs>
@@ -22,11 +22,6 @@
                 <Tab id="CrisisTab" text="Crisis">
                     <content>
                         <fx:include fx:id="crisisTab" source="CrisisTab.fxml" />
-                    </content>
-                </Tab>
-                <Tab id="ChatTab" text="Chat">
-                    <content>
-                        <fx:include fx:id="chatTab" source="ChatTab.fxml" />
                     </content>
                 </Tab>
             </tabs>
