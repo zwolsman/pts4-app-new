@@ -13,12 +13,16 @@ import com.lynden.gmapsfx.javascript.object.LatLong;
 import com.lynden.gmapsfx.javascript.object.MapOptions;
 import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
 import com.lynden.gmapsfx.javascript.object.Marker;
+import edu.fontys.cims.InitRequest.Alert;
 import edu.fontys.cims.InitRequest.Crisis;
 import io.socket.client.Socket;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,9 +52,7 @@ public final class CrisisFXMLController implements Initializable {
     @FXML
     private ListView lvCrisisen;
     @FXML
-    private TextArea descriptionTextArea;
-    @FXML
-    private TextArea txtAlertUserDescription;
+    private TextArea alertDescription;
     @FXML
     private DatePicker dtAlertDate;
     @FXML
@@ -62,16 +64,24 @@ public final class CrisisFXMLController implements Initializable {
     @FXML
     private TextField txtTitle;
     @FXML
-    private TextArea txtAlertDescription;
-    @FXML
     private ComboBox cbStatus;
     @FXML
     private TextArea chatTextArea;
     @FXML
     private TextArea chatBoxArea;
+
+    @FXML
+    private TextArea txtCrisisDescription;
+
     private Crisis selectedCrisis;
 
     private final ObservableList<InitRequest.Crisis> crisisen = FXCollections.observableArrayList();
+
+    private ObservableList<String> cbOptions
+            = FXCollections.observableArrayList(
+                    "In gang",
+                    "Afgehandeld"
+            );
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -83,7 +93,7 @@ public final class CrisisFXMLController implements Initializable {
         }
 
         lvCrisisen.setItems(crisisen);
-
+        cbStatus.setItems(cbOptions);
         lvCrisisen.setCellFactory((Object x) -> new ListCell<InitRequest.Crisis>() {
             @Override
             public void updateItem(InitRequest.Crisis item, boolean empty) {
@@ -100,6 +110,31 @@ public final class CrisisFXMLController implements Initializable {
             public void changed(ObservableValue<? extends InitRequest.Crisis> observable, InitRequest.Crisis oldValue, InitRequest.Crisis newValue) {
                 if (newValue != null && oldValue != newValue) {
                     selectedCrisis = newValue;
+                    Alert alert = selectedCrisis.getAlert();
+                    txtTitle.setText(selectedCrisis.getTitle());
+                    alertDescription.setText(alert.getDescription());
+                    txtAlertReach.setText(String.valueOf(selectedCrisis.getReach()));
+                    txtCrisisDescription.setText(selectedCrisis.getDescription());
+                    sliderCrisisPriority.setValue(selectedCrisis.getPriority());
+                    txtCrisisDescription.setWrapText(true);
+                    alertDescription.setWrapText(true);
+                    cbStatus.getSelectionModel().selectFirst();
+                    
+                    if (alert.getLocation().getStreetName().isEmpty()) {
+                        txtAlertLocation.setText(alert.getLocation().getCity());
+                    } else {
+                        txtAlertLocation.setText(alert.getLocation().getStreetName() + " " + alert.getLocation().getStreetNumber());
+                    }
+
+                    LatLong pos = new LatLong(alert.getLocation().getLatitude(), alert.getLocation().getLongitude());
+                    SceneFXMLController.setMapPosition(pos);
+                
+                    try {
+                        dtAlertDate.setValue(new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(selectedCrisis.getAlert().getTimestamp()).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+                    } catch (ParseException ex) {
+                        Logger.getLogger(CrisisFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
                     Socket chat = Api.createSocket(String.valueOf(newValue.getId()));
                     chat.on("a message", (Object... os) -> {
                         try {
@@ -107,7 +142,6 @@ public final class CrisisFXMLController implements Initializable {
                             System.out.println(message.getText());
                             chatTextArea.appendText(message.getId() + ": " + message.getText() + "\r\n");
                         } catch (InvalidProtocolBufferException ex) {
-                            Logger.getLogger(ChatTabController.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     });
                     chat.on(Socket.EVENT_CONNECT, (Object... os) -> {

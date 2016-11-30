@@ -8,6 +8,7 @@ import com.lynden.gmapsfx.javascript.object.LatLong;
 import com.lynden.gmapsfx.javascript.object.MapOptions;
 import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
 import com.lynden.gmapsfx.javascript.object.Marker;
+import com.lynden.gmapsfx.javascript.object.MarkerOptions;
 import io.socket.client.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -96,6 +97,19 @@ public class SceneFXMLController implements Initializable, MapComponentInitializ
             }
         }
         );
+    }
+
+    public static void setMapPosition(LatLong pos) {
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(pos);
+
+        if (marker != null) {
+            map.removeMarker(marker);
+
+        }
+        marker = new Marker(markerOptions);
+        map.addMarker(marker);
+        map.panTo(pos);
     }
 
 }
