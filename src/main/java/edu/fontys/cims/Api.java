@@ -27,7 +27,7 @@ public class Api {
         try {
             Manager manager = new Manager(new URI(SOCKET_ENDPOINT));
             Socket socket = manager.socket("/" + roomId);
-            System.out.println("Room: " + roomId + "created");
+            System.out.println("Room: " + roomId + " created");
             return socket;
         } catch (URISyntaxException ex) {
             Logger.getLogger(Api.class.getName()).log(Level.SEVERE, null, ex);

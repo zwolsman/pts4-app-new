@@ -17,6 +17,7 @@ import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -89,23 +90,8 @@ public class SceneFXMLController implements Initializable, MapComponentInitializ
                 String id = t1.idProperty().getValue();
                 if (id.equals("MeldingTab") || id.equals("CrisisTab")) {
                     mapView.visibleProperty().set(true);
-                } else if (id.equals("ChatTab")) {
+                } else {
                     mapView.visibleProperty().set(false);
-                    Globals.chat.on("a message", (Object... os) -> {
-                        try {
-                            final InitRequest.Message message = InitRequest.Message.parseFrom((byte[]) os[0]);
-                            Platform.runLater(() -> {
-                                System.out.println(message.getId() + ": " + message.getText());
-                            });
-                        } catch (InvalidProtocolBufferException ex) {
-                            Logger.getLogger(AlertTab_Controller.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-
-                    });
-                    Globals.chat.on(Globals.chat.EVENT_CONNECT, (Object... os) -> {
-                        System.out.println("I connected!");
-                    });
-                    Globals.chat.connect();
                 }
             }
         }

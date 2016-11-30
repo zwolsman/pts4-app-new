@@ -88,6 +88,7 @@ public class AlertTab_Controller implements Initializable {
         if (resp != null) {
             alerts.addAll(resp.getAlertResultsList());
         }
+
         Socket test = Api.createSocket("alerts");
 
         test.on("alert", (Object... os) -> {
