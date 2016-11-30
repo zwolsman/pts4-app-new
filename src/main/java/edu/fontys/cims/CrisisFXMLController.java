@@ -163,10 +163,12 @@ public final class CrisisFXMLController implements Initializable {
             conn.setRequestProperty("Content-Type", "application/protobuf");
             InitRequest.Message message = InitRequest.Message.newBuilder()
                     .setCrisisid(selectedCrisis.getId())
-                    .setId(0)
+                    .setId(1)
                     .setText(chatBoxArea.getText()).build();
+            System.out.println(message);
             message.writeTo(conn.getOutputStream());
-            chatBoxArea.clear();
+
+            chatTextArea.appendText("Me: " + chatBoxArea.getText() + "\r\n");
             int responseCode = conn.getResponseCode();
             System.out.println("\nSending 'POST' request to URL : " + url);
             System.out.println("Response Code : " + responseCode);
