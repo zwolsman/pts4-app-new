@@ -14,21 +14,11 @@
     <children>
         <TabPane fx:id="TabView" prefHeight="650.0" prefWidth="532.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <tabs>
-                <Tab id="MeldingTab" text="Melding">
-                    <content>
-                        <fx:include fx:id="alertTab" source="AlertTab.fxml" />
-                    </content>
-                </Tab>
-                <Tab id="CrisisTab" text="Crisis">
-                    <content>
-                        <fx:include fx:id="crisisTab" source="CrisisTab.fxml" />
-                    </content>
-                </Tab>
                 <Tab text="Chats">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TabPane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <TabPane fx:id="chatTabPane" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <tabs>
                                         <Tab text="Chat tab">
                                             <content>

@@ -1,11 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.fontys.cims;
 
+import com.lynden.gmapsfx.GoogleMapView;
+import com.lynden.gmapsfx.MapComponentInitializedListener;
+import com.lynden.gmapsfx.javascript.object.GoogleMap;
 import com.lynden.gmapsfx.javascript.object.LatLong;
+import com.lynden.gmapsfx.javascript.object.MapOptions;
+import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
 import edu.fontys.cims.InitRequest.Alert;
 import edu.fontys.cims.InitRequest.Crisis;
 import java.net.URL;
@@ -32,7 +32,7 @@ import javafx.scene.control.TextField;
  *
  * @author juleb
  */
-public final class CrisisTabController implements Initializable {
+public final class CrisisTabController implements Initializable, MapComponentInitializedListener {
 
     @FXML
     private ListView lvCrisisen;
@@ -67,9 +67,13 @@ public final class CrisisTabController implements Initializable {
                     "In gang",
                     "Afgehandeld"
             );
+    @FXML
+    GoogleMapView mapView;
+    GoogleMap map;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        mapView.addMapInializedListener(this);
         InitRequest.InitResponse resp = null;
         resp = Api.init();
 
@@ -112,20 +116,56 @@ public final class CrisisTabController implements Initializable {
                     }
 
                     LatLong pos = new LatLong(alert.getLocation().getLatitude(), alert.getLocation().getLongitude());
-                    MainController.setMapPosition(pos);
+                    // MainController.setMapPosition(pos); TODO fix dit
 
                     try {
                         dtAlertDate.setValue(new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(selectedCrisis.getAlert().getTimestamp()).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
                     } catch (ParseException ex) {
-                        Logger.getLogger(CrisisTabController.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(CrisisTabController.class.getName()).log(Level.SEVERE, "Error parsing datetime");
                     }
                 }
             }
         });
     }
 
+    private CreateChatHandler handler;
+
+    public void setCreateChatHandler(CreateChatHandler handler) {
+        this.handler = handler;
+    }
+
+    @FXML
+    private void btnChatClick() {
+        if (handler == null) {
+            return;
+        }
+        Crisis crisis = (Crisis) lvCrisisen.getSelectionModel().getSelectedItems().get(0);
+        if (crisis == null) {
+            return;
+        }
+        handler.createChat(crisis.getId());
+    }
+
     @FXML
     private void changeCrisisClick() {
 
+    }
+
+    @Override
+    public void mapInitialized() {
+        MapOptions mapOptions = new MapOptions();
+
+        mapOptions.center(new LatLong(51.436596, 5.478001))
+                .mapType(MapTypeIdEnum.ROADMAP)
+                .overviewMapControl(false)
+                .panControl(false)
+                .rotateControl(false)
+                .scaleControl(false)
+                .streetViewControl(false)
+                .mapTypeControl(false)
+                .zoomControl(false)
+                .zoom(12);
+
+        map = mapView.createMap(mapOptions);
     }
 }

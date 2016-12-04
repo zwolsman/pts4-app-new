@@ -1,15 +1,13 @@
 package edu.fontys.cims;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 import com.google.protobuf.GeneratedMessageV3;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.lynden.gmapsfx.GoogleMapView;
+import com.lynden.gmapsfx.MapComponentInitializedListener;
+import com.lynden.gmapsfx.javascript.object.GoogleMap;
 import com.lynden.gmapsfx.javascript.object.LatLong;
-import com.lynden.gmapsfx.javascript.object.Marker;
-import com.lynden.gmapsfx.javascript.object.MarkerOptions;
+import com.lynden.gmapsfx.javascript.object.MapOptions;
+import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
 import io.socket.client.Socket;
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -43,7 +41,7 @@ import javafx.scene.control.TextField;
  *
  * @author Jip
  */
-public class AlertTabController implements Initializable {
+public class AlertTabController implements Initializable, MapComponentInitializedListener {
 
     //<editor-fold defaultstate="collapsed" desc="Form controls">
     @FXML
@@ -69,8 +67,12 @@ public class AlertTabController implements Initializable {
 
     @FXML
     private TextField txtCrisisReach;
-//</editor-fold>
 
+    @FXML
+    GoogleMapView mapView;
+    GoogleMap map;
+
+//</editor-fold>
     private InitRequest.Alert selectedAlert;
     private final ObservableList<InitRequest.Alert> alerts = FXCollections.observableArrayList();
 
@@ -79,8 +81,7 @@ public class AlertTabController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        //mapView.addMapInializedListener(this);
+        mapView.addMapInializedListener(this);
 
         InitRequest.InitResponse resp;
         resp = Api.init();
@@ -125,9 +126,8 @@ public class AlertTabController implements Initializable {
                     Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
-
                 LatLong pos = new LatLong(newValue.getLocation().getLatitude(), newValue.getLocation().getLongitude());
-                MainController.setMapPosition(pos);
+                // MainController.setMapPosition(pos); TODO fix dit
                 txtAlertUserDescription.setText(newValue.getDescription());
                 txtAlertLocation.setText(selectedAlert.getLocation().getZipcode() + " " + selectedAlert.getLocation().getCity());
 
@@ -234,6 +234,24 @@ public class AlertTabController implements Initializable {
         if (result.get() == ButtonType.OK) {
             alerts.remove(lvAlerts.getSelectionModel().getSelectedIndex());
         }
+    }
+
+    @Override
+    public void mapInitialized() {
+        MapOptions mapOptions = new MapOptions();
+
+        mapOptions.center(new LatLong(51.436596, 5.478001))
+                .mapType(MapTypeIdEnum.ROADMAP)
+                .overviewMapControl(false)
+                .panControl(false)
+                .rotateControl(false)
+                .scaleControl(false)
+                .streetViewControl(false)
+                .mapTypeControl(false)
+                .zoomControl(false)
+                .zoom(12);
+
+        map = mapView.createMap(mapOptions);
     }
 
 }

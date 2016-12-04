@@ -1,29 +1,21 @@
 package edu.fontys.cims;
 
-import com.google.protobuf.InvalidProtocolBufferException;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
 import com.lynden.gmapsfx.javascript.object.GoogleMap;
-import com.lynden.gmapsfx.javascript.object.LatLong;
-import com.lynden.gmapsfx.javascript.object.MapOptions;
-import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
 import com.lynden.gmapsfx.javascript.object.Marker;
-import com.lynden.gmapsfx.javascript.object.MarkerOptions;
-import io.socket.client.Socket;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 
-public class MainController implements Initializable, MapComponentInitializedListener {
+public class MainController implements Initializable, MapComponentInitializedListener, CreateChatHandler {
 
     @FXML
     public GoogleMapView mapView;
@@ -35,81 +27,66 @@ public class MainController implements Initializable, MapComponentInitializedLis
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        /*try {
-            final Socket socket = IO.socket("http://localhost:3001");
-            socket.on(Socket.EVENT_CONNECT, new Emitter.Listener() {
+        loadAlertTab();
+    }
 
-                @Override
-                public void call(Object... args) {
-                    System.out.println("Connected to web socket!");
-                }
+    private void loadAlertTab() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/AlertTab.fxml"));
+            Tab tab = new Tab();
+            tab.setText("Melding");
+            tab.setContent(loader.load());
 
-            }).on("melding", new Emitter.Listener() {
+            AlertTabController controller = loader.getController();
+            controller.mapView.addMapInializedListener(this);
+            TabView.getTabs().add(0, tab);
+            TabView.getSelectionModel().select(tab);
 
-                @Override
-                public void call(Object... args) {
-                }
+        } catch (IOException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
-            }).on(Socket.EVENT_DISCONNECT, new Emitter.Listener() {
+    private void loadCrisisTab() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/CrisisTab.fxml"));
+            Tab tab = new Tab();
+            tab.setText("Crisis");
+            tab.setContent(loader.load());
 
-                @Override
-                public void call(Object... args) {
-                    System.out.println("Disconnected!");
-                }
+            CrisisTabController controller = loader.getController();
+            controller.setCreateChatHandler(this);
+            TabView.getTabs().add(1, tab);
 
-            });
-            socket.connect();
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        mapView.addMapInializedListener(this);
+        } catch (IOException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
     public void mapInitialized() {
-        //Set the initial properties of the map.
-        MapOptions mapOptions = new MapOptions();
-
-        mapOptions.center(new LatLong(51.436596, 5.478001))
-                .mapType(MapTypeIdEnum.ROADMAP)
-                .overviewMapControl(false)
-                .panControl(false)
-                .rotateControl(false)
-                .scaleControl(false)
-                .streetViewControl(false)
-                .mapTypeControl(false)
-                .zoomControl(false)
-                .zoom(12);
-
-        map = mapView.createMap(mapOptions);
-        System.out.println("Woah, initialized map!");
-
-        TabView.getSelectionModel().selectedItemProperty().addListener(
-                new ChangeListener<Tab>() {
-            @Override
-            public void changed(ObservableValue<? extends Tab> ov, Tab t, Tab t1) {
-                String id = t1.idProperty().getValue();
-                if (id.equals("MeldingTab") || id.equals("CrisisTab")) {
-                    mapView.visibleProperty().set(true);
-                } else {
-                    mapView.visibleProperty().set(false);
-                }
-            }
-        }
-        );
+        loadCrisisTab(); //Load if after the first map is initialized
     }
 
-    public static void setMapPosition(LatLong pos) {
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(pos);
+    @FXML
+    TabPane chatTabPane;
 
-        if (marker != null) {
-            map.removeMarker(marker);
+    @Override
+    public void createChat(int id) {
+        try {
+            System.out.println("Create chat tab with id " + id);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ChatTab.fxml"));
+            Tab tab = new Tab();
+            tab.setContent(loader.load());
 
+            ChatTabController controller = loader.getController();
+            controller.setId(id);
+
+            tab.setText("Chat #" + id);
+            chatTabPane.getTabs().add(tab);
+        } catch (IOException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        marker = new Marker(markerOptions);
-        map.addMarker(marker);
-        map.panTo(pos);
     }
 
 }

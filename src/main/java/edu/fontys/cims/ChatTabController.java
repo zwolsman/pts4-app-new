@@ -3,6 +3,8 @@ package edu.fontys.cims;
 import com.google.protobuf.InvalidProtocolBufferException;
 import io.socket.client.Socket;
 import java.net.URL;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -31,7 +33,7 @@ public class ChatTabController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        chatArea.appendText("Connecting..\r\n");
+        appendText("Connecting..");
     }
 
     @FXML
@@ -41,27 +43,35 @@ public class ChatTabController implements Initializable {
                 .setId(1)
                 .setText(messageField.getText().trim()).build();
         if (Api.sendMessage(message)) {
-            chatArea.appendText(message.getText() + "\r\n");
+            appendText("Me: " + message.getText());
             messageField.clear();
         } else {
-            chatArea.appendText("Something went wrong while sending your message. Please try again later..\r\n");
+            appendText("Something went wrong while sending your message. Please try again later..");
         }
     }
 
-    public void setId(String id) {
-        Socket chat = Api.createSocket(id);
+    public void setId(int id) {
+        Socket chat = Api.createSocket(String.valueOf(id));
         chat.on("a message", (Object... os) -> {
             try {
                 final InitRequest.Message message = InitRequest.Message.parseFrom((byte[]) os[0]);
                 System.out.println(message.getText());
-                chatArea.appendText(message.getId() + ": " + message.getText() + "\r\n");
+                appendText(message.getId() + ": " + message.getText());
             } catch (InvalidProtocolBufferException ex) {
             }
         });
         chat.on(Socket.EVENT_CONNECT, (Object... os) -> {
             System.out.println("I connected to chat '" + id + "'!");
+            appendText("Connected!");
+
         });
         chat.connect();
     }
 
+    private void appendText(String message) {
+
+        Date now = new Date();
+
+        chatArea.appendText("[" + Calendar.getInstance().get(Calendar.HOUR_OF_DAY) + ":" + Calendar.getInstance().get(Calendar.MINUTE) + "]\t" + message.trim() + "\r\n");
+    }
 }

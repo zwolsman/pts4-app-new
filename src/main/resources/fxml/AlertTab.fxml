@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?scenebuilder-classpath-element / ?>
+<?import com.lynden.gmapsfx.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -44,7 +45,11 @@
                 <Font name="System Bold" size="12.0" />
             </font>
         </Label>
-        <AnchorPane layoutX="229.0" layoutY="206.0" prefHeight="104.0" prefWidth="292.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
+        <AnchorPane layoutX="229.0" layoutY="206.0" prefHeight="104.0" prefWidth="292.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0">
+            <children>
+                <GoogleMapView fx:id="mapView" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            </children>
+        </AnchorPane>
         <Label layoutX="227.0" layoutY="179.0" text="Locatie" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
         <DatePicker fx:id="dtAlertDate" layoutX="226.0" layoutY="43.0" prefHeight="25.0" prefWidth="270.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
         <Label layoutX="226.0" layoutY="26.0" text="Datum" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />

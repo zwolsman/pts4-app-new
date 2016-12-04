@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?scenebuilder-classpath-element / ?>
+<?import com.lynden.gmapsfx.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -26,7 +27,9 @@
         <DatePicker fx:id="dtAlertDate" layoutX="226.0" layoutY="43.0" prefHeight="25.0" prefWidth="650.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
         <Label layoutX="227.0" layoutY="179.0" text="Locatie" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
         <AnchorPane layoutX="228.0" layoutY="196.0" prefHeight="113.0" prefWidth="180.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="484.0">
-
+            <children>
+                <GoogleMapView fx:id="mapView" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            </children>
         </AnchorPane>
         <Label layoutX="224.0" layoutY="6.0" text="Originele melding" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0">
             <font>
@@ -52,5 +55,6 @@
         <Button layoutX="395.0" layoutY="651.0" mnemonicParsing="false" onAction="#changeCrisisClick" prefHeight="25.0" prefWidth="100.0" text="Wijzig situatie" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
         <TextArea fx:id="alertDescription" layoutX="225.0" layoutY="97.0" prefHeight="83.0" prefWidth="650.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
         <TextArea fx:id="txtCrisisDescription" layoutX="225.0" layoutY="433.0" prefHeight="83.0" prefWidth="274.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
+        <Button layoutX="480.0" layoutY="11.0" mnemonicParsing="false" onAction="#btnChatClick" text="Chat" />
     </children>
 </AnchorPane>
