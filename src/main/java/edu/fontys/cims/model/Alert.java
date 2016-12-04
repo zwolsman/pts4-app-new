@@ -19,7 +19,6 @@ public class Alert {
     /**
      * Database constructor.
      *
-     * @param loc Location object from the location of the alert.
      * @param id id in the database.
      * @param ipaddr IP address of the person who made the alert.
      * @param processed 0 = not processed, 1 = processed in integer.

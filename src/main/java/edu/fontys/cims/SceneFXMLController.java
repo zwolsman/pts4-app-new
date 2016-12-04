@@ -1,5 +1,6 @@
 package edu.fontys.cims;
 
+import com.google.protobuf.InvalidProtocolBufferException;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
 import com.lynden.gmapsfx.javascript.object.GoogleMap;
@@ -7,24 +8,31 @@ import com.lynden.gmapsfx.javascript.object.LatLong;
 import com.lynden.gmapsfx.javascript.object.MapOptions;
 import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
 import com.lynden.gmapsfx.javascript.object.Marker;
+import com.lynden.gmapsfx.javascript.object.MarkerOptions;
+import io.socket.client.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 
 public class SceneFXMLController implements Initializable, MapComponentInitializedListener {
 
-    
     @FXML
-    public  GoogleMapView mapView;
+    public GoogleMapView mapView;
     public static GoogleMap map;
     public static Marker marker;
+
+    @FXML
     public TabPane TabView;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         /*try {
@@ -59,7 +67,7 @@ public class SceneFXMLController implements Initializable, MapComponentInitializ
 
     @Override
     public void mapInitialized() {
-         //Set the initial properties of the map.
+        //Set the initial properties of the map.
         MapOptions mapOptions = new MapOptions();
 
         mapOptions.center(new LatLong(51.436596, 5.478001))
@@ -75,22 +83,33 @@ public class SceneFXMLController implements Initializable, MapComponentInitializ
 
         map = mapView.createMap(mapOptions);
         System.out.println("Woah, initialized map!");
-        
+
         TabView.getSelectionModel().selectedItemProperty().addListener(
-            new ChangeListener<Tab>() {
-                @Override
-                public void changed(ObservableValue<? extends Tab> ov, Tab t, Tab t1) {
-                    String id = t1.idProperty().getValue();
-                    if( id.equals("MeldingTab") || id.equals("CrisisTab") ){
-                       mapView.visibleProperty().set(true);
-                    }
-                    else{
-                       mapView.visibleProperty().set(false);
-                    }
+                new ChangeListener<Tab>() {
+            @Override
+            public void changed(ObservableValue<? extends Tab> ov, Tab t, Tab t1) {
+                String id = t1.idProperty().getValue();
+                if (id.equals("MeldingTab") || id.equals("CrisisTab")) {
+                    mapView.visibleProperty().set(true);
+                } else {
+                    mapView.visibleProperty().set(false);
                 }
             }
+        }
         );
     }
-    
-    
+
+    public static void setMapPosition(LatLong pos) {
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(pos);
+
+        if (marker != null) {
+            map.removeMarker(marker);
+
+        }
+        marker = new Marker(markerOptions);
+        map.addMarker(marker);
+        map.panTo(pos);
+    }
+
 }

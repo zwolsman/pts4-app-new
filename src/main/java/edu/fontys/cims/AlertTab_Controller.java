@@ -88,6 +88,7 @@ public class AlertTab_Controller implements Initializable {
         if (resp != null) {
             alerts.addAll(resp.getAlertResultsList());
         }
+
         Socket test = Api.createSocket("alerts");
 
         test.on("alert", (Object... os) -> {
@@ -124,19 +125,9 @@ public class AlertTab_Controller implements Initializable {
                     Logger.getLogger(SceneFXMLController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
-                MarkerOptions markerOptions = new MarkerOptions();
-                System.out.println("Lat, long: " + newValue.getLocation().getLatitude() + "," + newValue.getLocation().getLongitude());
 
                 LatLong pos = new LatLong(newValue.getLocation().getLatitude(), newValue.getLocation().getLongitude());
-                markerOptions.position(pos);
-
-                if (SceneFXMLController.marker != null) {
-                    SceneFXMLController.map.removeMarker(SceneFXMLController.marker);
-
-                }
-                SceneFXMLController.marker = new Marker(markerOptions);
-                SceneFXMLController.map.addMarker(SceneFXMLController.marker);
-                SceneFXMLController.map.panTo(pos);
+                SceneFXMLController.setMapPosition(pos);
                 txtAlertUserDescription.setText(newValue.getDescription());
                 txtAlertLocation.setText(selectedAlert.getLocation().getZipcode() + " " + selectedAlert.getLocation().getCity());
 
@@ -212,7 +203,7 @@ public class AlertTab_Controller implements Initializable {
 
     private void sendProto(GeneratedMessageV3 proto) {
         try {
-            URL url = new URL("http://localhost:3001/" + "crisis");
+            URL url = new URL(Api.SOCKET_ENDPOINT + "/api/crisis");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");
