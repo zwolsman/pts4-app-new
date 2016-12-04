@@ -24,6 +24,8 @@ public class ChatTabController implements Initializable {
     @FXML
     private TextField messageField;
 
+    private int crisisId;
+
     /**
      * Initializes the controller class.
      */
@@ -32,11 +34,18 @@ public class ChatTabController implements Initializable {
         chatArea.appendText("Connecting..\r\n");
     }
 
+    @FXML
     public void btnSendClick() {
-        //TODO api.sendMessage
-        String message = messageField.getText().trim();
-        chatArea.appendText(message + "\r\n");
-        messageField.clear();
+        InitRequest.Message message = InitRequest.Message.newBuilder()
+                .setCrisisid(crisisId)
+                .setId(1)
+                .setText(messageField.getText().trim()).build();
+        if (Api.sendMessage(message)) {
+            chatArea.appendText(message.getText() + "\r\n");
+            messageField.clear();
+        } else {
+            chatArea.appendText("Something went wrong while sending your message. Please try again later..\r\n");
+        }
     }
 
     public void setId(String id) {
