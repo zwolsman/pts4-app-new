@@ -1,6 +1,7 @@
 package edu.fontys.cims;
 
 import edu.fontys.cims.InitRequest.InitResponse;
+import edu.fontys.cims.InitRequest.Message;
 import io.socket.client.Manager;
 import io.socket.client.Socket;
 import java.io.IOException;
@@ -71,5 +72,26 @@ public class Api {
         } catch (IOException ex) {
             Logger.getLogger(Api.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public static boolean sendMessage(Message message) {
+        try {
+            URL url = new URL("http://localhost:3000/chat");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setDoOutput(true);
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/protobuf");
+            message.writeTo(conn.getOutputStream());
+
+            int responseCode = conn.getResponseCode();
+            System.out.println("\nSending 'POST' request to URL : " + url);
+            System.out.println("Response Code : " + responseCode);
+            return responseCode == 200;
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Api.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Api.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 }
