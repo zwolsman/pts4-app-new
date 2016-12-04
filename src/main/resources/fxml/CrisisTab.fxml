@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fontys.cims.CrisisFXMLController">
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fontys.cims.CrisisTabController">
     <children>
         <Label layoutX="14.0" layoutY="6.0" text="Realtime crisisen" />
         <ListView fx:id="lvCrisisen" layoutX="14.0" layoutY="31.0" prefHeight="643.0" prefWidth="200.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="26.0" />
@@ -29,9 +29,9 @@
 
         </AnchorPane>
         <Label layoutX="224.0" layoutY="6.0" text="Originele melding" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0">
-           <font>
-              <Font name="System Bold" size="12.0" />
-           </font>
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
         </Label>
         <TextField fx:id="txtAlertLocation" editable="false" layoutX="225.0" layoutY="317.0" prefHeight="25.0" prefWidth="274.0" promptText="Formatted address" AnchorPane.leftAnchor="226.0" />
         <TextField fx:id="txtAlertReach" layoutX="225.0" layoutY="598.0" prefHeight="25.0" prefWidth="274.0" promptText="50" AnchorPane.leftAnchor="226.0" />
@@ -44,16 +44,16 @@
         <Separator layoutX="225.0" layoutY="347.0" prefHeight="4.0" prefWidth="274.0" AnchorPane.leftAnchor="225.0" />
         <TextArea fx:id="chatTextArea" layoutX="510.0" layoutY="317.0" prefHeight="267.0" prefWidth="367.0" AnchorPane.leftAnchor="510.0" />
         <Label layoutX="221.0" layoutY="349.0" text="Huidige situatie" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0">
-           <font>
-              <Font name="System Bold" size="12.0" />
-           </font>
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
         </Label>
         <Label layoutX="229.0" layoutY="634.0" text="Status" AnchorPane.leftAnchor="226.0" />
         <ComboBox fx:id="cbStatus" layoutX="229.0" layoutY="651.0" prefHeight="25.0" prefWidth="147.0" AnchorPane.leftAnchor="226.0" />
         <Button layoutX="395.0" layoutY="651.0" mnemonicParsing="false" onAction="#changeCrisisClick" prefHeight="25.0" prefWidth="100.0" text="Wijzig situatie" AnchorPane.leftAnchor="395.0" />
-      <TextArea fx:id="chatBoxArea" layoutX="510.0" layoutY="598.0" prefHeight="73.0" prefWidth="241.0" />
-      <Button fx:id="sendButton" layoutX="760.0" layoutY="643.0" mnemonicParsing="false" onAction="#sendMessageButton" prefHeight="25.0" prefWidth="117.0" text="Verstuur" />
-      <TextArea fx:id="alertDescription" layoutX="225.0" layoutY="97.0" prefHeight="83.0" prefWidth="650.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="15.0" />
-      <TextArea fx:id="txtCrisisDescription" layoutX="225.0" layoutY="433.0" prefHeight="83.0" prefWidth="274.0" />
-     </children>
+        <TextArea fx:id="chatBoxArea" layoutX="510.0" layoutY="598.0" prefHeight="73.0" prefWidth="241.0" />
+        <Button fx:id="sendButton" layoutX="760.0" layoutY="643.0" mnemonicParsing="false" onAction="#sendMessageButton" prefHeight="25.0" prefWidth="117.0" text="Verstuur" />
+        <TextArea fx:id="alertDescription" layoutX="225.0" layoutY="97.0" prefHeight="83.0" prefWidth="650.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="15.0" />
+        <TextArea fx:id="txtCrisisDescription" layoutX="225.0" layoutY="433.0" prefHeight="83.0" prefWidth="274.0" />
+    </children>
 </AnchorPane>

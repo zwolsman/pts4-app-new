@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="674.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fontys.cims.AlertTab_Controller">
+<AnchorPane id="AnchorPane" prefHeight="674.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fontys.cims.AlertTabController">
     <children>
-        
+
         <ListView fx:id="lvAlerts" layoutX="14.0" layoutY="26.0" prefHeight="315.0" prefWidth="200.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="26.0" />
         <Label layoutX="14.0" layoutY="6.0" text="Realtime meldingen" />
         <Separator layoutX="225.0" layoutY="347.0" prefHeight="0.0" prefWidth="280.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
@@ -36,9 +36,10 @@
             </font>
         </Label>
         <Label layoutX="221.0" layoutY="349.0" text="Nieuwe situatie" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
         <AnchorPane layoutX="229.0" layoutY="206.0" prefHeight="104.0" prefWidth="292.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
         <Label layoutX="227.0" layoutY="179.0" text="Locatie" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
         <DatePicker fx:id="dtAlertDate" layoutX="226.0" layoutY="43.0" prefHeight="25.0" prefWidth="270.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />

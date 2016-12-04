@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import com.lynden.gmapsfx.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="719.0" prefWidth="885.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fontys.cims.SceneFXMLController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" prefHeight="719.0" prefWidth="885.0" xmlns="http://javafx.com/javafx/8" fx:controller="edu.fontys.cims.MainController">
     <children>
         <TabPane fx:id="TabView" prefHeight="650.0" prefWidth="532.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <tabs>
@@ -24,12 +24,24 @@
                         <fx:include fx:id="crisisTab" source="CrisisTab.fxml" />
                     </content>
                 </Tab>
+                <Tab text="Chats">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TabPane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <tabs>
+                                        <Tab text="Chat tab">
+                                            <content>
+                                                <fx:include fx:id="ChatTab" source="ChatTab.fxml"/>
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
             </tabs>
         </TabPane>
-        <AnchorPane layoutX="228.0" layoutY="223.0" prefHeight="113.0" prefWidth="280.0" AnchorPane.leftAnchor="228.0" AnchorPane.rightAnchor="12.0">
-            <children>
-               <GoogleMapView fx:id="mapView" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-            </children>
-         </AnchorPane>
     </children>
 </AnchorPane>
