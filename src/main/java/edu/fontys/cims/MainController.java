@@ -23,7 +23,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 
-public class SceneFXMLController implements Initializable, MapComponentInitializedListener {
+public class MainController implements Initializable, MapComponentInitializedListener {
 
     @FXML
     public GoogleMapView mapView;

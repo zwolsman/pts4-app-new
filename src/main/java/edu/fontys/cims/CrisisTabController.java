@@ -47,7 +47,7 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author juleb
  */
-public final class CrisisFXMLController implements Initializable {
+public final class CrisisTabController implements Initializable {
 
     @FXML
     private ListView lvCrisisen;
@@ -127,12 +127,12 @@ public final class CrisisFXMLController implements Initializable {
                     }
 
                     LatLong pos = new LatLong(alert.getLocation().getLatitude(), alert.getLocation().getLongitude());
-                    SceneFXMLController.setMapPosition(pos);
+                    MainController.setMapPosition(pos);
                 
                     try {
                         dtAlertDate.setValue(new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(selectedCrisis.getAlert().getTimestamp()).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
                     } catch (ParseException ex) {
-                        Logger.getLogger(CrisisFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(CrisisTabController.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
                     Socket chat = Api.createSocket(String.valueOf(newValue.getId()));

@@ -43,7 +43,7 @@ import javafx.scene.control.TextField;
  *
  * @author Jip
  */
-public class AlertTab_Controller implements Initializable {
+public class AlertTabController implements Initializable {
 
     //<editor-fold defaultstate="collapsed" desc="Form controls">
     @FXML
@@ -98,7 +98,7 @@ public class AlertTab_Controller implements Initializable {
                     alerts.add(alert);
                 });
             } catch (InvalidProtocolBufferException ex) {
-                Logger.getLogger(AlertTab_Controller.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AlertTabController.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         });
@@ -122,12 +122,12 @@ public class AlertTab_Controller implements Initializable {
                 try {
                     dtAlertDate.setValue(new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(newValue.getTimestamp()).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
                 } catch (ParseException ex) {
-                    Logger.getLogger(SceneFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
 
                 LatLong pos = new LatLong(newValue.getLocation().getLatitude(), newValue.getLocation().getLongitude());
-                SceneFXMLController.setMapPosition(pos);
+                MainController.setMapPosition(pos);
                 txtAlertUserDescription.setText(newValue.getDescription());
                 txtAlertLocation.setText(selectedAlert.getLocation().getZipcode() + " " + selectedAlert.getLocation().getCity());
 
@@ -214,9 +214,9 @@ public class AlertTab_Controller implements Initializable {
             System.out.println("\nSending 'POST' request to URL : " + url);
             System.out.println("Response Code : " + responseCode);
         } catch (MalformedURLException ex) {
-            Logger.getLogger(SceneFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(SceneFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
