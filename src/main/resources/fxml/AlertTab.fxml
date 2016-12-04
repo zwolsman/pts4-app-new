@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?scenebuilder-classpath-element / ?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -12,15 +16,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="674.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fontys.cims.AlertTabController">
+<AnchorPane id="AnchorPane" prefHeight="674.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fontys.cims.AlertTabController">
     <children>
 
         <ListView fx:id="lvAlerts" layoutX="14.0" layoutY="26.0" prefHeight="315.0" prefWidth="200.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="26.0" />
         <Label layoutX="14.0" layoutY="6.0" text="Realtime meldingen" />
         <Separator layoutX="225.0" layoutY="347.0" prefHeight="0.0" prefWidth="280.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
 
-        <Button layoutX="433.0" layoutY="651.0" mnemonicParsing="false" onAction="#handleProcessClick" prefHeight="25.0" prefWidth="85.0" text="Verwerk" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="433.0" AnchorPane.rightAnchor="14.0" />
-        <Button layoutX="343.0" layoutY="680.0" mnemonicParsing="false" onAction="#handleDenyClick" prefHeight="25.0" prefWidth="85.0" text="Negeer" AnchorPane.bottomAnchor="14.0" />
+        <Button layoutX="433.0" layoutY="651.0" mnemonicParsing="false" onAction="#handleProcessClick" prefHeight="25.0" prefWidth="85.0" text="Verwerk" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+        <Button layoutX="339.0" layoutY="635.0" mnemonicParsing="false" onAction="#handleDenyClick" prefHeight="25.0" prefWidth="85.0" text="Negeer" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="110.0" />
         <Label layoutX="226.0" layoutY="366.0" text="Titel" AnchorPane.leftAnchor="226.0" />
         <TextField fx:id="txtCrisisTitle" layoutX="226.0" layoutY="391.0" prefHeight="25.0" prefWidth="280.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
         <TextArea fx:id="txtCrisisDescription" layoutX="225.0" layoutY="433.0" prefHeight="83.0" prefWidth="292.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
@@ -45,6 +49,6 @@
         <DatePicker fx:id="dtAlertDate" layoutX="226.0" layoutY="43.0" prefHeight="25.0" prefWidth="270.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
         <Label layoutX="226.0" layoutY="26.0" text="Datum" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
         <Label layoutX="226.0" layoutY="75.0" text="Beschrijving" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
-        <TextArea fx:id="txtAlertUserDescription" editable="false" layoutX="226.0" layoutY="92.0" prefHeight="83.0" prefWidth="292.0" wrapText="true" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
+        <TextArea fx:id="txtAlertUserDescription" editable="false" layoutX="224.0" layoutY="97.0" prefHeight="83.0" prefWidth="292.0" wrapText="true" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="14.0" />
     </children>
 </AnchorPane>
