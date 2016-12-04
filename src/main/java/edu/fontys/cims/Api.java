@@ -49,7 +49,7 @@ public class Api {
             Logger.getLogger(Api.class.getName()).log(Level.SEVERE, null, ex);
             //System.out.println("niet geconnect");
         } catch (IOException ex) {
-            Logger.getLogger(Api.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Api.class.getName()).log(Level.SEVERE, "No internet connection");
             //System.out.println("niet geconnect");
         }
         return null;
