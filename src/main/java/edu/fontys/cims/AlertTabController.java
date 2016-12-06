@@ -1,5 +1,6 @@
 package edu.fontys.cims;
 
+import edu.fontys.cims.MainController;
 import com.google.protobuf.GeneratedMessageV3;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.lynden.gmapsfx.GoogleMapView;
@@ -8,6 +9,8 @@ import com.lynden.gmapsfx.javascript.object.GoogleMap;
 import com.lynden.gmapsfx.javascript.object.LatLong;
 import com.lynden.gmapsfx.javascript.object.MapOptions;
 import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
+import edu.fontys.cims.Api;
+import edu.fontys.cims.InitRequest;
 import io.socket.client.Socket;
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -253,5 +256,4 @@ public class AlertTabController implements Initializable, MapComponentInitialize
 
         map = mapView.createMap(mapOptions);
     }
-
 }

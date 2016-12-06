@@ -20,10 +20,16 @@ import java.util.logging.Logger;
 public class Api {
 
     private static final String HOST = "localhost";
-    private static final int PORT = 3000;
+    private static final int PORT = 1337;
     private static final String API_ENDPOINT = "http://" + HOST + ":" + PORT + "/api";
     public static final String SOCKET_ENDPOINT = "http://" + HOST + ":" + PORT;
 
+    /**
+     * Creates socket via room id
+     *
+     * @param roomId
+     * @return
+     */
     public static Socket createSocket(String roomId) {
         try {
             Manager manager = new Manager(new URI(SOCKET_ENDPOINT));
@@ -36,6 +42,11 @@ public class Api {
         return null;
     }
 
+    /**
+     * Initializes the application
+     *
+     * @return
+     */
     public static InitResponse init() {
         try {
             URL url = new URL(API_ENDPOINT + "/init");
@@ -56,27 +67,15 @@ public class Api {
         return null;
     }
 
-    public static void updateAlert() {
-        try {
-            URL url = new URL("http://localhost:3001/alert");
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setDoOutput(true);
-            conn.setRequestMethod("POST");
-            conn.setRequestProperty("Content-Type", "application/protobuf");
-
-            int responseCode = conn.getResponseCode();
-            System.out.println("\nSending 'POST' request to URL : " + url);
-            System.out.println("Response Code : " + responseCode);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Api.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Api.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
+    /**
+     * Send message to server via proto message
+     *
+     * @param message
+     * @return
+     */
     public static boolean sendMessage(Message message) {
         try {
-            URL url = new URL("http://localhost:3000/chat");
+            URL url = new URL(API_ENDPOINT + "/chat");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");

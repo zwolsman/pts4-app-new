@@ -3,65 +3,99 @@
 
 package edu.fontys.cims;
 
+import com.google.protobuf.InvalidProtocolBufferException;
+import java.io.IOException;
+
+/**
+ *
+ * @author geene
+ */
 public final class InitRequest {
   private InitRequest() {}
-  public static void registerAllExtensions(
+
+    /**
+     *
+     * @param registry
+     */
+    public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistryLite registry) {
   }
 
-  public static void registerAllExtensions(
+    /**
+     *
+     * @param registry
+     */
+    public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface InitResponseOrBuilder extends
+
+    /**
+     *
+     */
+    public interface InitResponseOrBuilder extends
       // @@protoc_insertion_point(interface_extends:edu.fontys.cims.proto.InitResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+       * @return 
      */
     java.util.List<edu.fontys.cims.InitRequest.Alert> 
         getAlertResultsList();
     /**
      * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+       * @param index
+       * @return 
      */
     edu.fontys.cims.InitRequest.Alert getAlertResults(int index);
     /**
      * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+       * @return 
      */
     int getAlertResultsCount();
     /**
      * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+       * @return 
      */
     java.util.List<? extends edu.fontys.cims.InitRequest.AlertOrBuilder> 
         getAlertResultsOrBuilderList();
     /**
      * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+       * @param index
+       * @return 
      */
     edu.fontys.cims.InitRequest.AlertOrBuilder getAlertResultsOrBuilder(
         int index);
 
     /**
      * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+       * @return 
      */
     java.util.List<edu.fontys.cims.InitRequest.Crisis> 
         getCrisisResultsList();
     /**
      * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+       * @param index
+       * @return 
      */
     edu.fontys.cims.InitRequest.Crisis getCrisisResults(int index);
     /**
      * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+       * @return 
      */
     int getCrisisResultsCount();
     /**
      * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+       * @return 
      */
     java.util.List<? extends edu.fontys.cims.InitRequest.CrisisOrBuilder> 
         getCrisisResultsOrBuilderList();
     /**
      * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+       * @param index
+       * @return 
      */
     edu.fontys.cims.InitRequest.CrisisOrBuilder getCrisisResultsOrBuilder(
         int index);
@@ -82,7 +116,11 @@ public final class InitRequest {
       crisisResults_ = java.util.Collections.emptyList();
     }
 
-    @java.lang.Override
+      /**
+       *
+       * @return
+       */
+      @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -142,28 +180,42 @@ public final class InitRequest {
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+
+      /**
+       *
+       * @return
+       */
+      public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_InitResponse_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      /**
+       *
+       * @return
+       */
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_InitResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               edu.fontys.cims.InitRequest.InitResponse.class, edu.fontys.cims.InitRequest.InitResponse.Builder.class);
     }
 
-    public static final int ALERTRESULTS_FIELD_NUMBER = 1;
+      /**
+       *
+       */
+      public static final int ALERTRESULTS_FIELD_NUMBER = 1;
     private java.util.List<edu.fontys.cims.InitRequest.Alert> alertResults_;
     /**
      * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+       * @return 
      */
     public java.util.List<edu.fontys.cims.InitRequest.Alert> getAlertResultsList() {
       return alertResults_;
     }
     /**
      * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+       * @return 
      */
     public java.util.List<? extends edu.fontys.cims.InitRequest.AlertOrBuilder> 
         getAlertResultsOrBuilderList() {
@@ -171,34 +223,44 @@ public final class InitRequest {
     }
     /**
      * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+       * @return 
      */
     public int getAlertResultsCount() {
       return alertResults_.size();
     }
     /**
      * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+       * @param index
+       * @return 
      */
     public edu.fontys.cims.InitRequest.Alert getAlertResults(int index) {
       return alertResults_.get(index);
     }
     /**
      * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+       * @param index
+       * @return 
      */
     public edu.fontys.cims.InitRequest.AlertOrBuilder getAlertResultsOrBuilder(
         int index) {
       return alertResults_.get(index);
     }
 
-    public static final int CRISISRESULTS_FIELD_NUMBER = 2;
+      /**
+       *
+       */
+      public static final int CRISISRESULTS_FIELD_NUMBER = 2;
     private java.util.List<edu.fontys.cims.InitRequest.Crisis> crisisResults_;
     /**
      * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+       * @return 
      */
     public java.util.List<edu.fontys.cims.InitRequest.Crisis> getCrisisResultsList() {
       return crisisResults_;
     }
     /**
      * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+       * @return 
      */
     public java.util.List<? extends edu.fontys.cims.InitRequest.CrisisOrBuilder> 
         getCrisisResultsOrBuilderList() {
@@ -206,18 +268,23 @@ public final class InitRequest {
     }
     /**
      * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+       * @return 
      */
     public int getCrisisResultsCount() {
       return crisisResults_.size();
     }
     /**
      * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+       * @param index
+       * @return 
      */
     public edu.fontys.cims.InitRequest.Crisis getCrisisResults(int index) {
       return crisisResults_.get(index);
     }
     /**
      * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+       * @param index
+       * @return 
      */
     public edu.fontys.cims.InitRequest.CrisisOrBuilder getCrisisResultsOrBuilder(
         int index) {
@@ -225,7 +292,12 @@ public final class InitRequest {
     }
 
     private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
+
+      /**
+       *
+       * @return
+       */
+      public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
@@ -234,7 +306,12 @@ public final class InitRequest {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+      /**
+       *
+       * @param output
+       * @throws IOException
+       */
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < alertResults_.size(); i++) {
         output.writeMessage(1, alertResults_.get(i));
@@ -244,7 +321,11 @@ public final class InitRequest {
       }
     }
 
-    public int getSerializedSize() {
+      /**
+       *
+       * @return
+       */
+      public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
 
@@ -300,58 +381,132 @@ public final class InitRequest {
       return hash;
     }
 
-    public static edu.fontys.cims.InitRequest.InitResponse parseFrom(
+      /**
+       *
+       * @param data
+       * @return
+       * @throws InvalidProtocolBufferException
+       */
+      public static edu.fontys.cims.InitRequest.InitResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static edu.fontys.cims.InitRequest.InitResponse parseFrom(
+
+      /**
+       *
+       * @param data
+       * @param extensionRegistry
+       * @return
+       * @throws InvalidProtocolBufferException
+       */
+      public static edu.fontys.cims.InitRequest.InitResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static edu.fontys.cims.InitRequest.InitResponse parseFrom(byte[] data)
+
+      /**
+       *
+       * @param data
+       * @return
+       * @throws InvalidProtocolBufferException
+       */
+      public static edu.fontys.cims.InitRequest.InitResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static edu.fontys.cims.InitRequest.InitResponse parseFrom(
+
+      /**
+       *
+       * @param data
+       * @param extensionRegistry
+       * @return
+       * @throws InvalidProtocolBufferException
+       */
+      public static edu.fontys.cims.InitRequest.InitResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static edu.fontys.cims.InitRequest.InitResponse parseFrom(java.io.InputStream input)
+
+      /**
+       *
+       * @param input
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.InitResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static edu.fontys.cims.InitRequest.InitResponse parseFrom(
+
+      /**
+       *
+       * @param input
+       * @param extensionRegistry
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.InitResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static edu.fontys.cims.InitRequest.InitResponse parseDelimitedFrom(java.io.InputStream input)
+
+      /**
+       *
+       * @param input
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.InitResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static edu.fontys.cims.InitRequest.InitResponse parseDelimitedFrom(
+
+      /**
+       *
+       * @param input
+       * @param extensionRegistry
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.InitResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static edu.fontys.cims.InitRequest.InitResponse parseFrom(
+
+      /**
+       *
+       * @param input
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.InitResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static edu.fontys.cims.InitRequest.InitResponse parseFrom(
+
+      /**
+       *
+       * @param input
+       * @param extensionRegistry
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.InitResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -359,19 +514,44 @@ public final class InitRequest {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
+      /**
+       *
+       * @return
+       */
+      public Builder newBuilderForType() { return newBuilder(); }
+
+      /**
+       *
+       * @return
+       */
+      public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(edu.fontys.cims.InitRequest.InitResponse prototype) {
+
+      /**
+       *
+       * @param prototype
+       * @return
+       */
+      public static Builder newBuilder(edu.fontys.cims.InitRequest.InitResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    public Builder toBuilder() {
+
+      /**
+       *
+       * @return
+       */
+      public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+      /**
+       *
+       * @param parent
+       * @return
+       */
+      @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -384,12 +564,21 @@ public final class InitRequest {
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:edu.fontys.cims.proto.InitResponse)
         edu.fontys.cims.InitRequest.InitResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+
+        /**
+         *
+         * @return
+         */
+        public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_InitResponse_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        /**
+         *
+         * @return
+         */
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_InitResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -413,7 +602,12 @@ public final class InitRequest {
           getCrisisResultsFieldBuilder();
         }
       }
-      public Builder clear() {
+
+        /**
+         *
+         * @return
+         */
+        public Builder clear() {
         super.clear();
         if (alertResultsBuilder_ == null) {
           alertResults_ = java.util.Collections.emptyList();
@@ -430,16 +624,28 @@ public final class InitRequest {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+        /**
+         *
+         * @return
+         */
+        public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_InitResponse_descriptor;
       }
 
-      public edu.fontys.cims.InitRequest.InitResponse getDefaultInstanceForType() {
+        /**
+         *
+         * @return
+         */
+        public edu.fontys.cims.InitRequest.InitResponse getDefaultInstanceForType() {
         return edu.fontys.cims.InitRequest.InitResponse.getDefaultInstance();
       }
 
-      public edu.fontys.cims.InitRequest.InitResponse build() {
+        /**
+         *
+         * @return
+         */
+        public edu.fontys.cims.InitRequest.InitResponse build() {
         edu.fontys.cims.InitRequest.InitResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
@@ -447,7 +653,11 @@ public final class InitRequest {
         return result;
       }
 
-      public edu.fontys.cims.InitRequest.InitResponse buildPartial() {
+        /**
+         *
+         * @return
+         */
+        public edu.fontys.cims.InitRequest.InitResponse buildPartial() {
         edu.fontys.cims.InitRequest.InitResponse result = new edu.fontys.cims.InitRequest.InitResponse(this);
         int from_bitField0_ = bitField0_;
         if (alertResultsBuilder_ == null) {
@@ -475,30 +685,70 @@ public final class InitRequest {
       public Builder clone() {
         return (Builder) super.clone();
       }
-      public Builder setField(
+
+        /**
+         *
+         * @param field
+         * @param value
+         * @return
+         */
+        public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
+
+        /**
+         *
+         * @param field
+         * @return
+         */
+        public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
+
+        /**
+         *
+         * @param oneof
+         * @return
+         */
+        public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      public Builder setRepeatedField(
+
+        /**
+         *
+         * @param field
+         * @param index
+         * @param value
+         * @return
+         */
+        public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      public Builder addRepeatedField(
+
+        /**
+         *
+         * @param field
+         * @param value
+         * @return
+         */
+        public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+
+        /**
+         *
+         * @param other
+         * @return
+         */
+        public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof edu.fontys.cims.InitRequest.InitResponse) {
           return mergeFrom((edu.fontys.cims.InitRequest.InitResponse)other);
         } else {
@@ -507,7 +757,12 @@ public final class InitRequest {
         }
       }
 
-      public Builder mergeFrom(edu.fontys.cims.InitRequest.InitResponse other) {
+        /**
+         *
+         * @param other
+         * @return
+         */
+        public Builder mergeFrom(edu.fontys.cims.InitRequest.InitResponse other) {
         if (other == edu.fontys.cims.InitRequest.InitResponse.getDefaultInstance()) return this;
         if (alertResultsBuilder_ == null) {
           if (!other.alertResults_.isEmpty()) {
@@ -565,11 +820,22 @@ public final class InitRequest {
         return this;
       }
 
-      public final boolean isInitialized() {
+        /**
+         *
+         * @return
+         */
+        public final boolean isInitialized() {
         return true;
       }
 
-      public Builder mergeFrom(
+        /**
+         *
+         * @param input
+         * @param extensionRegistry
+         * @return
+         * @throws IOException
+         */
+        public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -602,6 +868,7 @@ public final class InitRequest {
 
       /**
        * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+         * @return 
        */
       public java.util.List<edu.fontys.cims.InitRequest.Alert> getAlertResultsList() {
         if (alertResultsBuilder_ == null) {
@@ -612,6 +879,7 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+         * @return 
        */
       public int getAlertResultsCount() {
         if (alertResultsBuilder_ == null) {
@@ -622,6 +890,8 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+         * @param index
+         * @return 
        */
       public edu.fontys.cims.InitRequest.Alert getAlertResults(int index) {
         if (alertResultsBuilder_ == null) {
@@ -632,6 +902,9 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+         * @param index
+         * @param value
+         * @return 
        */
       public Builder setAlertResults(
           int index, edu.fontys.cims.InitRequest.Alert value) {
@@ -649,6 +922,9 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+         * @param index
+         * @param builderForValue
+         * @return 
        */
       public Builder setAlertResults(
           int index, edu.fontys.cims.InitRequest.Alert.Builder builderForValue) {
@@ -663,6 +939,8 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+         * @param value
+         * @return 
        */
       public Builder addAlertResults(edu.fontys.cims.InitRequest.Alert value) {
         if (alertResultsBuilder_ == null) {
@@ -679,6 +957,9 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+         * @param index
+         * @param value
+         * @return 
        */
       public Builder addAlertResults(
           int index, edu.fontys.cims.InitRequest.Alert value) {
@@ -696,6 +977,8 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+         * @param builderForValue
+         * @return 
        */
       public Builder addAlertResults(
           edu.fontys.cims.InitRequest.Alert.Builder builderForValue) {
@@ -710,6 +993,9 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+         * @param index
+         * @param builderForValue
+         * @return 
        */
       public Builder addAlertResults(
           int index, edu.fontys.cims.InitRequest.Alert.Builder builderForValue) {
@@ -724,6 +1010,8 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+         * @param values
+         * @return 
        */
       public Builder addAllAlertResults(
           java.lang.Iterable<? extends edu.fontys.cims.InitRequest.Alert> values) {
@@ -739,6 +1027,7 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+         * @return 
        */
       public Builder clearAlertResults() {
         if (alertResultsBuilder_ == null) {
@@ -752,6 +1041,8 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+         * @param index
+         * @return 
        */
       public Builder removeAlertResults(int index) {
         if (alertResultsBuilder_ == null) {
@@ -765,6 +1056,8 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+         * @param index
+         * @return 
        */
       public edu.fontys.cims.InitRequest.Alert.Builder getAlertResultsBuilder(
           int index) {
@@ -772,6 +1065,8 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+         * @param index
+         * @return 
        */
       public edu.fontys.cims.InitRequest.AlertOrBuilder getAlertResultsOrBuilder(
           int index) {
@@ -782,6 +1077,7 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+         * @return 
        */
       public java.util.List<? extends edu.fontys.cims.InitRequest.AlertOrBuilder> 
            getAlertResultsOrBuilderList() {
@@ -793,6 +1089,7 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+         * @return 
        */
       public edu.fontys.cims.InitRequest.Alert.Builder addAlertResultsBuilder() {
         return getAlertResultsFieldBuilder().addBuilder(
@@ -800,6 +1097,8 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+         * @param index
+         * @return 
        */
       public edu.fontys.cims.InitRequest.Alert.Builder addAlertResultsBuilder(
           int index) {
@@ -808,6 +1107,7 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Alert alertResults = 1;</code>
+         * @return 
        */
       public java.util.List<edu.fontys.cims.InitRequest.Alert.Builder> 
            getAlertResultsBuilderList() {
@@ -842,6 +1142,7 @@ public final class InitRequest {
 
       /**
        * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+         * @return 
        */
       public java.util.List<edu.fontys.cims.InitRequest.Crisis> getCrisisResultsList() {
         if (crisisResultsBuilder_ == null) {
@@ -852,6 +1153,7 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+         * @return 
        */
       public int getCrisisResultsCount() {
         if (crisisResultsBuilder_ == null) {
@@ -862,6 +1164,8 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+         * @param index
+         * @return 
        */
       public edu.fontys.cims.InitRequest.Crisis getCrisisResults(int index) {
         if (crisisResultsBuilder_ == null) {
@@ -872,6 +1176,9 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+         * @param index
+         * @param value
+         * @return 
        */
       public Builder setCrisisResults(
           int index, edu.fontys.cims.InitRequest.Crisis value) {
@@ -889,6 +1196,9 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+         * @param index
+         * @param builderForValue
+         * @return 
        */
       public Builder setCrisisResults(
           int index, edu.fontys.cims.InitRequest.Crisis.Builder builderForValue) {
@@ -903,6 +1213,8 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+         * @param value
+         * @return 
        */
       public Builder addCrisisResults(edu.fontys.cims.InitRequest.Crisis value) {
         if (crisisResultsBuilder_ == null) {
@@ -919,6 +1231,9 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+         * @param index
+         * @param value
+         * @return 
        */
       public Builder addCrisisResults(
           int index, edu.fontys.cims.InitRequest.Crisis value) {
@@ -936,6 +1251,8 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+         * @param builderForValue
+         * @return 
        */
       public Builder addCrisisResults(
           edu.fontys.cims.InitRequest.Crisis.Builder builderForValue) {
@@ -950,6 +1267,9 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+         * @param index
+         * @param builderForValue
+         * @return 
        */
       public Builder addCrisisResults(
           int index, edu.fontys.cims.InitRequest.Crisis.Builder builderForValue) {
@@ -964,6 +1284,8 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+         * @param values
+         * @return 
        */
       public Builder addAllCrisisResults(
           java.lang.Iterable<? extends edu.fontys.cims.InitRequest.Crisis> values) {
@@ -979,6 +1301,7 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+         * @return 
        */
       public Builder clearCrisisResults() {
         if (crisisResultsBuilder_ == null) {
@@ -992,6 +1315,8 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+         * @param index
+         * @return 
        */
       public Builder removeCrisisResults(int index) {
         if (crisisResultsBuilder_ == null) {
@@ -1005,6 +1330,8 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+         * @param index
+         * @return 
        */
       public edu.fontys.cims.InitRequest.Crisis.Builder getCrisisResultsBuilder(
           int index) {
@@ -1012,6 +1339,8 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+         * @param index
+         * @return 
        */
       public edu.fontys.cims.InitRequest.CrisisOrBuilder getCrisisResultsOrBuilder(
           int index) {
@@ -1022,6 +1351,7 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+         * @return 
        */
       public java.util.List<? extends edu.fontys.cims.InitRequest.CrisisOrBuilder> 
            getCrisisResultsOrBuilderList() {
@@ -1033,6 +1363,7 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+         * @return 
        */
       public edu.fontys.cims.InitRequest.Crisis.Builder addCrisisResultsBuilder() {
         return getCrisisResultsFieldBuilder().addBuilder(
@@ -1040,6 +1371,8 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+         * @param index
+         * @return 
        */
       public edu.fontys.cims.InitRequest.Crisis.Builder addCrisisResultsBuilder(
           int index) {
@@ -1048,6 +1381,7 @@ public final class InitRequest {
       }
       /**
        * <code>repeated .edu.fontys.cims.proto.Crisis crisisResults = 2;</code>
+         * @return 
        */
       public java.util.List<edu.fontys.cims.InitRequest.Crisis.Builder> 
            getCrisisResultsBuilderList() {
@@ -1067,12 +1401,23 @@ public final class InitRequest {
         }
         return crisisResultsBuilder_;
       }
-      public final Builder setUnknownFields(
+
+        /**
+         *
+         * @param unknownFields
+         * @return
+         */
+        public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
       }
 
-      public final Builder mergeUnknownFields(
+        /**
+         *
+         * @param unknownFields
+         * @return
+         */
+        public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
       }
@@ -1087,7 +1432,11 @@ public final class InitRequest {
       DEFAULT_INSTANCE = new edu.fontys.cims.InitRequest.InitResponse();
     }
 
-    public static edu.fontys.cims.InitRequest.InitResponse getDefaultInstance() {
+      /**
+       *
+       * @return
+       */
+      public static edu.fontys.cims.InitRequest.InitResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1101,74 +1450,100 @@ public final class InitRequest {
       }
     };
 
-    public static com.google.protobuf.Parser<InitResponse> parser() {
+      /**
+       *
+       * @return
+       */
+      public static com.google.protobuf.Parser<InitResponse> parser() {
       return PARSER;
     }
 
-    @java.lang.Override
+      /**
+       *
+       * @return
+       */
+      @java.lang.Override
     public com.google.protobuf.Parser<InitResponse> getParserForType() {
       return PARSER;
     }
 
-    public edu.fontys.cims.InitRequest.InitResponse getDefaultInstanceForType() {
+      /**
+       *
+       * @return
+       */
+      public edu.fontys.cims.InitRequest.InitResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface AlertOrBuilder extends
+    /**
+     *
+     */
+    public interface AlertOrBuilder extends
       // @@protoc_insertion_point(interface_extends:edu.fontys.cims.proto.Alert)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>optional int32 id = 1;</code>
+       * @return 
      */
     int getId();
 
     /**
      * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+       * @return 
      */
     boolean hasLocation();
     /**
      * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+       * @return 
      */
     edu.fontys.cims.InitRequest.Location getLocation();
     /**
      * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+       * @return 
      */
     edu.fontys.cims.InitRequest.LocationOrBuilder getLocationOrBuilder();
 
     /**
      * <code>optional string ipaddr = 3;</code>
+       * @return 
      */
     java.lang.String getIpaddr();
     /**
      * <code>optional string ipaddr = 3;</code>
+       * @return 
      */
     com.google.protobuf.ByteString
         getIpaddrBytes();
 
     /**
      * <code>optional bool processed = 4;</code>
+       * @return 
      */
     boolean getProcessed();
 
     /**
      * <code>optional string description = 5;</code>
+       * @return 
      */
     java.lang.String getDescription();
     /**
      * <code>optional string description = 5;</code>
+       * @return 
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
 
     /**
      * <code>optional string timestamp = 6;</code>
+       * @return 
      */
     java.lang.String getTimestamp();
     /**
      * <code>optional string timestamp = 6;</code>
+       * @return 
      */
     com.google.protobuf.ByteString
         getTimestampBytes();
@@ -1192,7 +1567,11 @@ public final class InitRequest {
       timestamp_ = "";
     }
 
-    @java.lang.Override
+      /**
+       *
+       * @return
+       */
+      @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -1269,52 +1648,75 @@ public final class InitRequest {
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+
+      /**
+       *
+       * @return
+       */
+      public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_Alert_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      /**
+       *
+       * @return
+       */
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_Alert_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               edu.fontys.cims.InitRequest.Alert.class, edu.fontys.cims.InitRequest.Alert.Builder.class);
     }
 
-    public static final int ID_FIELD_NUMBER = 1;
+      /**
+       *
+       */
+      public static final int ID_FIELD_NUMBER = 1;
     private int id_;
     /**
      * <code>optional int32 id = 1;</code>
+       * @return 
      */
     public int getId() {
       return id_;
     }
 
-    public static final int LOCATION_FIELD_NUMBER = 2;
+      /**
+       *
+       */
+      public static final int LOCATION_FIELD_NUMBER = 2;
     private edu.fontys.cims.InitRequest.Location location_;
     /**
      * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+       * @return 
      */
     public boolean hasLocation() {
       return location_ != null;
     }
     /**
      * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+       * @return 
      */
     public edu.fontys.cims.InitRequest.Location getLocation() {
       return location_ == null ? edu.fontys.cims.InitRequest.Location.getDefaultInstance() : location_;
     }
     /**
      * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+       * @return 
      */
     public edu.fontys.cims.InitRequest.LocationOrBuilder getLocationOrBuilder() {
       return getLocation();
     }
 
-    public static final int IPADDR_FIELD_NUMBER = 3;
+      /**
+       *
+       */
+      public static final int IPADDR_FIELD_NUMBER = 3;
     private volatile java.lang.Object ipaddr_;
     /**
      * <code>optional string ipaddr = 3;</code>
+       * @return 
      */
     public java.lang.String getIpaddr() {
       java.lang.Object ref = ipaddr_;
@@ -1330,6 +1732,7 @@ public final class InitRequest {
     }
     /**
      * <code>optional string ipaddr = 3;</code>
+       * @return 
      */
     public com.google.protobuf.ByteString
         getIpaddrBytes() {
@@ -1345,19 +1748,27 @@ public final class InitRequest {
       }
     }
 
-    public static final int PROCESSED_FIELD_NUMBER = 4;
+      /**
+       *
+       */
+      public static final int PROCESSED_FIELD_NUMBER = 4;
     private boolean processed_;
     /**
      * <code>optional bool processed = 4;</code>
+       * @return 
      */
     public boolean getProcessed() {
       return processed_;
     }
 
-    public static final int DESCRIPTION_FIELD_NUMBER = 5;
+      /**
+       *
+       */
+      public static final int DESCRIPTION_FIELD_NUMBER = 5;
     private volatile java.lang.Object description_;
     /**
      * <code>optional string description = 5;</code>
+       * @return 
      */
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
@@ -1373,6 +1784,7 @@ public final class InitRequest {
     }
     /**
      * <code>optional string description = 5;</code>
+       * @return 
      */
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
@@ -1388,10 +1800,14 @@ public final class InitRequest {
       }
     }
 
-    public static final int TIMESTAMP_FIELD_NUMBER = 6;
+      /**
+       *
+       */
+      public static final int TIMESTAMP_FIELD_NUMBER = 6;
     private volatile java.lang.Object timestamp_;
     /**
      * <code>optional string timestamp = 6;</code>
+       * @return 
      */
     public java.lang.String getTimestamp() {
       java.lang.Object ref = timestamp_;
@@ -1407,6 +1823,7 @@ public final class InitRequest {
     }
     /**
      * <code>optional string timestamp = 6;</code>
+       * @return 
      */
     public com.google.protobuf.ByteString
         getTimestampBytes() {
@@ -1423,7 +1840,12 @@ public final class InitRequest {
     }
 
     private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
+
+      /**
+       *
+       * @return
+       */
+      public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
@@ -1432,7 +1854,12 @@ public final class InitRequest {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+      /**
+       *
+       * @param output
+       * @throws IOException
+       */
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (id_ != 0) {
         output.writeInt32(1, id_);
@@ -1454,7 +1881,11 @@ public final class InitRequest {
       }
     }
 
-    public int getSerializedSize() {
+      /**
+       *
+       * @return
+       */
+      public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
 
@@ -1541,58 +1972,132 @@ public final class InitRequest {
       return hash;
     }
 
-    public static edu.fontys.cims.InitRequest.Alert parseFrom(
+      /**
+       *
+       * @param data
+       * @return
+       * @throws InvalidProtocolBufferException
+       */
+      public static edu.fontys.cims.InitRequest.Alert parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static edu.fontys.cims.InitRequest.Alert parseFrom(
+
+      /**
+       *
+       * @param data
+       * @param extensionRegistry
+       * @return
+       * @throws InvalidProtocolBufferException
+       */
+      public static edu.fontys.cims.InitRequest.Alert parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static edu.fontys.cims.InitRequest.Alert parseFrom(byte[] data)
+
+      /**
+       *
+       * @param data
+       * @return
+       * @throws InvalidProtocolBufferException
+       */
+      public static edu.fontys.cims.InitRequest.Alert parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static edu.fontys.cims.InitRequest.Alert parseFrom(
+
+      /**
+       *
+       * @param data
+       * @param extensionRegistry
+       * @return
+       * @throws InvalidProtocolBufferException
+       */
+      public static edu.fontys.cims.InitRequest.Alert parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static edu.fontys.cims.InitRequest.Alert parseFrom(java.io.InputStream input)
+
+      /**
+       *
+       * @param input
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Alert parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static edu.fontys.cims.InitRequest.Alert parseFrom(
+
+      /**
+       *
+       * @param input
+       * @param extensionRegistry
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Alert parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static edu.fontys.cims.InitRequest.Alert parseDelimitedFrom(java.io.InputStream input)
+
+      /**
+       *
+       * @param input
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Alert parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static edu.fontys.cims.InitRequest.Alert parseDelimitedFrom(
+
+      /**
+       *
+       * @param input
+       * @param extensionRegistry
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Alert parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static edu.fontys.cims.InitRequest.Alert parseFrom(
+
+      /**
+       *
+       * @param input
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Alert parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static edu.fontys.cims.InitRequest.Alert parseFrom(
+
+      /**
+       *
+       * @param input
+       * @param extensionRegistry
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Alert parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1600,19 +2105,44 @@ public final class InitRequest {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
+      /**
+       *
+       * @return
+       */
+      public Builder newBuilderForType() { return newBuilder(); }
+
+      /**
+       *
+       * @return
+       */
+      public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(edu.fontys.cims.InitRequest.Alert prototype) {
+
+      /**
+       *
+       * @param prototype
+       * @return
+       */
+      public static Builder newBuilder(edu.fontys.cims.InitRequest.Alert prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    public Builder toBuilder() {
+
+      /**
+       *
+       * @return
+       */
+      public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+      /**
+       *
+       * @param parent
+       * @return
+       */
+      @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -1625,12 +2155,21 @@ public final class InitRequest {
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:edu.fontys.cims.proto.Alert)
         edu.fontys.cims.InitRequest.AlertOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+
+        /**
+         *
+         * @return
+         */
+        public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_Alert_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        /**
+         *
+         * @return
+         */
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_Alert_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -1652,7 +2191,12 @@ public final class InitRequest {
                 .alwaysUseFieldBuilders) {
         }
       }
-      public Builder clear() {
+
+        /**
+         *
+         * @return
+         */
+        public Builder clear() {
         super.clear();
         id_ = 0;
 
@@ -1673,16 +2217,28 @@ public final class InitRequest {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+        /**
+         *
+         * @return
+         */
+        public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_Alert_descriptor;
       }
 
-      public edu.fontys.cims.InitRequest.Alert getDefaultInstanceForType() {
+        /**
+         *
+         * @return
+         */
+        public edu.fontys.cims.InitRequest.Alert getDefaultInstanceForType() {
         return edu.fontys.cims.InitRequest.Alert.getDefaultInstance();
       }
 
-      public edu.fontys.cims.InitRequest.Alert build() {
+        /**
+         *
+         * @return
+         */
+        public edu.fontys.cims.InitRequest.Alert build() {
         edu.fontys.cims.InitRequest.Alert result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
@@ -1690,7 +2246,11 @@ public final class InitRequest {
         return result;
       }
 
-      public edu.fontys.cims.InitRequest.Alert buildPartial() {
+        /**
+         *
+         * @return
+         */
+        public edu.fontys.cims.InitRequest.Alert buildPartial() {
         edu.fontys.cims.InitRequest.Alert result = new edu.fontys.cims.InitRequest.Alert(this);
         result.id_ = id_;
         if (locationBuilder_ == null) {
@@ -1709,30 +2269,70 @@ public final class InitRequest {
       public Builder clone() {
         return (Builder) super.clone();
       }
-      public Builder setField(
+
+        /**
+         *
+         * @param field
+         * @param value
+         * @return
+         */
+        public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
+
+        /**
+         *
+         * @param field
+         * @return
+         */
+        public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
+
+        /**
+         *
+         * @param oneof
+         * @return
+         */
+        public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      public Builder setRepeatedField(
+
+        /**
+         *
+         * @param field
+         * @param index
+         * @param value
+         * @return
+         */
+        public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      public Builder addRepeatedField(
+
+        /**
+         *
+         * @param field
+         * @param value
+         * @return
+         */
+        public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+
+        /**
+         *
+         * @param other
+         * @return
+         */
+        public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof edu.fontys.cims.InitRequest.Alert) {
           return mergeFrom((edu.fontys.cims.InitRequest.Alert)other);
         } else {
@@ -1741,7 +2341,12 @@ public final class InitRequest {
         }
       }
 
-      public Builder mergeFrom(edu.fontys.cims.InitRequest.Alert other) {
+        /**
+         *
+         * @param other
+         * @return
+         */
+        public Builder mergeFrom(edu.fontys.cims.InitRequest.Alert other) {
         if (other == edu.fontys.cims.InitRequest.Alert.getDefaultInstance()) return this;
         if (other.getId() != 0) {
           setId(other.getId());
@@ -1768,11 +2373,22 @@ public final class InitRequest {
         return this;
       }
 
-      public final boolean isInitialized() {
+        /**
+         *
+         * @return
+         */
+        public final boolean isInitialized() {
         return true;
       }
 
-      public Builder mergeFrom(
+        /**
+         *
+         * @param input
+         * @param extensionRegistry
+         * @return
+         * @throws IOException
+         */
+        public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -1793,12 +2409,15 @@ public final class InitRequest {
       private int id_ ;
       /**
        * <code>optional int32 id = 1;</code>
+         * @return 
        */
       public int getId() {
         return id_;
       }
       /**
        * <code>optional int32 id = 1;</code>
+         * @param value
+         * @return 
        */
       public Builder setId(int value) {
         
@@ -1808,6 +2427,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional int32 id = 1;</code>
+         * @return 
        */
       public Builder clearId() {
         
@@ -1821,12 +2441,14 @@ public final class InitRequest {
           edu.fontys.cims.InitRequest.Location, edu.fontys.cims.InitRequest.Location.Builder, edu.fontys.cims.InitRequest.LocationOrBuilder> locationBuilder_;
       /**
        * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+         * @return 
        */
       public boolean hasLocation() {
         return locationBuilder_ != null || location_ != null;
       }
       /**
        * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+         * @return 
        */
       public edu.fontys.cims.InitRequest.Location getLocation() {
         if (locationBuilder_ == null) {
@@ -1837,6 +2459,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+         * @param value
+         * @return 
        */
       public Builder setLocation(edu.fontys.cims.InitRequest.Location value) {
         if (locationBuilder_ == null) {
@@ -1853,6 +2477,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+         * @param builderForValue
+         * @return 
        */
       public Builder setLocation(
           edu.fontys.cims.InitRequest.Location.Builder builderForValue) {
@@ -1867,6 +2493,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+         * @param value
+         * @return 
        */
       public Builder mergeLocation(edu.fontys.cims.InitRequest.Location value) {
         if (locationBuilder_ == null) {
@@ -1885,6 +2513,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+         * @return 
        */
       public Builder clearLocation() {
         if (locationBuilder_ == null) {
@@ -1899,6 +2528,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+         * @return 
        */
       public edu.fontys.cims.InitRequest.Location.Builder getLocationBuilder() {
         
@@ -1907,6 +2537,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional .edu.fontys.cims.proto.Location location = 2;</code>
+         * @return 
        */
       public edu.fontys.cims.InitRequest.LocationOrBuilder getLocationOrBuilder() {
         if (locationBuilder_ != null) {
@@ -1936,6 +2567,7 @@ public final class InitRequest {
       private java.lang.Object ipaddr_ = "";
       /**
        * <code>optional string ipaddr = 3;</code>
+         * @return 
        */
       public java.lang.String getIpaddr() {
         java.lang.Object ref = ipaddr_;
@@ -1951,6 +2583,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string ipaddr = 3;</code>
+         * @return 
        */
       public com.google.protobuf.ByteString
           getIpaddrBytes() {
@@ -1967,6 +2600,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string ipaddr = 3;</code>
+         * @param value
+         * @return 
        */
       public Builder setIpaddr(
           java.lang.String value) {
@@ -1980,6 +2615,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string ipaddr = 3;</code>
+         * @return 
        */
       public Builder clearIpaddr() {
         
@@ -1989,6 +2625,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string ipaddr = 3;</code>
+         * @param value
+         * @return 
        */
       public Builder setIpaddrBytes(
           com.google.protobuf.ByteString value) {
@@ -2005,12 +2643,15 @@ public final class InitRequest {
       private boolean processed_ ;
       /**
        * <code>optional bool processed = 4;</code>
+         * @return 
        */
       public boolean getProcessed() {
         return processed_;
       }
       /**
        * <code>optional bool processed = 4;</code>
+         * @param value
+         * @return 
        */
       public Builder setProcessed(boolean value) {
         
@@ -2020,6 +2661,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional bool processed = 4;</code>
+         * @return 
        */
       public Builder clearProcessed() {
         
@@ -2031,6 +2673,7 @@ public final class InitRequest {
       private java.lang.Object description_ = "";
       /**
        * <code>optional string description = 5;</code>
+         * @return 
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -2046,6 +2689,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string description = 5;</code>
+         * @return 
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -2062,6 +2706,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string description = 5;</code>
+         * @param value
+         * @return 
        */
       public Builder setDescription(
           java.lang.String value) {
@@ -2075,6 +2721,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string description = 5;</code>
+         * @return 
        */
       public Builder clearDescription() {
         
@@ -2084,6 +2731,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string description = 5;</code>
+         * @param value
+         * @return 
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -2100,6 +2749,7 @@ public final class InitRequest {
       private java.lang.Object timestamp_ = "";
       /**
        * <code>optional string timestamp = 6;</code>
+         * @return 
        */
       public java.lang.String getTimestamp() {
         java.lang.Object ref = timestamp_;
@@ -2115,6 +2765,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string timestamp = 6;</code>
+         * @return 
        */
       public com.google.protobuf.ByteString
           getTimestampBytes() {
@@ -2131,6 +2782,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string timestamp = 6;</code>
+         * @param value
+         * @return 
        */
       public Builder setTimestamp(
           java.lang.String value) {
@@ -2144,6 +2797,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string timestamp = 6;</code>
+         * @return 
        */
       public Builder clearTimestamp() {
         
@@ -2153,6 +2807,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string timestamp = 6;</code>
+         * @param value
+         * @return 
        */
       public Builder setTimestampBytes(
           com.google.protobuf.ByteString value) {
@@ -2165,12 +2821,23 @@ public final class InitRequest {
         onChanged();
         return this;
       }
-      public final Builder setUnknownFields(
+
+        /**
+         *
+         * @param unknownFields
+         * @return
+         */
+        public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
       }
 
-      public final Builder mergeUnknownFields(
+        /**
+         *
+         * @param unknownFields
+         * @return
+         */
+        public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
       }
@@ -2185,7 +2852,11 @@ public final class InitRequest {
       DEFAULT_INSTANCE = new edu.fontys.cims.InitRequest.Alert();
     }
 
-    public static edu.fontys.cims.InitRequest.Alert getDefaultInstance() {
+      /**
+       *
+       * @return
+       */
+      public static edu.fontys.cims.InitRequest.Alert getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2199,96 +2870,126 @@ public final class InitRequest {
       }
     };
 
-    public static com.google.protobuf.Parser<Alert> parser() {
+      /**
+       *
+       * @return
+       */
+      public static com.google.protobuf.Parser<Alert> parser() {
       return PARSER;
     }
 
-    @java.lang.Override
+      /**
+       *
+       * @return
+       */
+      @java.lang.Override
     public com.google.protobuf.Parser<Alert> getParserForType() {
       return PARSER;
     }
 
-    public edu.fontys.cims.InitRequest.Alert getDefaultInstanceForType() {
+      /**
+       *
+       * @return
+       */
+      public edu.fontys.cims.InitRequest.Alert getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface LocationOrBuilder extends
+    /**
+     *
+     */
+    public interface LocationOrBuilder extends
       // @@protoc_insertion_point(interface_extends:edu.fontys.cims.proto.Location)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>optional int32 id = 1;</code>
+       * @return 
      */
     int getId();
 
     /**
      * <code>optional double latitude = 2;</code>
+       * @return 
      */
     double getLatitude();
 
     /**
      * <code>optional double longitude = 3;</code>
+       * @return 
      */
     double getLongitude();
 
     /**
      * <code>optional string country = 4;</code>
+       * @return 
      */
     java.lang.String getCountry();
     /**
      * <code>optional string country = 4;</code>
+       * @return 
      */
     com.google.protobuf.ByteString
         getCountryBytes();
 
     /**
      * <code>optional string country_code = 5;</code>
+       * @return 
      */
     java.lang.String getCountryCode();
     /**
      * <code>optional string country_code = 5;</code>
+       * @return 
      */
     com.google.protobuf.ByteString
         getCountryCodeBytes();
 
     /**
      * <code>optional string city = 6;</code>
+       * @return 
      */
     java.lang.String getCity();
     /**
      * <code>optional string city = 6;</code>
+       * @return 
      */
     com.google.protobuf.ByteString
         getCityBytes();
 
     /**
      * <code>optional string zipcode = 7;</code>
+       * @return 
      */
     java.lang.String getZipcode();
     /**
      * <code>optional string zipcode = 7;</code>
+       * @return 
      */
     com.google.protobuf.ByteString
         getZipcodeBytes();
 
     /**
      * <code>optional string street_name = 8;</code>
+       * @return 
      */
     java.lang.String getStreetName();
     /**
      * <code>optional string street_name = 8;</code>
+       * @return 
      */
     com.google.protobuf.ByteString
         getStreetNameBytes();
 
     /**
      * <code>optional string street_number = 9;</code>
+       * @return 
      */
     java.lang.String getStreetNumber();
     /**
      * <code>optional string street_number = 9;</code>
+       * @return 
      */
     com.google.protobuf.ByteString
         getStreetNumberBytes();
@@ -2316,7 +3017,11 @@ public final class InitRequest {
       streetNumber_ = "";
     }
 
-    @java.lang.Override
+      /**
+       *
+       * @return
+       */
+      @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -2403,49 +3108,74 @@ public final class InitRequest {
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+
+      /**
+       *
+       * @return
+       */
+      public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_Location_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      /**
+       *
+       * @return
+       */
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_Location_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               edu.fontys.cims.InitRequest.Location.class, edu.fontys.cims.InitRequest.Location.Builder.class);
     }
 
-    public static final int ID_FIELD_NUMBER = 1;
+      /**
+       *
+       */
+      public static final int ID_FIELD_NUMBER = 1;
     private int id_;
     /**
      * <code>optional int32 id = 1;</code>
+       * @return 
      */
     public int getId() {
       return id_;
     }
 
-    public static final int LATITUDE_FIELD_NUMBER = 2;
+      /**
+       *
+       */
+      public static final int LATITUDE_FIELD_NUMBER = 2;
     private double latitude_;
     /**
      * <code>optional double latitude = 2;</code>
+       * @return 
      */
     public double getLatitude() {
       return latitude_;
     }
 
-    public static final int LONGITUDE_FIELD_NUMBER = 3;
+      /**
+       *
+       */
+      public static final int LONGITUDE_FIELD_NUMBER = 3;
     private double longitude_;
     /**
      * <code>optional double longitude = 3;</code>
+       * @return 
      */
     public double getLongitude() {
       return longitude_;
     }
 
-    public static final int COUNTRY_FIELD_NUMBER = 4;
+      /**
+       *
+       */
+      public static final int COUNTRY_FIELD_NUMBER = 4;
     private volatile java.lang.Object country_;
     /**
      * <code>optional string country = 4;</code>
+       * @return 
      */
     public java.lang.String getCountry() {
       java.lang.Object ref = country_;
@@ -2461,6 +3191,7 @@ public final class InitRequest {
     }
     /**
      * <code>optional string country = 4;</code>
+       * @return 
      */
     public com.google.protobuf.ByteString
         getCountryBytes() {
@@ -2476,10 +3207,14 @@ public final class InitRequest {
       }
     }
 
-    public static final int COUNTRY_CODE_FIELD_NUMBER = 5;
+      /**
+       *
+       */
+      public static final int COUNTRY_CODE_FIELD_NUMBER = 5;
     private volatile java.lang.Object countryCode_;
     /**
      * <code>optional string country_code = 5;</code>
+       * @return 
      */
     public java.lang.String getCountryCode() {
       java.lang.Object ref = countryCode_;
@@ -2495,6 +3230,7 @@ public final class InitRequest {
     }
     /**
      * <code>optional string country_code = 5;</code>
+       * @return 
      */
     public com.google.protobuf.ByteString
         getCountryCodeBytes() {
@@ -2510,10 +3246,14 @@ public final class InitRequest {
       }
     }
 
-    public static final int CITY_FIELD_NUMBER = 6;
+      /**
+       *
+       */
+      public static final int CITY_FIELD_NUMBER = 6;
     private volatile java.lang.Object city_;
     /**
      * <code>optional string city = 6;</code>
+       * @return 
      */
     public java.lang.String getCity() {
       java.lang.Object ref = city_;
@@ -2529,6 +3269,7 @@ public final class InitRequest {
     }
     /**
      * <code>optional string city = 6;</code>
+       * @return 
      */
     public com.google.protobuf.ByteString
         getCityBytes() {
@@ -2544,10 +3285,14 @@ public final class InitRequest {
       }
     }
 
-    public static final int ZIPCODE_FIELD_NUMBER = 7;
+      /**
+       *
+       */
+      public static final int ZIPCODE_FIELD_NUMBER = 7;
     private volatile java.lang.Object zipcode_;
     /**
      * <code>optional string zipcode = 7;</code>
+       * @return 
      */
     public java.lang.String getZipcode() {
       java.lang.Object ref = zipcode_;
@@ -2563,6 +3308,7 @@ public final class InitRequest {
     }
     /**
      * <code>optional string zipcode = 7;</code>
+       * @return 
      */
     public com.google.protobuf.ByteString
         getZipcodeBytes() {
@@ -2578,10 +3324,14 @@ public final class InitRequest {
       }
     }
 
-    public static final int STREET_NAME_FIELD_NUMBER = 8;
+      /**
+       *
+       */
+      public static final int STREET_NAME_FIELD_NUMBER = 8;
     private volatile java.lang.Object streetName_;
     /**
      * <code>optional string street_name = 8;</code>
+       * @return 
      */
     public java.lang.String getStreetName() {
       java.lang.Object ref = streetName_;
@@ -2597,6 +3347,7 @@ public final class InitRequest {
     }
     /**
      * <code>optional string street_name = 8;</code>
+       * @return 
      */
     public com.google.protobuf.ByteString
         getStreetNameBytes() {
@@ -2612,10 +3363,14 @@ public final class InitRequest {
       }
     }
 
-    public static final int STREET_NUMBER_FIELD_NUMBER = 9;
+      /**
+       *
+       */
+      public static final int STREET_NUMBER_FIELD_NUMBER = 9;
     private volatile java.lang.Object streetNumber_;
     /**
      * <code>optional string street_number = 9;</code>
+       * @return 
      */
     public java.lang.String getStreetNumber() {
       java.lang.Object ref = streetNumber_;
@@ -2631,6 +3386,7 @@ public final class InitRequest {
     }
     /**
      * <code>optional string street_number = 9;</code>
+       * @return 
      */
     public com.google.protobuf.ByteString
         getStreetNumberBytes() {
@@ -2647,7 +3403,12 @@ public final class InitRequest {
     }
 
     private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
+
+      /**
+       *
+       * @return
+       */
+      public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
@@ -2656,7 +3417,12 @@ public final class InitRequest {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+      /**
+       *
+       * @param output
+       * @throws IOException
+       */
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (id_ != 0) {
         output.writeInt32(1, id_);
@@ -2687,7 +3453,11 @@ public final class InitRequest {
       }
     }
 
-    public int getSerializedSize() {
+      /**
+       *
+       * @return
+       */
+      public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
 
@@ -2795,58 +3565,132 @@ public final class InitRequest {
       return hash;
     }
 
-    public static edu.fontys.cims.InitRequest.Location parseFrom(
+      /**
+       *
+       * @param data
+       * @return
+       * @throws InvalidProtocolBufferException
+       */
+      public static edu.fontys.cims.InitRequest.Location parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static edu.fontys.cims.InitRequest.Location parseFrom(
+
+      /**
+       *
+       * @param data
+       * @param extensionRegistry
+       * @return
+       * @throws InvalidProtocolBufferException
+       */
+      public static edu.fontys.cims.InitRequest.Location parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static edu.fontys.cims.InitRequest.Location parseFrom(byte[] data)
+
+      /**
+       *
+       * @param data
+       * @return
+       * @throws InvalidProtocolBufferException
+       */
+      public static edu.fontys.cims.InitRequest.Location parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static edu.fontys.cims.InitRequest.Location parseFrom(
+
+      /**
+       *
+       * @param data
+       * @param extensionRegistry
+       * @return
+       * @throws InvalidProtocolBufferException
+       */
+      public static edu.fontys.cims.InitRequest.Location parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static edu.fontys.cims.InitRequest.Location parseFrom(java.io.InputStream input)
+
+      /**
+       *
+       * @param input
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Location parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static edu.fontys.cims.InitRequest.Location parseFrom(
+
+      /**
+       *
+       * @param input
+       * @param extensionRegistry
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Location parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static edu.fontys.cims.InitRequest.Location parseDelimitedFrom(java.io.InputStream input)
+
+      /**
+       *
+       * @param input
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Location parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static edu.fontys.cims.InitRequest.Location parseDelimitedFrom(
+
+      /**
+       *
+       * @param input
+       * @param extensionRegistry
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Location parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static edu.fontys.cims.InitRequest.Location parseFrom(
+
+      /**
+       *
+       * @param input
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Location parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static edu.fontys.cims.InitRequest.Location parseFrom(
+
+      /**
+       *
+       * @param input
+       * @param extensionRegistry
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Location parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2854,19 +3698,44 @@ public final class InitRequest {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
+      /**
+       *
+       * @return
+       */
+      public Builder newBuilderForType() { return newBuilder(); }
+
+      /**
+       *
+       * @return
+       */
+      public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(edu.fontys.cims.InitRequest.Location prototype) {
+
+      /**
+       *
+       * @param prototype
+       * @return
+       */
+      public static Builder newBuilder(edu.fontys.cims.InitRequest.Location prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    public Builder toBuilder() {
+
+      /**
+       *
+       * @return
+       */
+      public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+      /**
+       *
+       * @param parent
+       * @return
+       */
+      @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -2879,12 +3748,21 @@ public final class InitRequest {
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:edu.fontys.cims.proto.Location)
         edu.fontys.cims.InitRequest.LocationOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+
+        /**
+         *
+         * @return
+         */
+        public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_Location_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        /**
+         *
+         * @return
+         */
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_Location_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -2906,7 +3784,12 @@ public final class InitRequest {
                 .alwaysUseFieldBuilders) {
         }
       }
-      public Builder clear() {
+
+        /**
+         *
+         * @return
+         */
+        public Builder clear() {
         super.clear();
         id_ = 0;
 
@@ -2929,16 +3812,28 @@ public final class InitRequest {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+        /**
+         *
+         * @return
+         */
+        public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_Location_descriptor;
       }
 
-      public edu.fontys.cims.InitRequest.Location getDefaultInstanceForType() {
+        /**
+         *
+         * @return
+         */
+        public edu.fontys.cims.InitRequest.Location getDefaultInstanceForType() {
         return edu.fontys.cims.InitRequest.Location.getDefaultInstance();
       }
 
-      public edu.fontys.cims.InitRequest.Location build() {
+        /**
+         *
+         * @return
+         */
+        public edu.fontys.cims.InitRequest.Location build() {
         edu.fontys.cims.InitRequest.Location result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
@@ -2946,7 +3841,11 @@ public final class InitRequest {
         return result;
       }
 
-      public edu.fontys.cims.InitRequest.Location buildPartial() {
+        /**
+         *
+         * @return
+         */
+        public edu.fontys.cims.InitRequest.Location buildPartial() {
         edu.fontys.cims.InitRequest.Location result = new edu.fontys.cims.InitRequest.Location(this);
         result.id_ = id_;
         result.latitude_ = latitude_;
@@ -2964,30 +3863,70 @@ public final class InitRequest {
       public Builder clone() {
         return (Builder) super.clone();
       }
-      public Builder setField(
+
+        /**
+         *
+         * @param field
+         * @param value
+         * @return
+         */
+        public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
+
+        /**
+         *
+         * @param field
+         * @return
+         */
+        public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
+
+        /**
+         *
+         * @param oneof
+         * @return
+         */
+        public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      public Builder setRepeatedField(
+
+        /**
+         *
+         * @param field
+         * @param index
+         * @param value
+         * @return
+         */
+        public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      public Builder addRepeatedField(
+
+        /**
+         *
+         * @param field
+         * @param value
+         * @return
+         */
+        public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+
+        /**
+         *
+         * @param other
+         * @return
+         */
+        public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof edu.fontys.cims.InitRequest.Location) {
           return mergeFrom((edu.fontys.cims.InitRequest.Location)other);
         } else {
@@ -2996,7 +3935,12 @@ public final class InitRequest {
         }
       }
 
-      public Builder mergeFrom(edu.fontys.cims.InitRequest.Location other) {
+        /**
+         *
+         * @param other
+         * @return
+         */
+        public Builder mergeFrom(edu.fontys.cims.InitRequest.Location other) {
         if (other == edu.fontys.cims.InitRequest.Location.getDefaultInstance()) return this;
         if (other.getId() != 0) {
           setId(other.getId());
@@ -3035,11 +3979,22 @@ public final class InitRequest {
         return this;
       }
 
-      public final boolean isInitialized() {
+        /**
+         *
+         * @return
+         */
+        public final boolean isInitialized() {
         return true;
       }
 
-      public Builder mergeFrom(
+        /**
+         *
+         * @param input
+         * @param extensionRegistry
+         * @return
+         * @throws IOException
+         */
+        public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -3060,12 +4015,15 @@ public final class InitRequest {
       private int id_ ;
       /**
        * <code>optional int32 id = 1;</code>
+         * @return 
        */
       public int getId() {
         return id_;
       }
       /**
        * <code>optional int32 id = 1;</code>
+         * @param value
+         * @return 
        */
       public Builder setId(int value) {
         
@@ -3075,6 +4033,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional int32 id = 1;</code>
+         * @return 
        */
       public Builder clearId() {
         
@@ -3086,12 +4045,15 @@ public final class InitRequest {
       private double latitude_ ;
       /**
        * <code>optional double latitude = 2;</code>
+         * @return 
        */
       public double getLatitude() {
         return latitude_;
       }
       /**
        * <code>optional double latitude = 2;</code>
+         * @param value
+         * @return 
        */
       public Builder setLatitude(double value) {
         
@@ -3101,6 +4063,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional double latitude = 2;</code>
+         * @return 
        */
       public Builder clearLatitude() {
         
@@ -3112,12 +4075,15 @@ public final class InitRequest {
       private double longitude_ ;
       /**
        * <code>optional double longitude = 3;</code>
+         * @return 
        */
       public double getLongitude() {
         return longitude_;
       }
       /**
        * <code>optional double longitude = 3;</code>
+         * @param value
+         * @return 
        */
       public Builder setLongitude(double value) {
         
@@ -3127,6 +4093,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional double longitude = 3;</code>
+         * @return 
        */
       public Builder clearLongitude() {
         
@@ -3138,6 +4105,7 @@ public final class InitRequest {
       private java.lang.Object country_ = "";
       /**
        * <code>optional string country = 4;</code>
+         * @return 
        */
       public java.lang.String getCountry() {
         java.lang.Object ref = country_;
@@ -3153,6 +4121,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string country = 4;</code>
+         * @return 
        */
       public com.google.protobuf.ByteString
           getCountryBytes() {
@@ -3169,6 +4138,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string country = 4;</code>
+         * @param value
+         * @return 
        */
       public Builder setCountry(
           java.lang.String value) {
@@ -3182,6 +4153,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string country = 4;</code>
+         * @return 
        */
       public Builder clearCountry() {
         
@@ -3191,6 +4163,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string country = 4;</code>
+         * @param value
+         * @return 
        */
       public Builder setCountryBytes(
           com.google.protobuf.ByteString value) {
@@ -3207,6 +4181,7 @@ public final class InitRequest {
       private java.lang.Object countryCode_ = "";
       /**
        * <code>optional string country_code = 5;</code>
+         * @return 
        */
       public java.lang.String getCountryCode() {
         java.lang.Object ref = countryCode_;
@@ -3222,6 +4197,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string country_code = 5;</code>
+         * @return 
        */
       public com.google.protobuf.ByteString
           getCountryCodeBytes() {
@@ -3238,6 +4214,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string country_code = 5;</code>
+         * @param value
+         * @return 
        */
       public Builder setCountryCode(
           java.lang.String value) {
@@ -3251,6 +4229,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string country_code = 5;</code>
+         * @return 
        */
       public Builder clearCountryCode() {
         
@@ -3260,6 +4239,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string country_code = 5;</code>
+         * @param value
+         * @return 
        */
       public Builder setCountryCodeBytes(
           com.google.protobuf.ByteString value) {
@@ -3276,6 +4257,7 @@ public final class InitRequest {
       private java.lang.Object city_ = "";
       /**
        * <code>optional string city = 6;</code>
+         * @return 
        */
       public java.lang.String getCity() {
         java.lang.Object ref = city_;
@@ -3291,6 +4273,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string city = 6;</code>
+         * @return 
        */
       public com.google.protobuf.ByteString
           getCityBytes() {
@@ -3307,6 +4290,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string city = 6;</code>
+         * @param value
+         * @return 
        */
       public Builder setCity(
           java.lang.String value) {
@@ -3320,6 +4305,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string city = 6;</code>
+         * @return 
        */
       public Builder clearCity() {
         
@@ -3329,6 +4315,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string city = 6;</code>
+         * @param value
+         * @return 
        */
       public Builder setCityBytes(
           com.google.protobuf.ByteString value) {
@@ -3345,6 +4333,7 @@ public final class InitRequest {
       private java.lang.Object zipcode_ = "";
       /**
        * <code>optional string zipcode = 7;</code>
+         * @return 
        */
       public java.lang.String getZipcode() {
         java.lang.Object ref = zipcode_;
@@ -3360,6 +4349,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string zipcode = 7;</code>
+         * @return 
        */
       public com.google.protobuf.ByteString
           getZipcodeBytes() {
@@ -3376,6 +4366,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string zipcode = 7;</code>
+         * @param value
+         * @return 
        */
       public Builder setZipcode(
           java.lang.String value) {
@@ -3389,6 +4381,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string zipcode = 7;</code>
+         * @return 
        */
       public Builder clearZipcode() {
         
@@ -3398,6 +4391,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string zipcode = 7;</code>
+         * @param value
+         * @return 
        */
       public Builder setZipcodeBytes(
           com.google.protobuf.ByteString value) {
@@ -3414,6 +4409,7 @@ public final class InitRequest {
       private java.lang.Object streetName_ = "";
       /**
        * <code>optional string street_name = 8;</code>
+         * @return 
        */
       public java.lang.String getStreetName() {
         java.lang.Object ref = streetName_;
@@ -3429,6 +4425,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string street_name = 8;</code>
+         * @return 
        */
       public com.google.protobuf.ByteString
           getStreetNameBytes() {
@@ -3445,6 +4442,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string street_name = 8;</code>
+         * @param value
+         * @return 
        */
       public Builder setStreetName(
           java.lang.String value) {
@@ -3458,6 +4457,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string street_name = 8;</code>
+         * @return 
        */
       public Builder clearStreetName() {
         
@@ -3467,6 +4467,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string street_name = 8;</code>
+         * @param value
+         * @return 
        */
       public Builder setStreetNameBytes(
           com.google.protobuf.ByteString value) {
@@ -3483,6 +4485,7 @@ public final class InitRequest {
       private java.lang.Object streetNumber_ = "";
       /**
        * <code>optional string street_number = 9;</code>
+         * @return 
        */
       public java.lang.String getStreetNumber() {
         java.lang.Object ref = streetNumber_;
@@ -3498,6 +4501,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string street_number = 9;</code>
+         * @return 
        */
       public com.google.protobuf.ByteString
           getStreetNumberBytes() {
@@ -3514,6 +4518,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string street_number = 9;</code>
+         * @param value
+         * @return 
        */
       public Builder setStreetNumber(
           java.lang.String value) {
@@ -3527,6 +4533,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string street_number = 9;</code>
+         * @return 
        */
       public Builder clearStreetNumber() {
         
@@ -3536,6 +4543,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string street_number = 9;</code>
+         * @param value
+         * @return 
        */
       public Builder setStreetNumberBytes(
           com.google.protobuf.ByteString value) {
@@ -3548,12 +4557,23 @@ public final class InitRequest {
         onChanged();
         return this;
       }
-      public final Builder setUnknownFields(
+
+        /**
+         *
+         * @param unknownFields
+         * @return
+         */
+        public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
       }
 
-      public final Builder mergeUnknownFields(
+        /**
+         *
+         * @param unknownFields
+         * @return
+         */
+        public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
       }
@@ -3568,7 +4588,11 @@ public final class InitRequest {
       DEFAULT_INSTANCE = new edu.fontys.cims.InitRequest.Location();
     }
 
-    public static edu.fontys.cims.InitRequest.Location getDefaultInstance() {
+      /**
+       *
+       * @return
+       */
+      public static edu.fontys.cims.InitRequest.Location getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3582,112 +4606,146 @@ public final class InitRequest {
       }
     };
 
-    public static com.google.protobuf.Parser<Location> parser() {
+      /**
+       *
+       * @return
+       */
+      public static com.google.protobuf.Parser<Location> parser() {
       return PARSER;
     }
 
-    @java.lang.Override
+      /**
+       *
+       * @return
+       */
+      @java.lang.Override
     public com.google.protobuf.Parser<Location> getParserForType() {
       return PARSER;
     }
 
-    public edu.fontys.cims.InitRequest.Location getDefaultInstanceForType() {
+      /**
+       *
+       * @return
+       */
+      public edu.fontys.cims.InitRequest.Location getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface CrisisOrBuilder extends
+    /**
+     *
+     */
+    public interface CrisisOrBuilder extends
       // @@protoc_insertion_point(interface_extends:edu.fontys.cims.proto.Crisis)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>optional int32 id = 1;</code>
+       * @return 
      */
     int getId();
 
     /**
      * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+       * @return 
      */
     boolean hasAlert();
     /**
      * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+       * @return 
      */
     edu.fontys.cims.InitRequest.Alert getAlert();
     /**
      * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+       * @return 
      */
     edu.fontys.cims.InitRequest.AlertOrBuilder getAlertOrBuilder();
 
     /**
      * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
+       * @return 
      */
     boolean hasLocation();
     /**
      * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
+       * @return 
      */
     edu.fontys.cims.InitRequest.Location getLocation();
     /**
      * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
+       * @return 
      */
     edu.fontys.cims.InitRequest.LocationOrBuilder getLocationOrBuilder();
 
     /**
      * <code>optional string status = 4;</code>
+       * @return 
      */
     java.lang.String getStatus();
     /**
      * <code>optional string status = 4;</code>
+       * @return 
      */
     com.google.protobuf.ByteString
         getStatusBytes();
 
     /**
      * <code>optional int32 priority = 5;</code>
+       * @return 
      */
     int getPriority();
 
     /**
      * <code>optional string title = 6;</code>
+       * @return 
      */
     java.lang.String getTitle();
     /**
      * <code>optional string title = 6;</code>
+       * @return 
      */
     com.google.protobuf.ByteString
         getTitleBytes();
 
     /**
      * <code>optional string description = 7;</code>
+       * @return 
      */
     java.lang.String getDescription();
     /**
      * <code>optional string description = 7;</code>
+       * @return 
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
 
     /**
      * <code>optional string thumbnail = 8;</code>
+       * @return 
      */
     java.lang.String getThumbnail();
     /**
      * <code>optional string thumbnail = 8;</code>
+       * @return 
      */
     com.google.protobuf.ByteString
         getThumbnailBytes();
 
     /**
      * <code>optional int32 reach = 9;</code>
+       * @return 
      */
     int getReach();
 
     /**
      * <code>optional string timestamp = 10;</code>
+       * @return 
      */
     java.lang.String getTimestamp();
     /**
      * <code>optional string timestamp = 10;</code>
+       * @return 
      */
     com.google.protobuf.ByteString
         getTimestampBytes();
@@ -3714,7 +4772,11 @@ public final class InitRequest {
       timestamp_ = "";
     }
 
-    @java.lang.Override
+      /**
+       *
+       * @return
+       */
+      @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -3821,73 +4883,102 @@ public final class InitRequest {
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+
+      /**
+       *
+       * @return
+       */
+      public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_Crisis_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      /**
+       *
+       * @return
+       */
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_Crisis_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               edu.fontys.cims.InitRequest.Crisis.class, edu.fontys.cims.InitRequest.Crisis.Builder.class);
     }
 
-    public static final int ID_FIELD_NUMBER = 1;
+      /**
+       *
+       */
+      public static final int ID_FIELD_NUMBER = 1;
     private int id_;
     /**
      * <code>optional int32 id = 1;</code>
+       * @return 
      */
     public int getId() {
       return id_;
     }
 
-    public static final int ALERT_FIELD_NUMBER = 2;
+      /**
+       *
+       */
+      public static final int ALERT_FIELD_NUMBER = 2;
     private edu.fontys.cims.InitRequest.Alert alert_;
     /**
      * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+       * @return 
      */
     public boolean hasAlert() {
       return alert_ != null;
     }
     /**
      * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+       * @return 
      */
     public edu.fontys.cims.InitRequest.Alert getAlert() {
       return alert_ == null ? edu.fontys.cims.InitRequest.Alert.getDefaultInstance() : alert_;
     }
     /**
      * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+       * @return 
      */
     public edu.fontys.cims.InitRequest.AlertOrBuilder getAlertOrBuilder() {
       return getAlert();
     }
 
-    public static final int LOCATION_FIELD_NUMBER = 3;
+      /**
+       *
+       */
+      public static final int LOCATION_FIELD_NUMBER = 3;
     private edu.fontys.cims.InitRequest.Location location_;
     /**
      * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
+       * @return 
      */
     public boolean hasLocation() {
       return location_ != null;
     }
     /**
      * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
+       * @return 
      */
     public edu.fontys.cims.InitRequest.Location getLocation() {
       return location_ == null ? edu.fontys.cims.InitRequest.Location.getDefaultInstance() : location_;
     }
     /**
      * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
+       * @return 
      */
     public edu.fontys.cims.InitRequest.LocationOrBuilder getLocationOrBuilder() {
       return getLocation();
     }
 
-    public static final int STATUS_FIELD_NUMBER = 4;
+      /**
+       *
+       */
+      public static final int STATUS_FIELD_NUMBER = 4;
     private volatile java.lang.Object status_;
     /**
      * <code>optional string status = 4;</code>
+       * @return 
      */
     public java.lang.String getStatus() {
       java.lang.Object ref = status_;
@@ -3903,6 +4994,7 @@ public final class InitRequest {
     }
     /**
      * <code>optional string status = 4;</code>
+       * @return 
      */
     public com.google.protobuf.ByteString
         getStatusBytes() {
@@ -3918,19 +5010,27 @@ public final class InitRequest {
       }
     }
 
-    public static final int PRIORITY_FIELD_NUMBER = 5;
+      /**
+       *
+       */
+      public static final int PRIORITY_FIELD_NUMBER = 5;
     private int priority_;
     /**
      * <code>optional int32 priority = 5;</code>
+       * @return 
      */
     public int getPriority() {
       return priority_;
     }
 
-    public static final int TITLE_FIELD_NUMBER = 6;
+      /**
+       *
+       */
+      public static final int TITLE_FIELD_NUMBER = 6;
     private volatile java.lang.Object title_;
     /**
      * <code>optional string title = 6;</code>
+       * @return 
      */
     public java.lang.String getTitle() {
       java.lang.Object ref = title_;
@@ -3946,6 +5046,7 @@ public final class InitRequest {
     }
     /**
      * <code>optional string title = 6;</code>
+       * @return 
      */
     public com.google.protobuf.ByteString
         getTitleBytes() {
@@ -3961,10 +5062,14 @@ public final class InitRequest {
       }
     }
 
-    public static final int DESCRIPTION_FIELD_NUMBER = 7;
+      /**
+       *
+       */
+      public static final int DESCRIPTION_FIELD_NUMBER = 7;
     private volatile java.lang.Object description_;
     /**
      * <code>optional string description = 7;</code>
+       * @return 
      */
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
@@ -3980,6 +5085,7 @@ public final class InitRequest {
     }
     /**
      * <code>optional string description = 7;</code>
+       * @return 
      */
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
@@ -3995,10 +5101,14 @@ public final class InitRequest {
       }
     }
 
-    public static final int THUMBNAIL_FIELD_NUMBER = 8;
+      /**
+       *
+       */
+      public static final int THUMBNAIL_FIELD_NUMBER = 8;
     private volatile java.lang.Object thumbnail_;
     /**
      * <code>optional string thumbnail = 8;</code>
+       * @return 
      */
     public java.lang.String getThumbnail() {
       java.lang.Object ref = thumbnail_;
@@ -4014,6 +5124,7 @@ public final class InitRequest {
     }
     /**
      * <code>optional string thumbnail = 8;</code>
+       * @return 
      */
     public com.google.protobuf.ByteString
         getThumbnailBytes() {
@@ -4029,19 +5140,27 @@ public final class InitRequest {
       }
     }
 
-    public static final int REACH_FIELD_NUMBER = 9;
+      /**
+       *
+       */
+      public static final int REACH_FIELD_NUMBER = 9;
     private int reach_;
     /**
      * <code>optional int32 reach = 9;</code>
+       * @return 
      */
     public int getReach() {
       return reach_;
     }
 
-    public static final int TIMESTAMP_FIELD_NUMBER = 10;
+      /**
+       *
+       */
+      public static final int TIMESTAMP_FIELD_NUMBER = 10;
     private volatile java.lang.Object timestamp_;
     /**
      * <code>optional string timestamp = 10;</code>
+       * @return 
      */
     public java.lang.String getTimestamp() {
       java.lang.Object ref = timestamp_;
@@ -4057,6 +5176,7 @@ public final class InitRequest {
     }
     /**
      * <code>optional string timestamp = 10;</code>
+       * @return 
      */
     public com.google.protobuf.ByteString
         getTimestampBytes() {
@@ -4073,7 +5193,12 @@ public final class InitRequest {
     }
 
     private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
+
+      /**
+       *
+       * @return
+       */
+      public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
@@ -4082,7 +5207,12 @@ public final class InitRequest {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+      /**
+       *
+       * @param output
+       * @throws IOException
+       */
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (id_ != 0) {
         output.writeInt32(1, id_);
@@ -4116,7 +5246,11 @@ public final class InitRequest {
       }
     }
 
-    public int getSerializedSize() {
+      /**
+       *
+       * @return
+       */
+      public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
 
@@ -4237,58 +5371,132 @@ public final class InitRequest {
       return hash;
     }
 
-    public static edu.fontys.cims.InitRequest.Crisis parseFrom(
+      /**
+       *
+       * @param data
+       * @return
+       * @throws InvalidProtocolBufferException
+       */
+      public static edu.fontys.cims.InitRequest.Crisis parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static edu.fontys.cims.InitRequest.Crisis parseFrom(
+
+      /**
+       *
+       * @param data
+       * @param extensionRegistry
+       * @return
+       * @throws InvalidProtocolBufferException
+       */
+      public static edu.fontys.cims.InitRequest.Crisis parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static edu.fontys.cims.InitRequest.Crisis parseFrom(byte[] data)
+
+      /**
+       *
+       * @param data
+       * @return
+       * @throws InvalidProtocolBufferException
+       */
+      public static edu.fontys.cims.InitRequest.Crisis parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static edu.fontys.cims.InitRequest.Crisis parseFrom(
+
+      /**
+       *
+       * @param data
+       * @param extensionRegistry
+       * @return
+       * @throws InvalidProtocolBufferException
+       */
+      public static edu.fontys.cims.InitRequest.Crisis parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static edu.fontys.cims.InitRequest.Crisis parseFrom(java.io.InputStream input)
+
+      /**
+       *
+       * @param input
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Crisis parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static edu.fontys.cims.InitRequest.Crisis parseFrom(
+
+      /**
+       *
+       * @param input
+       * @param extensionRegistry
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Crisis parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static edu.fontys.cims.InitRequest.Crisis parseDelimitedFrom(java.io.InputStream input)
+
+      /**
+       *
+       * @param input
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Crisis parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static edu.fontys.cims.InitRequest.Crisis parseDelimitedFrom(
+
+      /**
+       *
+       * @param input
+       * @param extensionRegistry
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Crisis parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static edu.fontys.cims.InitRequest.Crisis parseFrom(
+
+      /**
+       *
+       * @param input
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Crisis parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static edu.fontys.cims.InitRequest.Crisis parseFrom(
+
+      /**
+       *
+       * @param input
+       * @param extensionRegistry
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Crisis parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4296,19 +5504,44 @@ public final class InitRequest {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
+      /**
+       *
+       * @return
+       */
+      public Builder newBuilderForType() { return newBuilder(); }
+
+      /**
+       *
+       * @return
+       */
+      public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(edu.fontys.cims.InitRequest.Crisis prototype) {
+
+      /**
+       *
+       * @param prototype
+       * @return
+       */
+      public static Builder newBuilder(edu.fontys.cims.InitRequest.Crisis prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    public Builder toBuilder() {
+
+      /**
+       *
+       * @return
+       */
+      public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+      /**
+       *
+       * @param parent
+       * @return
+       */
+      @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -4321,12 +5554,21 @@ public final class InitRequest {
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:edu.fontys.cims.proto.Crisis)
         edu.fontys.cims.InitRequest.CrisisOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+
+        /**
+         *
+         * @return
+         */
+        public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_Crisis_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        /**
+         *
+         * @return
+         */
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_Crisis_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -4348,7 +5590,12 @@ public final class InitRequest {
                 .alwaysUseFieldBuilders) {
         }
       }
-      public Builder clear() {
+
+        /**
+         *
+         * @return
+         */
+        public Builder clear() {
         super.clear();
         id_ = 0;
 
@@ -4381,16 +5628,28 @@ public final class InitRequest {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+        /**
+         *
+         * @return
+         */
+        public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_Crisis_descriptor;
       }
 
-      public edu.fontys.cims.InitRequest.Crisis getDefaultInstanceForType() {
+        /**
+         *
+         * @return
+         */
+        public edu.fontys.cims.InitRequest.Crisis getDefaultInstanceForType() {
         return edu.fontys.cims.InitRequest.Crisis.getDefaultInstance();
       }
 
-      public edu.fontys.cims.InitRequest.Crisis build() {
+        /**
+         *
+         * @return
+         */
+        public edu.fontys.cims.InitRequest.Crisis build() {
         edu.fontys.cims.InitRequest.Crisis result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
@@ -4398,7 +5657,11 @@ public final class InitRequest {
         return result;
       }
 
-      public edu.fontys.cims.InitRequest.Crisis buildPartial() {
+        /**
+         *
+         * @return
+         */
+        public edu.fontys.cims.InitRequest.Crisis buildPartial() {
         edu.fontys.cims.InitRequest.Crisis result = new edu.fontys.cims.InitRequest.Crisis(this);
         result.id_ = id_;
         if (alertBuilder_ == null) {
@@ -4425,30 +5688,70 @@ public final class InitRequest {
       public Builder clone() {
         return (Builder) super.clone();
       }
-      public Builder setField(
+
+        /**
+         *
+         * @param field
+         * @param value
+         * @return
+         */
+        public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
+
+        /**
+         *
+         * @param field
+         * @return
+         */
+        public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
+
+        /**
+         *
+         * @param oneof
+         * @return
+         */
+        public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      public Builder setRepeatedField(
+
+        /**
+         *
+         * @param field
+         * @param index
+         * @param value
+         * @return
+         */
+        public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      public Builder addRepeatedField(
+
+        /**
+         *
+         * @param field
+         * @param value
+         * @return
+         */
+        public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+
+        /**
+         *
+         * @param other
+         * @return
+         */
+        public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof edu.fontys.cims.InitRequest.Crisis) {
           return mergeFrom((edu.fontys.cims.InitRequest.Crisis)other);
         } else {
@@ -4457,7 +5760,12 @@ public final class InitRequest {
         }
       }
 
-      public Builder mergeFrom(edu.fontys.cims.InitRequest.Crisis other) {
+        /**
+         *
+         * @param other
+         * @return
+         */
+        public Builder mergeFrom(edu.fontys.cims.InitRequest.Crisis other) {
         if (other == edu.fontys.cims.InitRequest.Crisis.getDefaultInstance()) return this;
         if (other.getId() != 0) {
           setId(other.getId());
@@ -4498,11 +5806,22 @@ public final class InitRequest {
         return this;
       }
 
-      public final boolean isInitialized() {
+        /**
+         *
+         * @return
+         */
+        public final boolean isInitialized() {
         return true;
       }
 
-      public Builder mergeFrom(
+        /**
+         *
+         * @param input
+         * @param extensionRegistry
+         * @return
+         * @throws IOException
+         */
+        public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -4523,12 +5842,15 @@ public final class InitRequest {
       private int id_ ;
       /**
        * <code>optional int32 id = 1;</code>
+         * @return 
        */
       public int getId() {
         return id_;
       }
       /**
        * <code>optional int32 id = 1;</code>
+         * @param value
+         * @return 
        */
       public Builder setId(int value) {
         
@@ -4538,6 +5860,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional int32 id = 1;</code>
+         * @return 
        */
       public Builder clearId() {
         
@@ -4551,12 +5874,14 @@ public final class InitRequest {
           edu.fontys.cims.InitRequest.Alert, edu.fontys.cims.InitRequest.Alert.Builder, edu.fontys.cims.InitRequest.AlertOrBuilder> alertBuilder_;
       /**
        * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+         * @return 
        */
       public boolean hasAlert() {
         return alertBuilder_ != null || alert_ != null;
       }
       /**
        * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+         * @return 
        */
       public edu.fontys.cims.InitRequest.Alert getAlert() {
         if (alertBuilder_ == null) {
@@ -4567,6 +5892,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+         * @param value
+         * @return 
        */
       public Builder setAlert(edu.fontys.cims.InitRequest.Alert value) {
         if (alertBuilder_ == null) {
@@ -4583,6 +5910,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+         * @param builderForValue
+         * @return 
        */
       public Builder setAlert(
           edu.fontys.cims.InitRequest.Alert.Builder builderForValue) {
@@ -4597,6 +5926,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+         * @param value
+         * @return 
        */
       public Builder mergeAlert(edu.fontys.cims.InitRequest.Alert value) {
         if (alertBuilder_ == null) {
@@ -4615,6 +5946,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+         * @return 
        */
       public Builder clearAlert() {
         if (alertBuilder_ == null) {
@@ -4629,6 +5961,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+         * @return 
        */
       public edu.fontys.cims.InitRequest.Alert.Builder getAlertBuilder() {
         
@@ -4637,6 +5970,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional .edu.fontys.cims.proto.Alert alert = 2;</code>
+         * @return 
        */
       public edu.fontys.cims.InitRequest.AlertOrBuilder getAlertOrBuilder() {
         if (alertBuilder_ != null) {
@@ -4668,12 +6002,14 @@ public final class InitRequest {
           edu.fontys.cims.InitRequest.Location, edu.fontys.cims.InitRequest.Location.Builder, edu.fontys.cims.InitRequest.LocationOrBuilder> locationBuilder_;
       /**
        * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
+         * @return 
        */
       public boolean hasLocation() {
         return locationBuilder_ != null || location_ != null;
       }
       /**
        * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
+         * @return 
        */
       public edu.fontys.cims.InitRequest.Location getLocation() {
         if (locationBuilder_ == null) {
@@ -4684,6 +6020,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
+         * @param value
+         * @return 
        */
       public Builder setLocation(edu.fontys.cims.InitRequest.Location value) {
         if (locationBuilder_ == null) {
@@ -4700,6 +6038,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
+         * @param builderForValue
+         * @return 
        */
       public Builder setLocation(
           edu.fontys.cims.InitRequest.Location.Builder builderForValue) {
@@ -4714,6 +6054,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
+         * @param value
+         * @return 
        */
       public Builder mergeLocation(edu.fontys.cims.InitRequest.Location value) {
         if (locationBuilder_ == null) {
@@ -4732,6 +6074,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
+         * @return 
        */
       public Builder clearLocation() {
         if (locationBuilder_ == null) {
@@ -4746,6 +6089,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
+         * @return 
        */
       public edu.fontys.cims.InitRequest.Location.Builder getLocationBuilder() {
         
@@ -4754,6 +6098,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional .edu.fontys.cims.proto.Location location = 3;</code>
+         * @return 
        */
       public edu.fontys.cims.InitRequest.LocationOrBuilder getLocationOrBuilder() {
         if (locationBuilder_ != null) {
@@ -4783,6 +6128,7 @@ public final class InitRequest {
       private java.lang.Object status_ = "";
       /**
        * <code>optional string status = 4;</code>
+         * @return 
        */
       public java.lang.String getStatus() {
         java.lang.Object ref = status_;
@@ -4798,6 +6144,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string status = 4;</code>
+         * @return 
        */
       public com.google.protobuf.ByteString
           getStatusBytes() {
@@ -4814,6 +6161,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string status = 4;</code>
+         * @param value
+         * @return 
        */
       public Builder setStatus(
           java.lang.String value) {
@@ -4827,6 +6176,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string status = 4;</code>
+         * @return 
        */
       public Builder clearStatus() {
         
@@ -4836,6 +6186,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string status = 4;</code>
+         * @param value
+         * @return 
        */
       public Builder setStatusBytes(
           com.google.protobuf.ByteString value) {
@@ -4852,12 +6204,15 @@ public final class InitRequest {
       private int priority_ ;
       /**
        * <code>optional int32 priority = 5;</code>
+         * @return 
        */
       public int getPriority() {
         return priority_;
       }
       /**
        * <code>optional int32 priority = 5;</code>
+         * @param value
+         * @return 
        */
       public Builder setPriority(int value) {
         
@@ -4867,6 +6222,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional int32 priority = 5;</code>
+         * @return 
        */
       public Builder clearPriority() {
         
@@ -4878,6 +6234,7 @@ public final class InitRequest {
       private java.lang.Object title_ = "";
       /**
        * <code>optional string title = 6;</code>
+         * @return 
        */
       public java.lang.String getTitle() {
         java.lang.Object ref = title_;
@@ -4893,6 +6250,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string title = 6;</code>
+         * @return 
        */
       public com.google.protobuf.ByteString
           getTitleBytes() {
@@ -4909,6 +6267,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string title = 6;</code>
+         * @param value
+         * @return 
        */
       public Builder setTitle(
           java.lang.String value) {
@@ -4922,6 +6282,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string title = 6;</code>
+         * @return 
        */
       public Builder clearTitle() {
         
@@ -4931,6 +6292,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string title = 6;</code>
+         * @param value
+         * @return 
        */
       public Builder setTitleBytes(
           com.google.protobuf.ByteString value) {
@@ -4947,6 +6310,7 @@ public final class InitRequest {
       private java.lang.Object description_ = "";
       /**
        * <code>optional string description = 7;</code>
+         * @return 
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -4962,6 +6326,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string description = 7;</code>
+         * @return 
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -4978,6 +6343,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string description = 7;</code>
+         * @param value
+         * @return 
        */
       public Builder setDescription(
           java.lang.String value) {
@@ -4991,6 +6358,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string description = 7;</code>
+         * @return 
        */
       public Builder clearDescription() {
         
@@ -5000,6 +6368,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string description = 7;</code>
+         * @param value
+         * @return 
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -5016,6 +6386,7 @@ public final class InitRequest {
       private java.lang.Object thumbnail_ = "";
       /**
        * <code>optional string thumbnail = 8;</code>
+         * @return 
        */
       public java.lang.String getThumbnail() {
         java.lang.Object ref = thumbnail_;
@@ -5031,6 +6402,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string thumbnail = 8;</code>
+         * @return 
        */
       public com.google.protobuf.ByteString
           getThumbnailBytes() {
@@ -5047,6 +6419,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string thumbnail = 8;</code>
+         * @param value
+         * @return 
        */
       public Builder setThumbnail(
           java.lang.String value) {
@@ -5060,6 +6434,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string thumbnail = 8;</code>
+         * @return 
        */
       public Builder clearThumbnail() {
         
@@ -5069,6 +6444,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string thumbnail = 8;</code>
+         * @param value
+         * @return 
        */
       public Builder setThumbnailBytes(
           com.google.protobuf.ByteString value) {
@@ -5085,12 +6462,15 @@ public final class InitRequest {
       private int reach_ ;
       /**
        * <code>optional int32 reach = 9;</code>
+         * @return 
        */
       public int getReach() {
         return reach_;
       }
       /**
        * <code>optional int32 reach = 9;</code>
+         * @param value
+         * @return 
        */
       public Builder setReach(int value) {
         
@@ -5100,6 +6480,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional int32 reach = 9;</code>
+         * @return 
        */
       public Builder clearReach() {
         
@@ -5111,6 +6492,7 @@ public final class InitRequest {
       private java.lang.Object timestamp_ = "";
       /**
        * <code>optional string timestamp = 10;</code>
+         * @return 
        */
       public java.lang.String getTimestamp() {
         java.lang.Object ref = timestamp_;
@@ -5126,6 +6508,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string timestamp = 10;</code>
+         * @return 
        */
       public com.google.protobuf.ByteString
           getTimestampBytes() {
@@ -5142,6 +6525,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string timestamp = 10;</code>
+         * @param value
+         * @return 
        */
       public Builder setTimestamp(
           java.lang.String value) {
@@ -5155,6 +6540,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string timestamp = 10;</code>
+         * @return 
        */
       public Builder clearTimestamp() {
         
@@ -5164,6 +6550,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string timestamp = 10;</code>
+         * @param value
+         * @return 
        */
       public Builder setTimestampBytes(
           com.google.protobuf.ByteString value) {
@@ -5176,12 +6564,23 @@ public final class InitRequest {
         onChanged();
         return this;
       }
-      public final Builder setUnknownFields(
+
+        /**
+         *
+         * @param unknownFields
+         * @return
+         */
+        public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
       }
 
-      public final Builder mergeUnknownFields(
+        /**
+         *
+         * @param unknownFields
+         * @return
+         */
+        public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
       }
@@ -5196,7 +6595,11 @@ public final class InitRequest {
       DEFAULT_INSTANCE = new edu.fontys.cims.InitRequest.Crisis();
     }
 
-    public static edu.fontys.cims.InitRequest.Crisis getDefaultInstance() {
+      /**
+       *
+       * @return
+       */
+      public static edu.fontys.cims.InitRequest.Crisis getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5210,41 +6613,60 @@ public final class InitRequest {
       }
     };
 
-    public static com.google.protobuf.Parser<Crisis> parser() {
+      /**
+       *
+       * @return
+       */
+      public static com.google.protobuf.Parser<Crisis> parser() {
       return PARSER;
     }
 
-    @java.lang.Override
+      /**
+       *
+       * @return
+       */
+      @java.lang.Override
     public com.google.protobuf.Parser<Crisis> getParserForType() {
       return PARSER;
     }
 
-    public edu.fontys.cims.InitRequest.Crisis getDefaultInstanceForType() {
+      /**
+       *
+       * @return
+       */
+      public edu.fontys.cims.InitRequest.Crisis getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface MessageOrBuilder extends
+    /**
+     *
+     */
+    public interface MessageOrBuilder extends
       // @@protoc_insertion_point(interface_extends:edu.fontys.cims.proto.Message)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>optional int32 id = 1;</code>
+       * @return 
      */
     int getId();
 
     /**
      * <code>optional int32 crisisid = 2;</code>
+       * @return 
      */
     int getCrisisid();
 
     /**
      * <code>optional string text = 3;</code>
+       * @return 
      */
     java.lang.String getText();
     /**
      * <code>optional string text = 3;</code>
+       * @return 
      */
     com.google.protobuf.ByteString
         getTextBytes();
@@ -5266,7 +6688,11 @@ public final class InitRequest {
       text_ = "";
     }
 
-    @java.lang.Override
+      /**
+       *
+       * @return
+       */
+      @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -5318,40 +6744,61 @@ public final class InitRequest {
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+
+      /**
+       *
+       * @return
+       */
+      public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_Message_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      /**
+       *
+       * @return
+       */
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_Message_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               edu.fontys.cims.InitRequest.Message.class, edu.fontys.cims.InitRequest.Message.Builder.class);
     }
 
-    public static final int ID_FIELD_NUMBER = 1;
+      /**
+       *
+       */
+      public static final int ID_FIELD_NUMBER = 1;
     private int id_;
     /**
      * <code>optional int32 id = 1;</code>
+       * @return 
      */
     public int getId() {
       return id_;
     }
 
-    public static final int CRISISID_FIELD_NUMBER = 2;
+      /**
+       *
+       */
+      public static final int CRISISID_FIELD_NUMBER = 2;
     private int crisisid_;
     /**
      * <code>optional int32 crisisid = 2;</code>
+       * @return 
      */
     public int getCrisisid() {
       return crisisid_;
     }
 
-    public static final int TEXT_FIELD_NUMBER = 3;
+      /**
+       *
+       */
+      public static final int TEXT_FIELD_NUMBER = 3;
     private volatile java.lang.Object text_;
     /**
      * <code>optional string text = 3;</code>
+       * @return 
      */
     public java.lang.String getText() {
       java.lang.Object ref = text_;
@@ -5367,6 +6814,7 @@ public final class InitRequest {
     }
     /**
      * <code>optional string text = 3;</code>
+       * @return 
      */
     public com.google.protobuf.ByteString
         getTextBytes() {
@@ -5383,7 +6831,12 @@ public final class InitRequest {
     }
 
     private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
+
+      /**
+       *
+       * @return
+       */
+      public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
@@ -5392,7 +6845,12 @@ public final class InitRequest {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+      /**
+       *
+       * @param output
+       * @throws IOException
+       */
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (id_ != 0) {
         output.writeInt32(1, id_);
@@ -5405,7 +6863,11 @@ public final class InitRequest {
       }
     }
 
-    public int getSerializedSize() {
+      /**
+       *
+       * @return
+       */
+      public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
 
@@ -5464,58 +6926,132 @@ public final class InitRequest {
       return hash;
     }
 
-    public static edu.fontys.cims.InitRequest.Message parseFrom(
+      /**
+       *
+       * @param data
+       * @return
+       * @throws InvalidProtocolBufferException
+       */
+      public static edu.fontys.cims.InitRequest.Message parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static edu.fontys.cims.InitRequest.Message parseFrom(
+
+      /**
+       *
+       * @param data
+       * @param extensionRegistry
+       * @return
+       * @throws InvalidProtocolBufferException
+       */
+      public static edu.fontys.cims.InitRequest.Message parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static edu.fontys.cims.InitRequest.Message parseFrom(byte[] data)
+
+      /**
+       *
+       * @param data
+       * @return
+       * @throws InvalidProtocolBufferException
+       */
+      public static edu.fontys.cims.InitRequest.Message parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static edu.fontys.cims.InitRequest.Message parseFrom(
+
+      /**
+       *
+       * @param data
+       * @param extensionRegistry
+       * @return
+       * @throws InvalidProtocolBufferException
+       */
+      public static edu.fontys.cims.InitRequest.Message parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static edu.fontys.cims.InitRequest.Message parseFrom(java.io.InputStream input)
+
+      /**
+       *
+       * @param input
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Message parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static edu.fontys.cims.InitRequest.Message parseFrom(
+
+      /**
+       *
+       * @param input
+       * @param extensionRegistry
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Message parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static edu.fontys.cims.InitRequest.Message parseDelimitedFrom(java.io.InputStream input)
+
+      /**
+       *
+       * @param input
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Message parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static edu.fontys.cims.InitRequest.Message parseDelimitedFrom(
+
+      /**
+       *
+       * @param input
+       * @param extensionRegistry
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Message parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static edu.fontys.cims.InitRequest.Message parseFrom(
+
+      /**
+       *
+       * @param input
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Message parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static edu.fontys.cims.InitRequest.Message parseFrom(
+
+      /**
+       *
+       * @param input
+       * @param extensionRegistry
+       * @return
+       * @throws IOException
+       */
+      public static edu.fontys.cims.InitRequest.Message parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -5523,19 +7059,44 @@ public final class InitRequest {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
+      /**
+       *
+       * @return
+       */
+      public Builder newBuilderForType() { return newBuilder(); }
+
+      /**
+       *
+       * @return
+       */
+      public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(edu.fontys.cims.InitRequest.Message prototype) {
+
+      /**
+       *
+       * @param prototype
+       * @return
+       */
+      public static Builder newBuilder(edu.fontys.cims.InitRequest.Message prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    public Builder toBuilder() {
+
+      /**
+       *
+       * @return
+       */
+      public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+      /**
+       *
+       * @param parent
+       * @return
+       */
+      @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -5548,12 +7109,21 @@ public final class InitRequest {
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:edu.fontys.cims.proto.Message)
         edu.fontys.cims.InitRequest.MessageOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+
+        /**
+         *
+         * @return
+         */
+        public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_Message_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        /**
+         *
+         * @return
+         */
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_Message_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -5575,7 +7145,12 @@ public final class InitRequest {
                 .alwaysUseFieldBuilders) {
         }
       }
-      public Builder clear() {
+
+        /**
+         *
+         * @return
+         */
+        public Builder clear() {
         super.clear();
         id_ = 0;
 
@@ -5586,16 +7161,28 @@ public final class InitRequest {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+        /**
+         *
+         * @return
+         */
+        public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return edu.fontys.cims.InitRequest.internal_static_edu_fontys_cims_proto_Message_descriptor;
       }
 
-      public edu.fontys.cims.InitRequest.Message getDefaultInstanceForType() {
+        /**
+         *
+         * @return
+         */
+        public edu.fontys.cims.InitRequest.Message getDefaultInstanceForType() {
         return edu.fontys.cims.InitRequest.Message.getDefaultInstance();
       }
 
-      public edu.fontys.cims.InitRequest.Message build() {
+        /**
+         *
+         * @return
+         */
+        public edu.fontys.cims.InitRequest.Message build() {
         edu.fontys.cims.InitRequest.Message result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
@@ -5603,7 +7190,11 @@ public final class InitRequest {
         return result;
       }
 
-      public edu.fontys.cims.InitRequest.Message buildPartial() {
+        /**
+         *
+         * @return
+         */
+        public edu.fontys.cims.InitRequest.Message buildPartial() {
         edu.fontys.cims.InitRequest.Message result = new edu.fontys.cims.InitRequest.Message(this);
         result.id_ = id_;
         result.crisisid_ = crisisid_;
@@ -5615,30 +7206,70 @@ public final class InitRequest {
       public Builder clone() {
         return (Builder) super.clone();
       }
-      public Builder setField(
+
+        /**
+         *
+         * @param field
+         * @param value
+         * @return
+         */
+        public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
+
+        /**
+         *
+         * @param field
+         * @return
+         */
+        public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
+
+        /**
+         *
+         * @param oneof
+         * @return
+         */
+        public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      public Builder setRepeatedField(
+
+        /**
+         *
+         * @param field
+         * @param index
+         * @param value
+         * @return
+         */
+        public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      public Builder addRepeatedField(
+
+        /**
+         *
+         * @param field
+         * @param value
+         * @return
+         */
+        public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+
+        /**
+         *
+         * @param other
+         * @return
+         */
+        public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof edu.fontys.cims.InitRequest.Message) {
           return mergeFrom((edu.fontys.cims.InitRequest.Message)other);
         } else {
@@ -5647,7 +7278,12 @@ public final class InitRequest {
         }
       }
 
-      public Builder mergeFrom(edu.fontys.cims.InitRequest.Message other) {
+        /**
+         *
+         * @param other
+         * @return
+         */
+        public Builder mergeFrom(edu.fontys.cims.InitRequest.Message other) {
         if (other == edu.fontys.cims.InitRequest.Message.getDefaultInstance()) return this;
         if (other.getId() != 0) {
           setId(other.getId());
@@ -5663,11 +7299,22 @@ public final class InitRequest {
         return this;
       }
 
-      public final boolean isInitialized() {
+        /**
+         *
+         * @return
+         */
+        public final boolean isInitialized() {
         return true;
       }
 
-      public Builder mergeFrom(
+        /**
+         *
+         * @param input
+         * @param extensionRegistry
+         * @return
+         * @throws IOException
+         */
+        public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -5688,12 +7335,15 @@ public final class InitRequest {
       private int id_ ;
       /**
        * <code>optional int32 id = 1;</code>
+         * @return 
        */
       public int getId() {
         return id_;
       }
       /**
        * <code>optional int32 id = 1;</code>
+         * @param value
+         * @return 
        */
       public Builder setId(int value) {
         
@@ -5703,6 +7353,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional int32 id = 1;</code>
+         * @return 
        */
       public Builder clearId() {
         
@@ -5714,12 +7365,15 @@ public final class InitRequest {
       private int crisisid_ ;
       /**
        * <code>optional int32 crisisid = 2;</code>
+         * @return 
        */
       public int getCrisisid() {
         return crisisid_;
       }
       /**
        * <code>optional int32 crisisid = 2;</code>
+         * @param value
+         * @return 
        */
       public Builder setCrisisid(int value) {
         
@@ -5729,6 +7383,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional int32 crisisid = 2;</code>
+         * @return 
        */
       public Builder clearCrisisid() {
         
@@ -5740,6 +7395,7 @@ public final class InitRequest {
       private java.lang.Object text_ = "";
       /**
        * <code>optional string text = 3;</code>
+         * @return 
        */
       public java.lang.String getText() {
         java.lang.Object ref = text_;
@@ -5755,6 +7411,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string text = 3;</code>
+         * @return 
        */
       public com.google.protobuf.ByteString
           getTextBytes() {
@@ -5771,6 +7428,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string text = 3;</code>
+         * @param value
+         * @return 
        */
       public Builder setText(
           java.lang.String value) {
@@ -5784,6 +7443,7 @@ public final class InitRequest {
       }
       /**
        * <code>optional string text = 3;</code>
+         * @return 
        */
       public Builder clearText() {
         
@@ -5793,6 +7453,8 @@ public final class InitRequest {
       }
       /**
        * <code>optional string text = 3;</code>
+         * @param value
+         * @return 
        */
       public Builder setTextBytes(
           com.google.protobuf.ByteString value) {
@@ -5805,12 +7467,23 @@ public final class InitRequest {
         onChanged();
         return this;
       }
-      public final Builder setUnknownFields(
+
+        /**
+         *
+         * @param unknownFields
+         * @return
+         */
+        public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
       }
 
-      public final Builder mergeUnknownFields(
+        /**
+         *
+         * @param unknownFields
+         * @return
+         */
+        public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
       }
@@ -5825,7 +7498,11 @@ public final class InitRequest {
       DEFAULT_INSTANCE = new edu.fontys.cims.InitRequest.Message();
     }
 
-    public static edu.fontys.cims.InitRequest.Message getDefaultInstance() {
+      /**
+       *
+       * @return
+       */
+      public static edu.fontys.cims.InitRequest.Message getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5839,16 +7516,28 @@ public final class InitRequest {
       }
     };
 
-    public static com.google.protobuf.Parser<Message> parser() {
+      /**
+       *
+       * @return
+       */
+      public static com.google.protobuf.Parser<Message> parser() {
       return PARSER;
     }
 
-    @java.lang.Override
+      /**
+       *
+       * @return
+       */
+      @java.lang.Override
     public com.google.protobuf.Parser<Message> getParserForType() {
       return PARSER;
     }
 
-    public edu.fontys.cims.InitRequest.Message getDefaultInstanceForType() {
+      /**
+       *
+       * @return
+       */
+      public edu.fontys.cims.InitRequest.Message getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5880,7 +7569,11 @@ public final class InitRequest {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_edu_fontys_cims_proto_Message_fieldAccessorTable;
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
+    /**
+     *
+     * @return
+     */
+    public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
   }

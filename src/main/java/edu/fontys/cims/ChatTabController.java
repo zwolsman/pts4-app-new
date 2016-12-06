@@ -1,6 +1,8 @@
 package edu.fontys.cims;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import edu.fontys.cims.Api;
+import edu.fontys.cims.InitRequest;
 import io.socket.client.Socket;
 import java.net.URL;
 import java.util.Calendar;
@@ -51,6 +53,7 @@ public class ChatTabController implements Initializable {
     }
 
     public void setId(int id) {
+        this.crisisId = id;
         Socket chat = Api.createSocket(String.valueOf(id));
         chat.on("a message", (Object... os) -> {
             try {
