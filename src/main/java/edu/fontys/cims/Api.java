@@ -56,24 +56,6 @@ public class Api {
         return null;
     }
 
-    public static void updateAlert() {
-        try {
-            URL url = new URL(SOCKET_ENDPOINT + "/alerts");
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setDoOutput(true);
-            conn.setRequestMethod("POST");
-            conn.setRequestProperty("Content-Type", "application/protobuf");
-
-            int responseCode = conn.getResponseCode();
-            System.out.println("\nSending 'POST' request to URL : " + url);
-            System.out.println("Response Code : " + responseCode);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Api.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Api.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
     public static boolean sendMessage(Message message) {
         try {
             URL url = new URL(API_ENDPOINT + "/chat");
