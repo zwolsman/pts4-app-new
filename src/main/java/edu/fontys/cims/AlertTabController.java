@@ -1,5 +1,6 @@
-package edu.fontys.controllers;
+package edu.fontys.cims;
 
+import edu.fontys.cims.MainController;
 import com.google.protobuf.GeneratedMessageV3;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.lynden.gmapsfx.GoogleMapView;

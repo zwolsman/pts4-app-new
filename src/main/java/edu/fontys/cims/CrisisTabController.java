@@ -1,4 +1,4 @@
-package edu.fontys.controllers;
+package edu.fontys.cims;
 
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;

@@ -1,4 +1,4 @@
-package edu.fontys.controllers;
+package edu.fontys.cims;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import edu.fontys.cims.Api;

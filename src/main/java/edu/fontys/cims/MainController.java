@@ -1,8 +1,5 @@
-package edu.fontys.controllers;
+package edu.fontys.cims;
 
-import edu.fontys.controllers.AlertTabController;
-import edu.fontys.controllers.ChatTabController;
-import edu.fontys.controllers.CrisisTabController;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
 import com.lynden.gmapsfx.javascript.object.GoogleMap;

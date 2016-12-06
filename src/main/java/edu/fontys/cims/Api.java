@@ -19,12 +19,13 @@ import java.util.logging.Logger;
  */
 public class Api {
 
-    private static final String HOST = "lensert.com";
+    private static final String HOST = "localhost";
     private static final int PORT = 1337;
     private static final String API_ENDPOINT = "http://" + HOST + ":" + PORT + "/api";
     public static final String SOCKET_ENDPOINT = "http://" + HOST + ":" + PORT;
 
     /**
+     * Creates socket via room id
      *
      * @param roomId
      * @return
