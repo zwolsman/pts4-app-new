@@ -51,6 +51,7 @@ public class ChatTabController implements Initializable {
     }
 
     public void setId(int id) {
+        this.crisisId = id;
         Socket chat = Api.createSocket(String.valueOf(id));
         chat.on("a message", (Object... os) -> {
             try {

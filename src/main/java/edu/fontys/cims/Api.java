@@ -19,8 +19,8 @@ import java.util.logging.Logger;
  */
 public class Api {
 
-    private static final String HOST = "localhost";
-    private static final int PORT = 3000;
+    private static final String HOST = "lensert.com";
+    private static final int PORT = 1337;
     private static final String API_ENDPOINT = "http://" + HOST + ":" + PORT + "/api";
     public static final String SOCKET_ENDPOINT = "http://" + HOST + ":" + PORT;
 
@@ -58,7 +58,7 @@ public class Api {
 
     public static void updateAlert() {
         try {
-            URL url = new URL("http://localhost:3001/alert");
+            URL url = new URL(SOCKET_ENDPOINT + "/alerts");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");
@@ -76,7 +76,7 @@ public class Api {
 
     public static boolean sendMessage(Message message) {
         try {
-            URL url = new URL("http://localhost:3000/chat");
+            URL url = new URL(API_ENDPOINT + "/chat");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");

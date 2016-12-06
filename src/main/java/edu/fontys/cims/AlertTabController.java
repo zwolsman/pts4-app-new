@@ -253,5 +253,4 @@ public class AlertTabController implements Initializable, MapComponentInitialize
 
         map = mapView.createMap(mapOptions);
     }
-
 }
