@@ -6,5 +6,9 @@ package edu.fontys.cims;
  */
 public interface CreateChatHandler {
 
+    /**
+     *
+     * @param id
+     */
     public void createChat(int id);
 }

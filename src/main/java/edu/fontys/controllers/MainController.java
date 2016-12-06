@@ -1,9 +1,13 @@
-package edu.fontys.cims;
+package edu.fontys.controllers;
 
+import edu.fontys.controllers.AlertTabController;
+import edu.fontys.controllers.ChatTabController;
+import edu.fontys.controllers.CrisisTabController;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
 import com.lynden.gmapsfx.javascript.object.GoogleMap;
 import com.lynden.gmapsfx.javascript.object.Marker;
+import edu.fontys.cims.CreateChatHandler;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

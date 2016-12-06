@@ -7,6 +7,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ *
+ * @author geene
+ */
 public class MainApp extends Application {
 
     @Override
@@ -15,7 +19,7 @@ public class MainApp extends Application {
 
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
-        
+
         stage.setTitle("CIMS");
         stage.setScene(scene);
         stage.show();

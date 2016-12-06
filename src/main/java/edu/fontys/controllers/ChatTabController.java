@@ -1,6 +1,8 @@
-package edu.fontys.cims;
+package edu.fontys.controllers;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import edu.fontys.cims.Api;
+import edu.fontys.cims.InitRequest;
 import io.socket.client.Socket;
 import java.net.URL;
 import java.util.Calendar;

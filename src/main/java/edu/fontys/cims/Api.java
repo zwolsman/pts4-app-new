@@ -24,6 +24,11 @@ public class Api {
     private static final String API_ENDPOINT = "http://" + HOST + ":" + PORT + "/api";
     public static final String SOCKET_ENDPOINT = "http://" + HOST + ":" + PORT;
 
+    /**
+     *
+     * @param roomId
+     * @return
+     */
     public static Socket createSocket(String roomId) {
         try {
             Manager manager = new Manager(new URI(SOCKET_ENDPOINT));
@@ -36,6 +41,11 @@ public class Api {
         return null;
     }
 
+    /**
+     * Initializes the application
+     *
+     * @return
+     */
     public static InitResponse init() {
         try {
             URL url = new URL(API_ENDPOINT + "/init");
@@ -56,6 +66,12 @@ public class Api {
         return null;
     }
 
+    /**
+     * Send message to server via proto message
+     *
+     * @param message
+     * @return
+     */
     public static boolean sendMessage(Message message) {
         try {
             URL url = new URL(API_ENDPOINT + "/chat");
