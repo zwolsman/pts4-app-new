@@ -19,10 +19,10 @@ import java.util.logging.Logger;
  */
 public class Api {
 
-    private static final String HOST = "localhost";
-    private static final int PORT = 1337;
-    private static final String API_ENDPOINT = "http://" + HOST + ":" + PORT + "/api";
-    public static final String SOCKET_ENDPOINT = "http://" + HOST + ":" + PORT;
+    private static final String HOST = "piminusone.tk";
+    private static final int PORT = 8443;
+    private static final String API_ENDPOINT = "https://" + HOST + ":" + PORT + "/api";
+    public static final String SOCKET_ENDPOINT = "https://" + HOST + ":" + PORT;
 
     /**
      * Creates socket via room id

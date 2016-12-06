@@ -1,6 +1,5 @@
 package edu.fontys.cims;
 
-import edu.fontys.cims.MainController;
 import com.google.protobuf.GeneratedMessageV3;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.lynden.gmapsfx.GoogleMapView;
@@ -9,8 +8,6 @@ import com.lynden.gmapsfx.javascript.object.GoogleMap;
 import com.lynden.gmapsfx.javascript.object.LatLong;
 import com.lynden.gmapsfx.javascript.object.MapOptions;
 import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
-import edu.fontys.cims.Api;
-import edu.fontys.cims.InitRequest;
 import io.socket.client.Socket;
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -41,7 +38,6 @@ import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
- *
  * @author Jip
  */
 public class AlertTabController implements Initializable, MapComponentInitializedListener {
@@ -113,6 +109,9 @@ public class AlertTabController implements Initializable, MapComponentInitialize
         initializeListView();
     }
 
+    /**
+     * initialize the listview with alerts.
+     */
     private void initializeListView() {
         lvAlerts.setItems(alerts);
 
@@ -151,6 +150,9 @@ public class AlertTabController implements Initializable, MapComponentInitialize
 
     }
 
+    /**
+     * handler for processing alerts to crisis.
+     */
     @FXML
     public void handleProcessClick() {
         if (lvAlerts.getSelectionModel().getSelectedIndex() == -1) {
@@ -196,6 +198,10 @@ public class AlertTabController implements Initializable, MapComponentInitialize
         System.out.println("Handle process");
     }
 
+    /**
+     * Error message
+     * @param desc description of what went wrong.
+     */
     private void prompt(String desc) {
         javafx.scene.control.Alert alert = new javafx.scene.control.Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
@@ -204,6 +210,10 @@ public class AlertTabController implements Initializable, MapComponentInitialize
         alert.showAndWait();
     }
 
+    /**
+     * Send proto to server.
+     * @param proto proto object
+     */
     private void sendProto(GeneratedMessageV3 proto) {
         try {
             URL url = new URL(Api.SOCKET_ENDPOINT + "/api/crisis");
@@ -223,6 +233,9 @@ public class AlertTabController implements Initializable, MapComponentInitialize
         }
     }
 
+    /**
+     * Handler for denying an alert.
+     */
     @FXML
     public void handleDenyClick() {
         if (lvAlerts.getSelectionModel().getSelectedIndex() == -1) {
@@ -239,6 +252,9 @@ public class AlertTabController implements Initializable, MapComponentInitialize
         }
     }
 
+    /**
+     * Google maps API initializer.
+     */
     @Override
     public void mapInitialized() {
         MapOptions mapOptions = new MapOptions();
