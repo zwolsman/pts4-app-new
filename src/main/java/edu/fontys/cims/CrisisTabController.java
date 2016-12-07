@@ -6,9 +6,6 @@ import com.lynden.gmapsfx.javascript.object.GoogleMap;
 import com.lynden.gmapsfx.javascript.object.LatLong;
 import com.lynden.gmapsfx.javascript.object.MapOptions;
 import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
-import edu.fontys.cims.Api;
-import edu.fontys.cims.CreateChatHandler;
-import edu.fontys.cims.InitRequest;
 import edu.fontys.cims.InitRequest.Alert;
 import edu.fontys.cims.InitRequest.Crisis;
 import java.net.URL;
@@ -53,10 +50,6 @@ public final class CrisisTabController implements Initializable, MapComponentIni
     private TextField txtTitle;
     @FXML
     private ComboBox cbStatus;
-    @FXML
-    private TextArea chatTextArea;
-    @FXML
-    private TextArea chatBoxArea;
 
     @FXML
     private TextArea txtCrisisDescription;

@@ -93,9 +93,9 @@ public class AlertTabController implements Initializable, MapComponentInitialize
             alerts.addAll(resp.getAlertResultsList());
         }
 
-        Socket test = Api.createSocket("alerts");
+        Socket alertSocket = Api.createSocket("alerts");
 
-        test.on("alert", (Object... os) -> {
+        alertSocket.on("alert", (Object... os) -> {
             try {
                 final InitRequest.Alert alert = InitRequest.Alert.parseFrom((byte[]) os[0]);
                 Platform.runLater(() -> {
@@ -106,10 +106,10 @@ public class AlertTabController implements Initializable, MapComponentInitialize
             }
 
         });
-        test.on(Socket.EVENT_CONNECT, (Object... os) -> {
+        alertSocket.on(Socket.EVENT_CONNECT, (Object... os) -> {
             System.out.println("I connected!");
         });
-        test.connect();
+        alertSocket.connect();
         initializeListView();
     }
 

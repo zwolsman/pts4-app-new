@@ -22,8 +22,6 @@ import javafx.scene.control.TextField;
 public class ChatTabController implements Initializable {
 
     @FXML
-    private Button btnSend;
-    @FXML
     private TextArea chatArea;
     @FXML
     private TextField messageField;
@@ -72,9 +70,6 @@ public class ChatTabController implements Initializable {
     }
 
     private void appendText(String message) {
-
-        Date now = new Date();
-
         chatArea.appendText("[" + Calendar.getInstance().get(Calendar.HOUR_OF_DAY) + ":" + Calendar.getInstance().get(Calendar.MINUTE) + "]\t" + message.trim() + "\r\n");
     }
 }
