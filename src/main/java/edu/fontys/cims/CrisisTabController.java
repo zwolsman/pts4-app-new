@@ -1,24 +1,16 @@
 package edu.fontys.cims;
 
-import com.google.protobuf.GeneratedMessageV3;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
 import com.lynden.gmapsfx.javascript.object.GoogleMap;
 import com.lynden.gmapsfx.javascript.object.LatLong;
 import com.lynden.gmapsfx.javascript.object.MapOptions;
 import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
-import edu.fontys.cims.Api;
-import edu.fontys.cims.CreateChatHandler;
-import edu.fontys.cims.InitRequest;
 import edu.fontys.cims.InitRequest.Alert;
 import edu.fontys.cims.InitRequest.Crisis;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.ParseException;
 import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -174,29 +166,10 @@ public final class CrisisTabController implements Initializable, MapComponentIni
                 .setId(selected.getId())
                 .build();
         
-        sendProto(crisis);
+        Api.sendProto(crisis, Api.API_CHANGECRISIS);
         
         if (cbStatus.getSelectionModel().getSelectedIndex() == 1) {
             crisisen.remove(selected);
-        }
-    }
-    
-    private void sendProto(GeneratedMessageV3 proto) {
-        try {
-            URL url = new URL(Api.SOCKET_ENDPOINT + "/api/changecrisis");
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setDoOutput(true);
-            conn.setRequestMethod("POST");
-            conn.setRequestProperty("Content-Type", "application/protobuf");
-            proto.writeTo(conn.getOutputStream());
-            
-            int responseCode = conn.getResponseCode();
-            System.out.println("\nSending 'POST' request to URL : " + url);
-            System.out.println("Response Code : " + responseCode);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

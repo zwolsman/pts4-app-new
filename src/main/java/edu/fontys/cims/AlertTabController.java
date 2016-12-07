@@ -1,6 +1,5 @@
 package edu.fontys.cims;
 
-import com.google.protobuf.GeneratedMessageV3;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
@@ -9,9 +8,6 @@ import com.lynden.gmapsfx.javascript.object.LatLong;
 import com.lynden.gmapsfx.javascript.object.MapOptions;
 import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
 import io.socket.client.Socket;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.ParseException;
 import java.time.ZoneId;
@@ -194,7 +190,7 @@ public class AlertTabController implements Initializable, MapComponentInitialize
                 .setReach(Integer.parseInt(txtCrisisReach.getText()))
                 .setTimestamp(dtAlertDate.getValue().format(DateTimeFormatter.ISO_DATE))
                 .build();
-        sendProto(crisis);
+        Api.sendProto(crisis, Api.API_CRISIS);
         System.out.println("Handle process");
     }
 
@@ -210,28 +206,7 @@ public class AlertTabController implements Initializable, MapComponentInitialize
         alert.showAndWait();
     }
 
-    /**
-     * Send proto to server.
-     * @param proto proto object
-     */
-    private void sendProto(GeneratedMessageV3 proto) {
-        try {
-            URL url = new URL(Api.SOCKET_ENDPOINT + "/api/crisis");
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setDoOutput(true);
-            conn.setRequestMethod("POST");
-            conn.setRequestProperty("Content-Type", "application/protobuf");
-            proto.writeTo(conn.getOutputStream());
-
-            int responseCode = conn.getResponseCode();
-            System.out.println("\nSending 'POST' request to URL : " + url);
-            System.out.println("Response Code : " + responseCode);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    
 
     /**
      * Handler for denying an alert.
