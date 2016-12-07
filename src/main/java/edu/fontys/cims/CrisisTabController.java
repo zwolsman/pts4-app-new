@@ -33,7 +33,7 @@ import javafx.scene.control.TextField;
  * @author juleb
  */
 public final class CrisisTabController implements Initializable, MapComponentInitializedListener {
-
+    
     @FXML
     private ListView lvCrisisen;
     @FXML
@@ -53,11 +53,11 @@ public final class CrisisTabController implements Initializable, MapComponentIni
 
     @FXML
     private TextArea txtCrisisDescription;
-
+    
     private Crisis selectedCrisis;
-
+    
     private final ObservableList<InitRequest.Crisis> crisisen = FXCollections.observableArrayList();
-
+    
     private ObservableList<String> cbOptions
             = FXCollections.observableArrayList(
                     "In gang",
@@ -66,17 +66,17 @@ public final class CrisisTabController implements Initializable, MapComponentIni
     @FXML
     GoogleMapView mapView;
     GoogleMap map;
-
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         mapView.addMapInializedListener(this);
         InitRequest.InitResponse resp = null;
         resp = Api.init();
-
+        
         if (resp != null) {
             crisisen.addAll(resp.getCrisisResultsList());
         }
-
+        
         lvCrisisen.setItems(crisisen);
         cbStatus.setItems(cbOptions);
         lvCrisisen.setCellFactory((Object x) -> new ListCell<InitRequest.Crisis>() {
@@ -89,7 +89,7 @@ public final class CrisisTabController implements Initializable, MapComponentIni
                 super.updateItem(item, empty);
             }
         });
-
+        
         lvCrisisen.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<InitRequest.Crisis>() {
             @Override
             public void changed(ObservableValue<? extends InitRequest.Crisis> observable, InitRequest.Crisis oldValue, InitRequest.Crisis newValue) {
@@ -104,13 +104,13 @@ public final class CrisisTabController implements Initializable, MapComponentIni
                     txtCrisisDescription.setWrapText(true);
                     alertDescription.setWrapText(true);
                     cbStatus.getSelectionModel().selectFirst();
-
+                    
                     if (alert.getLocation().getStreetName().isEmpty()) {
                         txtAlertLocation.setText(alert.getLocation().getCity());
                     } else {
                         txtAlertLocation.setText(alert.getLocation().getStreetName() + " " + alert.getLocation().getStreetNumber());
                     }
-
+                    
                     LatLong pos = new LatLong(alert.getLocation().getLatitude(), alert.getLocation().getLongitude());
                     // MainController.setMapPosition(pos); TODO fix dit
 
@@ -123,13 +123,13 @@ public final class CrisisTabController implements Initializable, MapComponentIni
             }
         });
     }
-
+    
     private CreateChatHandler handler;
-
+    
     public void setCreateChatHandler(CreateChatHandler handler) {
         this.handler = handler;
     }
-
+    
     @FXML
     private void btnChatClick() {
         if (handler == null) {
@@ -141,16 +141,38 @@ public final class CrisisTabController implements Initializable, MapComponentIni
         }
         handler.createChat(crisis.getId());
     }
-
+    
     @FXML
     private void changeCrisisClick() {
-
+        int index = lvCrisisen.getSelectionModel().getSelectedIndex();
+        
+        if (index == -1) {
+            return;
+        }
+        
+        String status = cbStatus.getSelectionModel().getSelectedItem().toString();
+        Crisis selected = crisisen.get(index);
+        InitRequest.Crisis crisis = InitRequest.Crisis.newBuilder()
+                .setStatus(status)
+                .setPriority((int) Math.round(sliderCrisisPriority.getValue()))
+                .setTitle(txtTitle.getText())
+                .setDescription(txtCrisisDescription.getText())
+                .setThumbnail("creck thumbnail")
+                .setReach(Integer.valueOf(txtAlertReach.getText()))
+                .setId(selected.getId())
+                .build();
+        
+        Api.sendProto(crisis, Api.API_CHANGECRISIS);
+        
+        if (cbStatus.getSelectionModel().getSelectedIndex() == 1) {
+            crisisen.remove(selected);
+        }
     }
-
+    
     @Override
     public void mapInitialized() {
         MapOptions mapOptions = new MapOptions();
-
+        
         mapOptions.center(new LatLong(51.436596, 5.478001))
                 .mapType(MapTypeIdEnum.ROADMAP)
                 .overviewMapControl(false)
@@ -161,7 +183,7 @@ public final class CrisisTabController implements Initializable, MapComponentIni
                 .mapTypeControl(false)
                 .zoomControl(false)
                 .zoom(12);
-
+        
         map = mapView.createMap(mapOptions);
     }
 }

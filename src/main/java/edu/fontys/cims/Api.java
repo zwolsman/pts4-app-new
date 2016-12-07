@@ -1,5 +1,6 @@
 package edu.fontys.cims;
 
+import com.google.protobuf.GeneratedMessageV3;
 import edu.fontys.cims.InitRequest.InitResponse;
 import edu.fontys.cims.InitRequest.Message;
 import io.socket.client.Manager;
@@ -23,6 +24,8 @@ public class Api {
     private static final int PORT = 8443;
     private static final String API_ENDPOINT = "https://" + HOST + ":" + PORT + "/api";
     public static final String SOCKET_ENDPOINT = "https://" + HOST + ":" + PORT;
+    public static final String API_CRISIS = "/api/crisis";
+    public static final String API_CHANGECRISIS = "/api/changecrisis";
 
     /**
      * Creates socket via room id
@@ -92,5 +95,29 @@ public class Api {
             Logger.getLogger(Api.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+    
+    
+    /**
+     * Send proto to server.
+     * @param proto proto object
+     */
+    public static void sendProto(GeneratedMessageV3 proto, String link) {
+        try {
+            URL url = new URL(Api.SOCKET_ENDPOINT + link);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setDoOutput(true);
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/protobuf");
+            proto.writeTo(conn.getOutputStream());
+
+            int responseCode = conn.getResponseCode();
+            System.out.println("\nSending 'POST' request to URL : " + url);
+            System.out.println("Response Code : " + responseCode);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
